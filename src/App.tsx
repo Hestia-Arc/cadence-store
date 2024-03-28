@@ -1,12 +1,15 @@
+// import Home from "./pages/home";
+// import Product from "./pages/product/Index";
+import Shop from "./pages/shop";
 
 function App() {
-
   return (
     <>
-        
-        <div className='bg-slate-500 text-slate-100'> hello welcome to the store</div>
+    {/* <Home/> */}
+    {/* <Product/> */}
+    <Shop/>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
