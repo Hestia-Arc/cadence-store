@@ -1,4 +1,3 @@
-import React from "react";
 import NotificationBar from "../../components/NotificationBar";
 import NavigationBar from "../../components/NavigationBar";
 import { ProductLoop } from "./ProductLoop";

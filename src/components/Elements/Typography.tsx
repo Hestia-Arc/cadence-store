@@ -1,4 +1,3 @@
-import React from 'react'
 
 interface Props {
     weight?: string
@@ -6,7 +5,7 @@ interface Props {
     family?: string
     text: string
 }
-export const Typography = ({weight, size, family, text }: Props) => {
+export const Typography = ({ family, text }: Props) => {
   
   
     return (

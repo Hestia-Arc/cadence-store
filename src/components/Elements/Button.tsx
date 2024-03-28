@@ -1,4 +1,3 @@
-import React from 'react'
 
  interface Prop {
  children: JSX.Element | JSX.Element[]
