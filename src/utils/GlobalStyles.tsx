@@ -1,0 +1,1 @@
+export const border = 'border-solid border-2 border-blue'

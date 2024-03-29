@@ -1,8 +1,13 @@
+import heroIcon from "../../assets/products/home-img.png";
+
 
 export const Hero = () => {
   return (
     <section className='h-[760px] flex flex-col gap-[32px] bg-white px-[160px] pb-[40px]'>
-      <div className='h-[536px] w-full bg-gray-300'></div>
+      <div className='h-[536px] w-full bg-gray-300'>
+      <img src={heroIcon} alt="icon" />
+
+      </div>
 
       {/* content */}
       <header className='h-[152px] w-full flex items-center'>

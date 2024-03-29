@@ -1,21 +1,29 @@
-import ticketIcon from "../assets/Icons/ticket-percent.png";
-import arrowRightIcon from "../assets/Icons/arrow-right.png";
+import ticketIcon from "../assets/Icons/ticket-percent-dark.png";
+import arrowRightIcon from "../assets/Icons/arrow-right-blue.png";
+import closeIcon from "../assets/Icons/close.png";
+
 
 const NotificationBar = () => {
   return (
-    <section className="h-[40px] flex justify-center items-center bg-gray-200 font-poppins font-semibold ">
-      <div className="flex justify-center items-center">
+    <section className="h-[40px] relative flex justify-center items-center bg-gray-200 font-poppins font-semibold ">
+      
+      {/*close */}
+      <img src={closeIcon} alt="icon" className="absolute top-2 right-3" />
+
+
+      <div className=" flex justify-center items-center gap-[12px]">
         {/* text */}
-        <div className="flex">
+        <div className="flex items-center gap-[8px]">
           <img src={ticketIcon} alt="icon" />
-          <p className="">30% off storewide -- Limited time!</p>
+          <div className="text-capS1">30% off storewide -- Limited time!</div>
         </div>
 
         {/* button */}
-        <button className="flex justify-center items-center text-justify text-blue">
+        <button className="flex justify-center items-center gap-[2px] text-blue text-btnXS border-solid border-b-[1px] border-blue">
           <p>Shop Now</p>
           <img src={arrowRightIcon} alt="icon" />
         </button>
+
       </div>
     </section>
   );
