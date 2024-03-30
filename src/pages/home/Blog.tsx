@@ -1,26 +1,27 @@
+import { CardBlog } from "../../components/CardBlog"
+import pdt1 from '../../assets/products/blog-1.png'
+import pdt2 from '../../assets/products/blog-2.png'
+import pdt3 from '../../assets/products/blog-3.png'
+import { ButtonDark } from "../../components/Elements"
+
 
 export const Blog = () => {
   return (
-    <section className='h-[657px] px-[160px] py-[80px]'>
-        <div className='h-[44px] flex justify-between'>
-            <div>Articles</div>
-            <div>More Articles</div>
+    <section className='min-h-[657px] px-40 xs:px-8 py-20'>
+
+        <div className="flex flex-col gap-10">
+        <div className='h-[44px] flex justify-between items-baseline'>
+            <div className="text-h4">Articles</div>
+            <ButtonDark text='More Articles' />
         </div>
 
-        {/*  */}
-        <div className='h-[413px] flex justify-between'>
-            <div className='w-[357px] flex flex-col gap-[24px]'>
-                <div className='h-[325px] bg-gray-200'></div>
-
-                {/*  */}
-                <div className='h-[64px] bg-gray-300'>
-                    <p>7 ways to decor your home</p>
-                    <p>Read More</p>
-                </div>
-
-            </div>
+        {/*cards  */}
+        <div className='min-h-[413px] flex xs:flex-col items-center gap-6'>
+            <CardBlog img={pdt1} title='7 ways to decor your home' link=''  />
+            <CardBlog img={pdt2} title='Kitchen organization' link=''  />
+            <CardBlog img={pdt3} title='Decor your bathroom' link=''  />
         </div>
-
+        </div>
     </section>
   )
 }

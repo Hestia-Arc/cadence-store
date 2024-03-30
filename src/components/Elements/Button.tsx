@@ -20,8 +20,8 @@ export const Button = ({children}: Prop) => {
 
 export const ButtonDark: React.FC<Prop2> = (props): JSX.Element => {
   return (
-    <button className="flex justify-center items-center gap-2 text-primary-800 text-btnSm font-medium border-solid border-b-[1.5px] border-primary-800">
-    <p>{props.text}</p>
+    <button className="flex justify-center items-center gap-2 text-primary-800 text-btnSm font-semibold border-solid border-b-[1.5px] border-primary-800">
+    <p className="capitalize">{props.text}</p>
     <img src={arrowRightIcon} alt="icon" />
     </button>
   )

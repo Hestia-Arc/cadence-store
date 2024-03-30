@@ -19,7 +19,7 @@ const NotificationBar = () => {
         </div>
 
         {/* button */}
-        <button className="flex justify-center items-center gap-[2px] text-blue text-btnXS border-solid border-b-[1px] border-blue">
+        <button className="flex xs:hidden justify-center items-center gap-[2px] text-blue text-btnXS border-solid border-b-[1px] border-blue">
           <p>Shop Now</p>
           <img src={arrowRightIcon} alt="icon" />
         </button>

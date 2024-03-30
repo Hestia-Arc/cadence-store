@@ -2,7 +2,13 @@
 export default {
   content: ["./src/**/*.{js,ts,jsx,tsx}", "./public/index.html"],
   theme: {
-    screens: {},
+    screens: {
+      xs: { min: "375px", max: "767px" },
+      sm: { min: "768px", max: "1023px" },
+      md: { min: "1024px", max: "1299px" },
+      lg: { min: "1300px" },
+      // xl: {min:"1440px"}
+    },
     fontFamily: {},
 
     colors: {
@@ -52,20 +58,20 @@ export default {
           { lineHeight: "44px", letterSpacing: "-0-4px", fontWeight: 500 },
         ],
         h5: [
-          "px",
-          { lineHeight: "74px", letterSpacing: "-2px", fontWeight: 500 },
+          "32px",
+          { lineHeight: "38px", letterSpacing: "0px", fontWeight: 500 },
         ],
         h6: [
-          "px",
-          { lineHeight: "74px", letterSpacing: "-2px", fontWeight: 500 },
+          "28px",
+          { lineHeight: "34px", letterSpacing: "0px", fontWeight: 500 },
         ],
         h7: [
-          "px",
-          { lineHeight: "74px", letterSpacing: "-2px", fontWeight: 500 },
+          "20px",
+          { lineHeight: "28px", letterSpacing: "0px", fontWeight: 500 },
         ],
         body1Reg: [
           "20px",
-          { lineHeight: "32px", letterSpacing: "0px", fontWeight: 700 },
+          { lineHeight: "32px", letterSpacing: "0px", fontWeight: 400 },
         ],
         body1Bold: [
           "20px",
@@ -73,19 +79,19 @@ export default {
         ],
         body1Semi: [
           "20px",
-          { lineHeight: "32px", letterSpacing: "0px", fontWeight: 700 },
+          { lineHeight: "32px", letterSpacing: "0px", fontWeight: 600 },
         ],
         body2Reg: [
-          "20px",
-          { lineHeight: "32px", letterSpacing: "0px", fontWeight: 700 },
+          "16px",
+          { lineHeight: "26px", letterSpacing: "0px", fontWeight: 400 },
         ],
         body2Bold: [
-          "20px",
-          { lineHeight: "32px", letterSpacing: "0px", fontWeight: 700 },
+          "16px",
+          { lineHeight: "26px", letterSpacing: "0px", fontWeight: 700 },
         ],
         body2Semi: [
-          "20px",
-          { lineHeight: "32px", letterSpacing: "0px", fontWeight: 700 },
+          "16px",
+          { lineHeight: "26px", letterSpacing: "0px", fontWeight: 600 },
         ],
         capR1: [
           "14px",
