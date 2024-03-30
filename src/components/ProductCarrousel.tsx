@@ -9,12 +9,12 @@ import pdt5 from '../assets/products/product-9.png'
 
 export const ProductCarrousel = () => {
   return (
-    <section  className='h-[665px] pt-[48px] ml-40 xs:ml-8 flex flex-col gap-11 border-solid border-b-2 border-gray-600 '>
+    <section className='h-[665px] pt-[48px] ml-8  sm:ml-40 flex flex-col gap-11 border-solid border-b-2 border-gray-600 '>
 
       <div className="flex justify-between items-end pr-40">
       <div className="text-h4 font-poppins">New <br/> Arrivals</div>
 
-      <div className="xs:hidden">
+      <div className="hidden sm:block">
       <ButtonDark text="More Products"  />
       </div>
       </div>

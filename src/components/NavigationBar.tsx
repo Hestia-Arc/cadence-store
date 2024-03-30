@@ -9,11 +9,11 @@ const menuClass = 'text-[14px] font-medium'
 
 const NavigationBar = () => {
   return (
-    <nav className='h-[60px] flex justify-between items-center px-40 xs:px-8 bg-white overflow-hidden'>
+    <nav className='h-[60px] flex justify-between items-center  px-8 sm:px-40 bg-white overflow-hidden'>
       <div className="text-h7 font-bold text-gray-500 font-poppins ">leCadence.</div>
 
       {/* menus */}
-      <div className="w-[324px] flex xs:hidden justify-between items-center">
+      <div className="w-[324px] hidden sm:flex justify-between items-center">
         <NavLink to='/'><span className={menuClass}>Home</span></NavLink> 
         <NavLink to='/shop'><span className={menuClass}>Shop</span></NavLink>
         <NavLink to='/product'><span className={menuClass}>Product</span></NavLink>

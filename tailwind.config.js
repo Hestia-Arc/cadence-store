@@ -1,12 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./src/**/*.{js,ts,jsx,tsx}", "./public/index.html"],
+  content: ["./index.html","./src/**/*.{js,ts,jsx,tsx}", "./public/index.html"],
   theme: {
     screens: {
-      xs: { min: "375px", max: "767px" },
-      sm: { min: "768px", max: "1023px" },
-      md: { min: "1024px", max: "1299px" },
-      lg: { min: "1300px" },
+      sm:  "768px", 
+      md:  "1024px",
+      lg:  "1300px" ,
+      // xs: { min: "375px", max: "767px" },
+      // sm: { min: "768px", max: "1023px" },
+      // md: { min: "1024px", max: "1299px" },
+      // lg: { min: "1300px" },
       // xl: {min:"1440px"}
     },
     fontFamily: {},

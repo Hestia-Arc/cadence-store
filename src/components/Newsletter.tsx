@@ -7,12 +7,12 @@ export const Newsletter = () => {
       className={`min-h-[360px] flex justify-center items-center bg-gray-100  bg-center bg-no-repeat bg-cover   `}
       style={{ backgroundImage: `url(${newsBanner})` }}
     >
-      <div className="h-[166px] xs:h-fit w-[540px] xs:w-[311px] flex flex-col items-center gap-7">
-        <div className="h-[82px] xs:h-fit w-full flex flex-col items-center gap-1 xs:text-center">
-          <h4 className="capitalize text-h4 xs:text-h6 font-semibold font-poppins">
+      <div className="h-fit sm:h-[166px] w-[311px] sm:w-[540px] flex flex-col items-center gap-7">
+        <div className="h-fit sm:h-[82px] w-full flex flex-col items-center gap-1 text-center">
+          <h4 className="capitalize text-h6 sm:text-h4  font-semibold font-poppins">
             join our newsletter
           </h4>
-          <p className="text-[18px] xs:text-[16px] font-normal font-inter">
+          <p className="text-[16px]  sm:text-[18px] font-normal font-inter">
             Sign up for deals, new products and promotions
           </p>
         </div>
@@ -20,7 +20,7 @@ export const Newsletter = () => {
         {/* form */}
         <form
           action=""
-          className="h-[52px] w-[488px] xs:w-full border-solid border-b-2 border-gray-400 bg-primary-200"
+          className="h-[52px] w-full sm:w-[488px]  border-solid border-b-2 border-gray-400 bg-primary-200"
         >
           <div className="h-[28px] flex justify-center items-center gap-2 ">
             <img src={mailIcon} alt="" />

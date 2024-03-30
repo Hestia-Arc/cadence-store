@@ -7,7 +7,7 @@ import { ButtonDark } from "../../components/Elements"
 
 export const Blog = () => {
   return (
-    <section className='min-h-[657px] px-40 xs:px-8 py-20'>
+    <section className='min-h-[657px]  px-8 sm:px-40 py-20'>
 
         <div className="flex flex-col gap-10">
         <div className='h-[44px] flex justify-between items-baseline'>
@@ -16,7 +16,7 @@ export const Blog = () => {
         </div>
 
         {/*cards  */}
-        <div className='min-h-[413px] flex xs:flex-col items-center gap-6'>
+        <div className='min-h-[413px] flex flex-col sm:flex-row items-center gap-6'>
             <CardBlog img={pdt1} title='7 ways to decor your home' link=''  />
             <CardBlog img={pdt2} title='Kitchen organization' link=''  />
             <CardBlog img={pdt3} title='Decor your bathroom' link=''  />
