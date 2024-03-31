@@ -5,7 +5,7 @@
 
 // // Your web app's Firebase configuration
 // const firebaseConfig = {
-//   apiKey: "AIzaSyAf4PM8Q9KJme3Nduh8Absf_QMFYwttVfs",
+//   apiKey: "API-KEY",
 //   authDomain: "lecadance-ecommerce-app.firebaseapp.com",
 //   projectId: "lecadance-ecommerce-app",
 //   storageBucket: "lecadance-ecommerce-app.appspot.com",
