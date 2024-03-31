@@ -14,7 +14,7 @@ export const Hero = () => {
       {/* content */}
       <header className="min-h-[152px]  w-full flex flex-col justify-between sm:items-center gap-4 sm:gap-0 sm:flex-row">
         <div className="h-[88px] sm:h-fit ">
-          <h1 className="text-h4 text-[36px] sm:text-h2 font-poppins">
+          <h1 className="text-h4 text-[30px] sm:text-h2 font-poppins">
             Simply Unique<span className="text-gray-400">/</span> <br /> Simply
             Better<span className="text-gray-400">.</span>
           </h1>
