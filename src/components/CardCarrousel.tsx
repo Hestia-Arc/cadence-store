@@ -1,6 +1,7 @@
 import { FC, useState } from "react";
 import rating from "../assets/Icons/Star Icon.png";
 import wishIcon from "../assets/Icons/wish-gray.png";
+import { useCartStore } from "../store";
 
 interface Props {
   img: string;
@@ -17,23 +18,19 @@ export const CardCarrousel: FC<Props> = ({
 }): JSX.Element => {
   const [active, setActive] = useState(false);
   const [color, setColor] = useState(false);
-  const [addUp, setAddUp] = useState(false);
-
-
+  const addToCart = useCartStore((state) => state.addToCart);
 
   const handleHover = () => {
     setActive(true);
   };
 
-  const handleButtonClick = () => {
-    setAddUp(!addUp);
+  const handleButtonClick = (tag:string) => {
+    addToCart({name: tag});
   };
 
   const handleWishClick = () => {
     setColor(!color);
   };
-
-
 
   return (
     <div className="h-[433px] w-[262px] flex flex-col gap-2">
@@ -44,7 +41,6 @@ export const CardCarrousel: FC<Props> = ({
           className="h-[349px]"
           onMouseEnter={() => setActive(true)}
           onMouseLeave={() => setActive(false)}
-
         />
 
         {/* hover contents */}
@@ -60,14 +56,25 @@ export const CardCarrousel: FC<Props> = ({
         </div>
 
         {/* wish icon */}
-        <div onMouseEnter={handleHover} onClick={handleWishClick} className={`w-[32px] h-[32px] absolute top-3 right-4 ${active ? 'flex' : 'hidden'} justify-center items-center rounded-2xl bg-white`}>
-         {
-          color ? '❤' : <img src={wishIcon} alt="product" />
-         } 
+        <div
+          onMouseEnter={handleHover}
+          onClick={handleWishClick}
+          className={`w-[32px] h-[32px] absolute top-3 right-4 ${
+            active ? "flex" : "hidden"
+          } justify-center items-center rounded-2xl bg-white`}
+        >
+          {color ? "❤" : <img src={wishIcon} alt="product" />}
         </div>
 
         {/* Add to cart button */}
-        <button onMouseEnter={handleHover} onClick={handleButtonClick} className={`w-[230px] h-[46px] absolute bottom-4 right-4 ${active ? 'flex' : 'hidden'} justify-center items-center rounded-lg bg-gray-700 text-white text-btnSm `}>
+        <button
+          onMouseEnter={handleHover}
+          onMouseLeave={() => setActive(false)}
+          onClick={() => handleButtonClick(tag)}
+          className={`w-[230px] h-[46px] absolute bottom-4 right-4 ${
+            active ? "flex" : "hidden"
+          } justify-center items-center rounded-lg bg-gray-700 text-white text-btnSm `}
+        >
           Add to cart
         </button>
       </div>
@@ -83,7 +90,13 @@ export const CardCarrousel: FC<Props> = ({
         </div>
 
         {/* tag */}
-        <p className={`capitalize font-bold text-body2Semi ${color ? 'text-blue' : ''}`}>{tag}</p>
+        <p
+          className={`capitalize font-bold text-body2Semi ${
+            color ? "text-blue" : ""
+          }`}
+        >
+          {tag}
+        </p>
 
         {/* price */}
         <div className="text-capS1">

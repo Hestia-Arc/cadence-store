@@ -7,7 +7,6 @@ import { Footer } from "../../components/Footer";
 function Product() {
   return (
     <div className=" bg-white text-gray-700">
-      <NotificationBar />
       <NavigationBar />
       <ProductLoop/>
       <ProductCarrousel/>
