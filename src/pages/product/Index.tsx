@@ -1,4 +1,3 @@
-import NotificationBar from "../../components/NotificationBar";
 import NavigationBar from "../../components/NavigationBar";
 import { ProductLoop } from "./ProductLoop";
 import { ProductCarrousel } from "../../components/ProductCarrousel";
