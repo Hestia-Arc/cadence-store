@@ -7,7 +7,6 @@ import { SaleBanner } from './SaleBanner'
 import { Blog } from './Blog'
 import { Newsletter } from '../../components/Newsletter'
 import { Footer } from '../../components/Footer'
-import { CartSideBar } from '../../components/CartSideBar'
 import { useState } from 'react'
 
 function Home() { 

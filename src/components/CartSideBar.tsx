@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { useCartStore } from "../store";
-import { Product } from "../store/types";
 
 export const CartSideBar = () => {
   const cartList = useCartStore((state) => state.cart);

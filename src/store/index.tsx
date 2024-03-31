@@ -1,12 +1,12 @@
 import { create } from "zustand";
-import { ICartStore, INotification, Product } from "./types";
+import { ICartStore, INotification, } from "./types";
 
 // const productStore =
 // {name: "food"}, {name: "basket"}, {name: "table"}
 
-export const useProductList = create((set, get) => ({
-  products: [],
-}));
+// export const useProductList = create((set, get) => ({
+//   products: [],
+// }));
 
 
 
