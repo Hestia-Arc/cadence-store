@@ -18,6 +18,7 @@ export const Button = ({children}: Prop) => {
   )
 }
 
+// more product
 export const ButtonDark: React.FC<Prop2> = (props): JSX.Element => {
   return (
     <button className="flex justify-center items-center gap-2 text-primary-800 text-btnSm font-semibold border-solid border-b-[1.5px] border-primary-800">
@@ -27,4 +28,34 @@ export const ButtonDark: React.FC<Prop2> = (props): JSX.Element => {
   )
 }
 
+// add to cart btn
+export const ButtonCart = () => {
+  return (
+    <button className=" h-[52px] w-full flex justify-center items-center text-gray-100 text-btnMd font-semibold bg-gray-700 rounded-lg">
+    <p className="">Add to Cart</p>
+    </button>
+  )
+}
+
+
+// wish btn
+export const ButtonWish: React.FC<Prop> = ({children}): JSX.Element => {
+  return (
+    <button className=" h-[52px] w-full rounded-lg flex justify-center items-center gap-2 text-gray-700 text-btnMd font-semibold border-solid border-[1.5px] border-gray-700">
+    {children}
+    </button>
+  )
+}
+{/* <p className="capitalize">{props.text}</p>
+    <img src={arrowRightIcon} alt="icon" /> */}
+
+
+// increment/decrement btn
+export const ButtonStepper: React.FC<Prop> = ({children}): JSX.Element => {
+  return (
+    <button className=" h-[52px] w-[127px] rounded-lg flex justify-center items-center gap-2 text-gray-700 text-btnMd font-semibold  bg-[#f5f5f5]">
+    {children}
+    </button>
+  )
+}
 

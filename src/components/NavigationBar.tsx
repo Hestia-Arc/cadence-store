@@ -2,21 +2,20 @@ import avatarIcon from "../assets/Icons/avatar-dark.png";
 import cartIcon from "../assets/Icons/shopping bag.png";
 import searchIcon from "../assets/Icons/search.png";
 import { Badge } from "./Badge";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import NotificationBar from "./NotificationBar";
 import { FC, useEffect, useState } from "react";
-import { CartSideBar } from "./CartSideBar";
+import { CartSideBar } from "./cards/CartSideBar";
 // import Icon from "../assets/Icons/arrow-right.png";
 
 interface IProp {
-  open: () => void
-  cartBar: boolean
+  open: () => void;
+  cartBar: boolean;
 }
 const menuClass = "text-[14px] font-medium";
 
-const NavigationBar: FC<IProp> = ({open, cartBar}) => {
+const NavigationBar: FC<IProp> = ({ open, cartBar }) => {
   const [scrollActive, setScrollActive] = useState(false);
- 
 
   useEffect(() => {
     window.onscroll = () => {
@@ -37,23 +36,25 @@ const NavigationBar: FC<IProp> = ({open, cartBar}) => {
       <NotificationBar />
 
       <nav className="h-[60px] flex justify-between items-center  px-8 sm:px-40 bg-white overflow-hidden">
-        <div className="text-h7 font-bold text-gray-500 font-poppins "  >
-          leCadence.
+        <div className="text-[24px] font-bold text-gray-500 font-poppins ">
+          leCadence<span className="text-gray-400">.</span>
         </div>
 
-      {/* cart sidebar */}
-        <div className="h-[450px] absolute top-[8rem] right-0 flex items-center">
-        <button onClick={() => open()} className="h-fit left-0 flex flex-col items-center gap-1 text-h7 bg-green p-4">
-        <Badge/>
-          <span>C</span>
-          <span>A</span>
-          <span>R</span>
-          <span>T</span>
-        </button>
+        {/* cart sidebar */}
+        <div className="hidden sm:flex h-[450px] absolute top-[24rem] sm:top-[8rem] right-[35%] sm:right-0 items-center">
+          <button
+            onClick={() => open()}
+            className="h-fit left-0 flex sm:flex-col items-center gap-1 text-h7 bg-green px-5 py-2 rounded-3xl sm:rounded-none sm:p-4"
+          >
+            <Badge />
+            <span>C</span>
+            <span>A</span>
+            <span>R</span>
+            <span>T</span>
+          </button>
 
-        {cartBar && <CartSideBar />}
-
-      </div>
+          {cartBar && <CartSideBar />}
+        </div>
 
         {/* menus */}
         <div className="w-[324px] hidden sm:flex justify-between items-center">
@@ -75,10 +76,17 @@ const NavigationBar: FC<IProp> = ({open, cartBar}) => {
         <div className="flex items-center gap-3">
           <img src={searchIcon} alt="icon" />
           <img src={avatarIcon} alt="icon" />
+          <Link to='/cart'>
           <div className="flex items-center gap-[2px]">
-            <img src={cartIcon} alt="icon"  className="hover:shadow-sm hover:bg-gray-400 hover:rounded-lg" />
+            <img
+              src={cartIcon}
+              alt="icon"
+              className="hover:shadow-sm hover:bg-gray-400 hover:rounded-lg"
+            />
             <Badge />
           </div>
+          </Link>
+         
         </div>
       </nav>
     </div>

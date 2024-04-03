@@ -1,4 +1,4 @@
-import { CardBlog } from "../../components/CardBlog"
+import { CardBlog } from "../../components/cards/CardBlog"
 import pdt1 from '../../assets/products/blog-1.png'
 import pdt2 from '../../assets/products/blog-2.png'
 import pdt3 from '../../assets/products/blog-3.png'

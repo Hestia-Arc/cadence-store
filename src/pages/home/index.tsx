@@ -24,7 +24,7 @@ function Home() {
 
         <Hero/>
         <BannerGrid/>
-        <ProductCarrousel/>
+        <ProductCarrousel tag={<div>New <br/> Arrivals</div> }/>
         <Values/>
         <SaleBanner/>
         <Blog/>

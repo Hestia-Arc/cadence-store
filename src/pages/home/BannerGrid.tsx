@@ -3,6 +3,7 @@ import pt2 from "../../assets/products/product-6.png";
 import pt3 from "../../assets/products/product-5.png";
 import { FC } from "react";
 import { ButtonDark } from "../../components/Elements";
+import { Link } from "react-router-dom";
 
 export const BannerGrid = () => {
   return (
@@ -40,7 +41,7 @@ const Tag: FC<TagProps> = ({ posT, tag, posB }): JSX.Element => {
   return (
     <div className={`h-[75px] absolute ${posT ? posT : ""} ${posB ? posB : ""} left-4 sm:left-6  flex flex-col items-start gap-1 `}>
       <div className=" text-h6 sm:text-h5 capitalize">{tag} </div>
-      <ButtonDark text="shop now" />
+      <Link to="./shop"><ButtonDark text="shop now" /></Link>
     </div>
   );
 };

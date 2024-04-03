@@ -1,4 +1,4 @@
-import { CardValue } from "../../components/CardValue";
+import { CardValue } from "../../components/cards/CardValue";
 import vanIcon from '../../assets/Icons/fast delivery.png'
 import cashIcon from '../../assets/Icons/money.png'
 import lockIcon from '../../assets/Icons/lock 01.png'

@@ -16,7 +16,7 @@ function Product() {
     <div className=" bg-white text-gray-700">
       <NavigationBar  open={toggleCartBar} cartBar={isCartBarOpen}  />
       <ProductLoop/>
-      <ProductCarrousel/>
+      <ProductCarrousel tag={<div className="text-h5">You might also like</div> }/>
       <Newsletter/>
       <Footer/>
     </div>

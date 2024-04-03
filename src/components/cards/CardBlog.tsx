@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
-import { ButtonDark } from "./Elements";
+import { ButtonDark } from "../Elements";
 
 interface Props {
   img: string;

@@ -1,7 +1,9 @@
 import { FC, useState } from "react";
-import rating from "../assets/Icons/Star Icon.png";
-import wishIcon from "../assets/Icons/wish-gray.png";
-import { useCartStore } from "../store";
+import rating from "../../assets/Icons/Star Icon.png";
+import wishIcon from "../../assets/Icons/wish-gray.png";
+import { useCartStore } from "../../store";
+import { useNavigate } from "react-router-dom";
+import { NewItem } from "../NewItem";
 
 interface Props {
   img: string;
@@ -18,6 +20,7 @@ export const CardCarrousel: FC<Props> = ({
 }): JSX.Element => {
   const [active, setActive] = useState(false);
   const [color, setColor] = useState(false);
+  const navigate = useNavigate()
   const addToCart = useCartStore((state) => state.addToCart);
 
   const handleHover = () => {
@@ -32,6 +35,11 @@ export const CardCarrousel: FC<Props> = ({
     setColor(!color);
   };
 
+  const handleNavigate = () => {
+    navigate('/product')
+  };
+
+
   return (
     <div className="h-[433px] w-[262px] flex flex-col gap-2">
       <div className="h-[349px] w-[262px] relative bg-gray-200">
@@ -41,19 +49,13 @@ export const CardCarrousel: FC<Props> = ({
           className="h-[349px]"
           onMouseEnter={() => setActive(true)}
           onMouseLeave={() => setActive(false)}
+          onClick={() => handleNavigate()}
         />
 
         {/* hover contents */}
         {/* ------------------------ */}
         {/* new */}
-        <div className="w-[71px] h-[56px] absolute top-3 left-4 flex flex-col justify-center items-center gap-[6px]">
-          <div className="flex justify-center items-center text-hairline1 px-3 py-1 uppercase bg-white text-primary-800 font-bold rounded">
-            new
-          </div>
-          <div className="flex justify-center items-center text-hairline1 px-3 py-1 bg-green text-white font-bold rounded">
-            -50%
-          </div>
-        </div>
+       <NewItem posT="top-3" posL="left-4" />
 
         {/* wish icon */}
         <div
