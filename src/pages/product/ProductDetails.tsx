@@ -1,7 +1,7 @@
 import pdt1 from "../../assets/products/product-10.png";
 import pdt2 from "../../assets/products/product-11.png";
-import pdtRed from "../../assets/products/p-size-1.png";
-import pdtNude from "../../assets/products/p-size-2.png";
+// import pdtRed from "../../assets/products/p-size-1.png";
+// import pdtNude from "../../assets/products/p-size-2.png";
 import pdt3 from "../../assets/products/product-13.png";
 // import pdt1 from "../../assets/products/product-10.png";
 
