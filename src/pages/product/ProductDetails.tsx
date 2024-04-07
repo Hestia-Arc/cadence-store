@@ -11,7 +11,7 @@ import wishIcon from "../../assets/Icons/wish-dark.png";
 import minusIcon from "../../assets/Icons/Minus.png";
 import plusIcon from "../../assets/Icons/Add.png";
 import {
-  ButtonCart,
+  ButtonPrimary,
   ButtonStepper,
   ButtonWish,
 } from "../../components/Elements";
@@ -133,7 +133,7 @@ const ProductCartWishBtns = () => {
       </div>
 
       <div>
-        <ButtonCart />
+        <ButtonPrimary text="Add to Cart" />
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import arrowRightIcon from "../../assets/Icons/arrow-right-dark-sm.png";
 
 
@@ -28,11 +28,15 @@ export const ButtonDark: React.FC<Prop2> = (props): JSX.Element => {
   )
 }
 
+interface IPrimaryBtn {
+  text: string
+}
+
 // add to cart btn
-export const ButtonCart = () => {
+export const ButtonPrimary:FC<IPrimaryBtn> = ({text}) => {
   return (
     <button className=" h-[50px] w-full flex justify-center items-center text-gray-100 text-btnMd font-semibold bg-gray-700 rounded-lg">
-    <p className="">Add to Cart</p>
+    <p className="">{text}</p>
     </button>
   )
 }
