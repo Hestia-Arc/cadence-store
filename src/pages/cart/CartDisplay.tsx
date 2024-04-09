@@ -3,7 +3,7 @@ import { CartSummary } from "./CartSummary";
 
 export const CartDisplay = () => {
   return (
-    <div className="h-[771px] flex flex-col bg-gray-200">
+    <div className="h-[771px] flex flex-col ">
       {/* list and summary */}
       <div className=" flex gap-16 py-16 ">
         <CartList />
