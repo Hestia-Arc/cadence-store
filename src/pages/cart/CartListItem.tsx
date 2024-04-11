@@ -22,7 +22,7 @@ export const CartListItem = () => {
       <div className=" w-1/2 flex justify-between">
         {/* stepper */}
         <div className=" w-1/4">
-          <div className=" w-[72px] h-8 flex items-center justify-center gap-3 rounded  px-2 border-solid border-[1px] border-gray-400 opacity-70 ">
+          <div className=" w-[72px] h-7 flex items-center justify-center gap-3 rounded  px-2 border-solid border-[1px] border-gray-400 opacity-70 ">
             <span>-</span>
             <span>2</span>
             <span>+</span>
@@ -30,10 +30,10 @@ export const CartListItem = () => {
         </div>
 
         {/* price */}
-        <span className=" w-1/4">$19.00</span>
+        <span className=" w-1/4  text-body2Semi font-normal">$19.00</span>
 
         {/* subtotal */}
-        <span className=" w-1/4">$38.00</span>
+        <span className=" w-1/4 text-body2Semi font-bold">$38.00</span>
       </div>
     </div>
   );

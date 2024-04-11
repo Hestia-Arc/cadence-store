@@ -4,7 +4,7 @@ const radioStyle = "h-[52px] flex justify-between py-3 px-4 border-solid border-
 export const CartSummary = () => {
   return (
     <div className=" w-[413px] h-[482px] flex flex-col gap-4 p-5 rounded-md border-solid border-[1px] border-[#6C7275]">
-      <h6 className=" text-h7">CartSummary</h6>
+      <h6 className=" text-h7 font-bold">CartSummary</h6>
 
       <div className=" pb-4">
         {/* delivery */}
@@ -43,13 +43,13 @@ export const CartSummary = () => {
         {/* sub-total */}
         <div className=" h-[52px] py-3 flex justify-between">
           <span>Subtotal</span>
-          <span>$1234.00</span>
+          <span className=" font-bold">$1234.00</span>
         </div>
 
         {/* total */}
         <div className=" h-[52px] py-3 flex justify-between">
-          <span>Total</span>
-          <span>$1345.00</span>
+          <span className=" font-bold">Total</span>
+          <span className=" font-bold">$1345.00</span>
         </div>
       </div>
 

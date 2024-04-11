@@ -1,10 +1,35 @@
-import { CartProcess } from "./CartProcess"
+import { FC } from "react";
 
-export const CartHeader = () => {
-  return (
-    <div className="h-[166px] w-[832] flex flex-col items-center gap-10 bg-gray-300">
-      <h3 className=" text-h3">Cart</h3>
-      <CartProcess/>
-    </div>
-  )
+
+
+// B1B5C3
+interface IPropStep {
+  tag: string;
+  active: number;
+  step: number;
 }
+
+export const Steps: FC<IPropStep> = ({ tag, active, step }) => {
+  return (
+    <div className={`w-[256px] h-[68px] ${active === step ? "border-solid border-b-2 border-gray-700":  ""} `}>
+      <div className="h-[42px] w-full flex items-center gap-4">
+        <div
+          className={` h-[42px] w-[42px] flex items-center justify-center font-semibold ${
+            active  === step
+              ? "bg-gray-700 text-gray-200"
+              : "bg-gray-400 bg-opacity-50 text-gray-200 "
+          } rounded-3xl `}
+        >
+          {step}
+        </div>
+        <div
+          className={` text-body2Semi ${
+            active  === step ? "text-gray-700" : "text-gray-400 text-opacity-50"
+          } `}
+        >
+          {tag}
+        </div>
+      </div>
+    </div>
+  );
+};
