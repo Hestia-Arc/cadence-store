@@ -18,13 +18,13 @@ function CartPage() {
       <NavigationBar open={toggleCartBar} cartBar={isCartBarOpen} />
 
       {/* cart */}
-      <div className=" h-[1097px] px-40 py-20 bg-gray-100">
+      <div className="min-h-[500px] sm:min-h-[1097px] px-8 sm:px-40 py-20 bg-gray-100">
         {/* <CartHeader /> */}
-        <div className="h-[166px] w-[832] flex flex-col items-center gap-10">
-          <h3 className=" text-h3 font-poppins">Cart</h3>
+        <div className="h-[166px] w-[832] flex flex-col sm:items-center gap-10 overflow-hidden">
+          <h3 className=" text-h3 font-poppins text-center">Cart</h3>
 
           {/* Cart Process */}
-          <div className="h-[68px] flex gap-8">
+          <div className="h-[68px] flex gap-8 ">
             <button
               onClick={() => {
                 setId(<StepOne />);

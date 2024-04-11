@@ -2,7 +2,8 @@ import { CartListItem } from "./CartListItem";
 
 export const CartList = () => {
   return (
-    <div className=" w-[643px] h-[482px]">
+    <>
+    <div className="hidden sm:block w-[610px] h-[482px]">
       {/* headings */}
       <div className=" h-[50px] flex justify-between pb-5 border-solid border-b-[1px] border-gray-400">
         <div className=" w-1/2">
@@ -22,5 +23,14 @@ export const CartList = () => {
       <CartListItem/>
 
     </div>
+
+{/* ---------------- */}
+{/* mobile */}
+
+<div className=" h-[530px] bg-gray-300 sm:hidden">
+welcome
+</div>
+
+    </>
   );
 };

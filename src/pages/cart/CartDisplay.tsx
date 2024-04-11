@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { CartList } from "./CartList";
 import { CartSummary } from "./CartSummary";
+import { CheckoutInfo, OrderSummary } from "./CartCheckout";
 
 interface IPropStep {
   id: JSX.Element;
@@ -12,7 +13,7 @@ export const CartDisplay: FC<IPropStep> = ({ id }) => {
 
 const CouponBox = () => {
   return (
-    <div className="h-full w-[424px] flex flex-col gap-4">
+    <div className="h-full w-[312px] sm:w-[424px] flex flex-col gap-4">
       <div>
         <div className=" text-h7">Have a coupon?</div>
         <p className=" mt-1 text-body2Reg text-gray-400">
@@ -35,23 +36,29 @@ const CouponBox = () => {
 // STEP 1    cart list and summary
 export const StepOne = () => {
   return (
-    <div className=" h-[771px] flex flex-col gap-16 py-16 ">
-      <div className="flex gap-16 ">
+    <div className="min-h-[500px] sm:h-[771px] flex flex-col sm:flex-row gap-12 py-16 ">
+      <div className="flex flex-col gap-16 ">
         <CartList />
-        <CartSummary />
+
+        {/* coupon */}
+        <div className=" h-[128px] ">
+          <CouponBox />
+        </div>
       </div>
 
-      {/* coupon */}
-      <div className=" h-[128px] ">
-        <CouponBox />
-      </div>
+      <CartSummary />
     </div>
   );
 };
 
 // STEP 2  checkout details
 export const StepTwo = () => {
-  return <div className="flex  gap-16 py-16 ">checkout</div>;
+  return (
+    <div className="h-[1634px] flex flex-col sm:flex-row gap-16 py-20 ">
+      <CheckoutInfo />
+      <OrderSummary/>
+    </div>
+  );
 };
 
 // STEP 3   order complete
