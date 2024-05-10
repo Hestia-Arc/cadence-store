@@ -11,7 +11,8 @@ interface IPropStep {
 
 export const Steps: FC<IPropStep> = ({ tag, active, step }) => {
   return (
-    <div className={`w-[230px] sm:w-[256px] h-[68px] ${active === step ? "border-solid border-b-2 border-gray-700":  ""} `}>
+    <div className={`w-[230px] sm:w-[256px] h-[68px] ${active === step ? "border-solid border-b-4 border-gray-700" : ""} `}
+     >
       <div className="h-[42px] w-full flex items-center gap-4">
         <div
           className={` h-[42px] w-[42px] flex items-center justify-center font-semibold ${

@@ -1,9 +1,8 @@
-import { Newsletter } from "../../components/Newsletter";
 import { Footer } from "../../components/Footer";
 import NavigationBar from "../../components/NavigationBar";
 import { useState } from "react";
 
-function BlogPage() {
+function ContactPage() {
   const [isCartBarOpen, setIsCartBarOpen] = useState(false)
   
   const toggleCartBar = () => {
@@ -13,11 +12,10 @@ function BlogPage() {
   return (
     <div className=" bg-white text-gray-700">
       <NavigationBar  open={toggleCartBar} cartBar={isCartBarOpen}  />
-      <h2>blog blog</h2>
-      <Newsletter />
+      <h2>contact page</h2>
       <Footer />
     </div>
   );
 }
 
-export default BlogPage;
+export default ContactPage;
