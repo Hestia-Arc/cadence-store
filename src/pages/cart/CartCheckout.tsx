@@ -1,10 +1,173 @@
 // import { useState } from "react";
 import Pdt1 from "../../assets/products/product-1.png";
-import removeIcon from "../../assets/Icons/close.png";
-import { ButtonDark, ButtonPrimary } from "../../components/Elements";
+// import removeIcon from "../../assets/Icons/close.png";
+import { ButtonPrimary } from "../../components/Elements";
+
+const inputStyle =
+  "  h-[40px] w-[285px] px-4 py-2 rounded border-solid border-[1px] border-[#6C7275] border-opacity-30 mt-2";
+const labelStyle = " uppercase text-hairline2 font-bold text-gray-400";
+const sectionStyle =
+  "min-h-[372px] w-full flex flex-col gap-6 py-8 px-6 border-solid border-[1.8px] border-[#6C7275] border-opacity-30  rounded";
+const titleStyle = " h-7 font-bold";
 
 export const CheckoutInfo = () => {
-  return <div className=" h-[1474px] w-[643px] bg-gray-300 ">CartCheckout</div>;
+  return (
+    <div className=" h-[1474px] w-[643px] flex flex-col gap-6 ">
+
+      {/* ========== contact section */}
+      <div className={sectionStyle}>
+        <div className={titleStyle}>Contact Information</div>
+
+        {/* 1 */}
+        <div className="flex gap-6">
+          <div className="h-[64px] flex flex-col">
+            <label className={labelStyle} htmlFor="">
+              first name
+            </label>
+            <input
+              type="text"
+              placeholder="First name"
+              className={inputStyle}
+            />
+          </div>
+
+          <div className="h-[64px] flex flex-col">
+            <label className={labelStyle} htmlFor="">
+              last name
+            </label>
+            <input type="text" placeholder="Last name" className={inputStyle} />
+          </div>
+        </div>
+
+        {/* 2 */}
+        <div className="h-[64px] flex flex-col">
+          <label className={labelStyle} htmlFor="">
+            phone number
+          </label>
+          <input
+            type="text"
+            placeholder="Phone number"
+            className={`${inputStyle} w-full`}
+          />
+        </div>
+
+        {/* 3 */}
+        <div className="h-[64px] flex flex-col">
+          <label className={labelStyle} htmlFor="">
+            email address
+          </label>
+          <input
+            type="text"
+            placeholder="Email address"
+            className={`${inputStyle} w-full`}
+          />
+        </div>
+      </div>
+
+      {/* ============ shipping section */}
+       <div className={sectionStyle}>
+        <div className={titleStyle}>Shipping Address</div>
+
+        {/* 1 */}
+        <div className="flex gap-6">
+          <div className="h-[64px] flex flex-col">
+            <label className={labelStyle} htmlFor="">
+              first name
+            </label>
+            <input
+              type="text"
+              placeholder="First name"
+              className={inputStyle}
+            />
+          </div>
+
+          <div className="h-[64px] flex flex-col">
+            <label className={labelStyle} htmlFor="">
+              last name
+            </label>
+            <input type="text" placeholder="Last name" className={inputStyle} />
+          </div>
+        </div>
+
+        {/* 2 */}
+        <div className="h-[64px] flex flex-col">
+          <label className={labelStyle} htmlFor="">
+            phone number
+          </label>
+          <input
+            type="text"
+            placeholder="Phone number"
+            className={`${inputStyle} w-full`}
+          />
+        </div>
+
+        {/* 3 */}
+        <div className="h-[64px] flex flex-col">
+          <label className={labelStyle} htmlFor="">
+            email address
+          </label>
+          <input
+            type="text"
+            placeholder="Email address"
+            className={`${inputStyle} w-full`}
+          />
+        </div>
+      </div>
+
+      {/* =================== payment section */}
+       <div className={sectionStyle}>
+        <div className={titleStyle}>Payment Method</div>
+
+        {/* 1 */}
+        <div className="flex gap-6">
+          <div className="h-[64px] flex flex-col">
+            <label className={labelStyle} htmlFor="">
+              first name
+            </label>
+            <input
+              type="text"
+              placeholder="First name"
+              className={inputStyle}
+            />
+          </div>
+
+          <div className="h-[64px] flex flex-col">
+            <label className={labelStyle} htmlFor="">
+              last name
+            </label>
+            <input type="text" placeholder="Last name" className={inputStyle} />
+          </div>
+        </div>
+
+        {/* 2 */}
+        <div className="h-[64px] flex flex-col">
+          <label className={labelStyle} htmlFor="">
+            phone number
+          </label>
+          <input
+            type="text"
+            placeholder="Phone number"
+            className={`${inputStyle} w-full`}
+          />
+        </div>
+
+        {/* 3 */}
+        <div className="h-[64px] flex flex-col">
+          <label className={labelStyle} htmlFor="">
+            email address
+          </label>
+          <input
+            type="text"
+            placeholder="Email address"
+            className={`${inputStyle} w-full`}
+          />
+        </div>
+      </div>
+
+      <ButtonPrimary text="Place Order" />
+
+    </div>
+  );
 };
 
 // order summary
@@ -22,7 +185,7 @@ export const OrderSummary = () => {
   // };
 
   return (
-    <div className=" h-[862px] w-[413px] border-solid border-[1px] border-gray-700 border-opacity-50 rounded p-4">
+    <div className=" h-[862px] w-[413px] border-solid border-[1px] border-gray-700 border-opacity-30 rounded p-4">
       <div className=" text-h6 mb-4">Order summary</div>
       {/* ---------- */}
       <div className="h-[556px] mb-4 relative flex flex-col gap-4 overflow-y-auto">
@@ -32,7 +195,11 @@ export const OrderSummary = () => {
         {/* <CartListItem /> */}
 
         <div className="h-[52px] bg-[#fff] sticky bottom-0 flex gap-2">
-          <input type="text" placeholder="Input" className="h-[52px] w-[258px] p-2 border-solid border border-[#e7e7e7]" />
+          <input
+            type="text"
+            placeholder="Input"
+            className="h-[52px] w-[258px] p-2 border-solid border border-[#e7e7e7]"
+          />
           <ButtonPrimary text="Apply" />
         </div>
       </div>
