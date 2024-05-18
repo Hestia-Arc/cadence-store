@@ -2,6 +2,7 @@ import { FC } from "react";
 import { CartList } from "./CartList";
 import { CartSummary } from "./CartSummary";
 import { CheckoutInfo, OrderSummary } from "./CartCheckout";
+import OrderBox from "./OrderBox";
 
 interface IPropStep {
   id: JSX.Element;
@@ -63,5 +64,7 @@ export const StepTwo = () => {
 
 // STEP 3   order complete
 export const StepThree = () => {
-  return <div className="flex  gap-16 py-16 ">order</div>;
+  return <div className=" flex items-center justify-center mt-20">
+    <OrderBox/>
+  </div>;
 };

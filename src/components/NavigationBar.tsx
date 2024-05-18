@@ -78,18 +78,23 @@ const NavigationBar: FC<IProp> = ({ open, cartBar }) => {
         {/* icons */}
         <div className="flex items-center gap-3">
           <img src={searchIcon} alt="icon" />
-          <img src={avatarIcon} alt="icon" />
-          <Link to='/cart'>
-          <div className="flex items-center gap-[2px]">
-            <img
-              src={cartIcon}
-              alt="icon"
-              className="hover:shadow-sm hover:bg-gray-400 hover:rounded-lg"
-            />
-            <Badge />
-          </div>
+
+          {/* =========== ACCOUNT */}
+          <Link to="/account">
+            <img src={avatarIcon} alt="icon" className="hover:bg-gray-300 hover:rounded-lg" />
           </Link>
-         
+
+          {/* ========== CART */}
+          <Link to="/cart">
+            <div className="flex items-center gap-[2px] ">
+              <img
+                src={cartIcon}
+                alt="icon"
+                className="hover:shadow-sm hover:bg-gray-300 hover:rounded-lg"
+              />
+              <Badge />
+            </div>
+          </Link>
         </div>
       </nav>
     </div>
