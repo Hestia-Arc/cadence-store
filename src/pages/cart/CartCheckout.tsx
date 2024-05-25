@@ -2,9 +2,9 @@ import Pdt1 from "../../assets/products/product-1.png";
 // import removeIcon from "../../assets/Icons/close.png";
 import { ButtonPrimary } from "../../components/Elements";
 
-const inputStyle =
+export const inputStyle =
   "  h-[40px] w-[285px] px-4 py-2 rounded border-solid border-[1px] border-[#6C7275] border-opacity-30 mt-2";
-const labelStyle = " uppercase text-hairline2 font-bold text-gray-400";
+export const labelStyle = " uppercase text-hairline2 font-bold text-gray-400";
 const sectionStyle =
   "min-h-[372px] w-full flex flex-col gap-6 py-8 px-6 border-solid border-[1.8px] border-[#6C7275] border-opacity-30 rounded";
 const titleStyle = " h-7 text-h7 font-semibold";

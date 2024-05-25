@@ -29,13 +29,14 @@ export const ButtonDark: React.FC<Prop2> = (props): JSX.Element => {
 }
 
 interface IPrimaryBtn {
-  text: string
+  text: string,
+  style?: string
 }
 
 // add to cart btn
-export const ButtonPrimary:FC<IPrimaryBtn> = ({text}) => {
+export const ButtonPrimary:FC<IPrimaryBtn> = ({text, style}) => {
   return (
-    <button className=" h-[50px] w-full flex justify-center items-center text-gray-100 text-btnMd font-semibold bg-gray-700 rounded-lg">
+    <button className={` ${style} h-[50px] w-full flex justify-center items-center text-gray-100 text-btnMd font-semibold bg-gray-700 rounded-lg`}>
     <p className="">{text}</p>
     </button>
   )
