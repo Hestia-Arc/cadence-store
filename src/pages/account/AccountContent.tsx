@@ -102,7 +102,7 @@ function AccountContent() {
           />
         </div>
 
-        <ButtonPrimary text="Save changes" style="w-[183px]" />
+        <ButtonPrimary text="Save changes" style="!w-[183px]" />
       </div>
     </form>
   );

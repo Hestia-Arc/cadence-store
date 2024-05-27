@@ -1,3 +1,8 @@
+import Pdt1 from "../../assets/products/product-7.png";
+import Pdt2 from "../../assets/products/product-3.png";
+import Pdt3 from "../../assets/products/product-8.png";
+import { FC } from "react";
+
 function OrderBox() {
   return (
     <div className="h-[730px] w-[738px] flex flex-col items-center gap-10 shadow-xl rounded-xl px-24 py-20">
@@ -10,11 +15,10 @@ function OrderBox() {
       </div>
 
       {/* order images */}
-      <div className="h-[112px] w-full flex justify-center gap-10 bg-gray-300"> 
-        <div className="h-full w-[96px] bg-gray-500"></div>
-        <div className="h-full w-[96px] bg-gray-500"></div>
-        <div className="h-full w-[96px] bg-gray-500"></div>
-
+      <div className="h-[112px] w-full flex justify-center gap-10 ">
+        <OrderCountItem img={Pdt3} />
+        <OrderCountItem img={Pdt2} />
+        <OrderCountItem img={Pdt1} />
       </div>
 
       {/* order info */}
@@ -51,3 +55,21 @@ function OrderBox() {
 }
 
 export default OrderBox;
+
+interface Prop {
+  img: string;
+}
+
+const OrderCountItem: FC<Prop> = ({ img }) => {
+  return (
+    <div className="w-[96px] h-[112px] flex items-end relative">
+      <div className="absolute top-0 right-0 h-8 w-8 flex items-center justify-center rounded-3xl bg-gray-700 text-white">
+        2
+      </div>
+
+      <div className="w-[80px] h-[96px] bg-gray-300 rounded">
+        <img src={img} alt="product" />
+      </div>
+    </div>
+  );
+};
