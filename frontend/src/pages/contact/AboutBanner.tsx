@@ -10,13 +10,15 @@ export const AboutBanner = () => {
       </div>
 
       {/* content */}
-      <div className="w-full sm:w-1/2 flex items-center  px-8 sm:px-0 sm:pl-16 py-14 sm:py-0">
+      <div className="w-full sm:w-1/2 flex items-center  px-8 sm:px-0 sm:pl-10 py-14 sm:py-0">
         <div className="w-[452px] flex flex-col items-start gap-4">
-          <p className="text-hairline1 font-bold uppercase text-blue">sales up to 35% off</p>
-          <h4 className="text-h4 font-poppins">HUNDREDS of <br/>
-          New lower prices!
+          <h4 className="text-h4 font-poppins">About Us
           </h4>
-          <p className="text-body1Reg">It’s more affordable than ever to give every room in your home a stylish makeover</p>
+          <div>
+            <p className="text-body1Reg">3legant is a gift & decorations store based in HCMC, Vietnam. Est since 2019. </p>
+            <p className="text-body1Reg">Our customer service is always prepared to support you 24/7.</p>
+
+          </div>
         <ButtonDark text='shop now'/>
         </div>
       </div>

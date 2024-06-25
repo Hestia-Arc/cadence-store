@@ -6,17 +6,19 @@ import Products from "./products";
 import { useState } from "react";
 
 function Shop() {
-  const [isCartBarOpen, setIsCartBarOpen] = useState(false)
-  
+  const [isCartBarOpen, setIsCartBarOpen] = useState(false);
+
   const toggleCartBar = () => {
-    setIsCartBarOpen(!isCartBarOpen)
-  }
+    setIsCartBarOpen(!isCartBarOpen);
+  };
 
   return (
     <div className=" bg-white text-gray-700">
-      <NavigationBar  open={toggleCartBar} cartBar={isCartBarOpen}  />
-      <Header/>
-      <Products/>
+      <NavigationBar open={toggleCartBar} cartBar={isCartBarOpen} />
+      <div className=" px-40">
+        <Header />
+        <Products />
+      </div>
       <Newsletter />
       <Footer />
     </div>

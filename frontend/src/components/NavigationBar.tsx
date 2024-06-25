@@ -57,16 +57,16 @@ const NavigationBar: FC<IProp> = ({ open, cartBar }) => {
         </div>
 
         {/* menus */}
-        <div className="w-[340px] hidden sm:flex justify-between items-center">
+        <div className="w-[300px] hidden sm:flex justify-between items-center">
           <NavLink to="/">
             <span className={menuClass}>Home</span>
           </NavLink>
           <NavLink to="/shop">
             <span className={menuClass}>Shop</span>
           </NavLink>
-          <NavLink to="/product">
+          {/* <NavLink to="/product">
             <span className={menuClass}>Product</span>
-          </NavLink>
+          </NavLink> */}
           <NavLink to="/blog">
             <span className={menuClass}>Blog</span>
           </NavLink>

@@ -1,6 +1,6 @@
 
 export const Header = () => {
   return (
-    <div>Header</div>
+    <div className="h-[392px] bg-gray-200 "></div>
   )
 }
