@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import rating from "../../assets/Icons/Star Icon.png";
 import wishIcon from "../../assets/Icons/wish-gray.png";
-import { useCartStore } from "../../features";
+// import { useCartStore } from "../../features";
 import { useNavigate } from "react-router-dom";
 import { NewItem } from "../NewItem";
 
@@ -21,14 +21,14 @@ export const CardCarrousel: FC<Props> = ({
   const [active, setActive] = useState(false);
   const [color, setColor] = useState(false);
   const navigate = useNavigate()
-  const addToCart = useCartStore((state) => state.addToCart);
+  // const addToCart = useCartStore((state) => state.addToCart);
 
   const handleHover = () => {
     setActive(true);
   };
 
   const handleButtonClick = (tag:string) => {
-    addToCart({name: tag});
+    // addToCart({name: tag});
   };
 
   const handleWishClick = () => {

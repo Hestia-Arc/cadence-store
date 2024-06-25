@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import { useCartStore } from "../../features";
+// import { useCartStore } from "../../features";
 
 export const CartSideBar = () => {
-  const cartList = useCartStore((state) => state.cart);
+  // const cartList = useCartStore((state) => state.cart);
 
   return (
     <motion.div
@@ -15,11 +15,11 @@ export const CartSideBar = () => {
       <h4 className="text-h7">CartSideBar</h4>
 
       <div>
-        {cartList.map((product: any) => {
+        {/* {cartList.map((product: any) => {
           const { name } = product;
 
           return <div>{name}</div>;
-        })}
+        })} */}
       </div>
     </motion.div>
   );

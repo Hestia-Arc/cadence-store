@@ -1,7 +1,7 @@
 import avatarIcon from "../assets/Icons/avatar-dark.png";
 import cartIcon from "../assets/Icons/shopping bag.png";
 import searchIcon from "../assets/Icons/search.png";
-import { Badge } from "./Badge";
+// import { Badge } from "./Badge";
 import { Link, NavLink } from "react-router-dom";
 import NotificationBar from "./NotificationBar";
 import { FC, useEffect, useState } from "react";
@@ -46,7 +46,7 @@ const NavigationBar: FC<IProp> = ({ open, cartBar }) => {
             onClick={() => open()}
             className="h-fit left-0 flex sm:flex-col items-center gap-1 text-h7 bg-green px-5 py-2 rounded-3xl sm:rounded-none sm:p-4"
           >
-            <Badge />
+            {/* <Badge /> */}
             <span>C</span>
             <span>A</span>
             <span>R</span>
@@ -92,7 +92,7 @@ const NavigationBar: FC<IProp> = ({ open, cartBar }) => {
                 alt="icon"
                 className="hover:shadow-sm hover:bg-gray-300 hover:rounded-lg"
               />
-              <Badge />
+              {/* <Badge /> */}
             </div>
           </Link>
         </div>
