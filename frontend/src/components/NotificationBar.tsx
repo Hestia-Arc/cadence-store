@@ -1,7 +1,7 @@
 import ticketIcon from "../assets/Icons/ticket-percent-dark.png";
 import arrowRightIcon from "../assets/Icons/arrow-right-blue.png";
 import closeIcon from "../assets/Icons/close.png";
-import { useNotification } from "../store";
+import { useNotification } from "../features";
 
 
 const NotificationBar = () => {

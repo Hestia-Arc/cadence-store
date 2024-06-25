@@ -1,4 +1,4 @@
-import { useCartStore } from "../store"
+import { useCartStore } from "../features"
 
 export const Badge = () => {
   const cart = useCartStore(state => state.cart )
