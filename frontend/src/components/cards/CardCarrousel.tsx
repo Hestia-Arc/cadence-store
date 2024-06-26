@@ -27,7 +27,7 @@ export const CardCarrousel: FC<Props> = ({
     setActive(true);
   };
 
-  const handleButtonClick = (tag:string) => {
+  const handleButtonClick = () => {
     // addToCart({name: tag});
   };
 
@@ -72,7 +72,7 @@ export const CardCarrousel: FC<Props> = ({
         <button
           onMouseEnter={handleHover}
           onMouseLeave={() => setActive(false)}
-          onClick={() => handleButtonClick(tag)}
+          onClick={() => handleButtonClick()}
           className={`w-[230px] h-[46px] absolute bottom-4 right-4 ${
             active ? "flex" : "hidden"
           } justify-center items-center rounded-lg bg-gray-700 text-white text-btnSm `}

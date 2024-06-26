@@ -14,7 +14,7 @@ function Products() {
         <div className="flex gap-[10px] flex-wrap">
         {Array(9)
           .fill(9)
-          ?.map((_, i) => (
+          ?.map((_, ) => (
             <CardCarrousel
               img={pdt1}
               tag="loveseat sofa"
