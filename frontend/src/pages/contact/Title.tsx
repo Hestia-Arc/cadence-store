@@ -1,12 +1,18 @@
+import chevronRight from "../../assets/Icons/chevron-right-gray.png";
+
+const grayStyle = " text-gray-400";
+const imgStyle = " h-[20px]";
+
 function Title() {
   return (
     <div className="h-[340px] flex flex-col gap-10 ">
       {/* 1 */}
-      <div className="h-[24px] w-[147px] flex gap-4">
-        <span>Home</span>
+        <div className=" flex items-center gap-3 text-btnXS">
+          <span className={grayStyle}>Home</span>
+          <img src={chevronRight} alt="icon" className={imgStyle} />
 
-        <span>Contact Us</span>
-      </div>
+          <span className=" font-semibold">Contact Us</span>
+        </div>
 
       {/* 2 */}
       <h2 className="w-[834px] text-h3">

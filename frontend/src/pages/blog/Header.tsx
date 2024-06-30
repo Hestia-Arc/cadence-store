@@ -1,4 +1,4 @@
-import banner from "../../assets/products/shop-hero.png";
+import banner from "../../assets/products/blog-hero.png";
 import chevronRight from "../../assets/Icons/chevron-right-gray.png";
 
 const grayStyle = " text-gray-400";
@@ -16,16 +16,14 @@ export const Header = () => {
           <span className={grayStyle}>Home</span>
           <img src={chevronRight} alt="icon" className={imgStyle} />
 
-          <span className=" font-semibold">Shop</span>
+          <span className=" font-semibold">Blog</span>
         </div>
 
         {/* 2 */}
-        <h3 className=" text-h3">Shop Page</h3>
+        <h3 className=" text-h3">Our Blog</h3>
 
         {/* 3 */}
-        <p className=" text-body1Reg">
-          Let’s design the place you always imagined.
-        </p>
+        <p className=" text-body1Reg">Home ideas and design inspiration. </p>
       </div>
     </div>
   );

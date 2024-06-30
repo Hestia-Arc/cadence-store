@@ -1,18 +1,22 @@
 import { ButtonPrimary } from "../../components/Elements";
+import map from "../../assets/products/contact-map.png";
+import shop from "../../assets/Icons/store.png";
+import call from "../../assets/Icons/call-1.png";
+import mail from "../../assets/Icons/mail.png";
 
 const list = [
   {
-    img: "",
+    img: shop,
     tag: "Address",
     text: "234 Hai Trieu, Ho Chi Minh City, Viet Nam",
   },
   {
-    img: "",
+    img: call,
     tag: "Contact Us",
     text: "+84 234 567 890",
   },
   {
-    img: "",
+    img: mail,
     tag: "Email",
     text: "hello@3legant.com",
   },
@@ -32,9 +36,11 @@ function Map() {
         {list.map((item, index) => (
           <div
             key={index}
-            className="w-[357px] h-[156px] bg-gray-200 rounded-sm flex flex-col items-center justify-center gap-3 px-8 py-4"
+            className="w-[357px] h-[156px] bg-gray-200 rounded-sm flex flex-col items-center  gap-3 px-8 py-4"
           >
-            <div className="h-[32px] w-[32px] bg-gray-400"></div>
+            <div className="h-[32px] w-[32px]">
+              <img src={item.img} alt="icon" />
+            </div>
             <h6 className=" uppercase text-hairline1">{item.tag}</h6>
             <p className=" text-body2Semi text-center">{item.text}</p>
           </div>
@@ -85,7 +91,9 @@ function Map() {
         </div>
 
         {/*  */}
-        <div className="flex-1 bg-gray-200"></div>
+        <div className="flex-1 bg-gray-200">
+          <img src={map} alt="icon" />
+        </div>
       </div>
     </div>
   );

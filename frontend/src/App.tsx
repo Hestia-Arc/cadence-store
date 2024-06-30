@@ -6,6 +6,7 @@ import BlogPage from "./pages/blog";
 import CartPage from "./pages/cart";
 import ContactPage from "./pages/contact";
 import AccountPage from "./pages/account";
+import SinglePost from "./pages/blog/SinglePost";
 
 function App() {
   return (
@@ -15,11 +16,11 @@ function App() {
         <Route path="/product" element={<Product />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/:post" element={<SinglePost />} />
         <Route path="/contact" element={<ContactPage />} />
 
         <Route path="/cart" element={<CartPage />} />
         <Route path="/account" element={<AccountPage />} />
-
 
         {/* <Route path="/" element={ <Home/>}/> */}
       </Routes>
