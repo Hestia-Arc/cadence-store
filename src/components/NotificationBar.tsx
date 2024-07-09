@@ -21,17 +21,21 @@ const NotificationBar = () => {
 
 
       <div className=" flex justify-center items-center gap-[12px]">
+        
+      <div className="flex items-center gap-[8px]">
+          <div className="text-capS1"> ⚡Notice! Application In Development Mode... 🚧👷‍♀️🛠</div>
+        </div>
         {/* text */}
-        <div className="flex items-center gap-[8px]">
+        {/* <div className="flex items-center gap-[8px]">
           <img src={ticketIcon} alt="icon" />
           <div className="text-capS1">30% off storewide -- Limited time!</div>
-        </div>
+        </div> */}
 
         {/* button */}
-        <button className="hidden sm:flex justify-center items-center gap-[2px] text-blue text-btnXS border-solid border-b-[1px] border-blue">
+        {/* <button className="hidden sm:flex justify-center items-center gap-[2px] text-blue text-btnXS border-solid border-b-[1px] border-blue">
           <p>Shop Now</p>
           <img src={arrowRightIcon} alt="icon" />
-        </button>
+        </button> */}
 
       </div>
     </section>

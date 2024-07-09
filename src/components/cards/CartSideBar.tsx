@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Pdt1 from "../../assets/products/product-1.png";
 import { ButtonDarkPlain, ButtonPrimary } from "../Elements";
 import removeIcon from "../../assets/Icons/close.png";
@@ -6,21 +6,22 @@ import { useNavigate } from "react-router-dom";
 
 // import { useCartStore } from "../../features";
 interface Prop {
-  open?: boolean,
-  close: () => void
-  }
+  open?: boolean;
+  close: () => void;
+}
 
-
-export const CartSideBar: React.FC<Prop> = ({ close}) => {
+export const CartSideBar: React.FC<Prop> = ({ close }) => {
   const navigate = useNavigate();
   // const cartList = useCartStore((state) => state.cart);
 
   return (
+    <AnimatePresence>
     <motion.div
       // whileHover={{scale: [1, 2, 1]}}
-      initial={{ x: "100%" }}
-      animate={{ x: "0.4%" }}
-      transition={{ type: "spring", stiffness: 100 }}
+      initial={{ opacity: 0, x: "100%" }}
+      animate={{ opacity: 1, x: "0" }}
+      exit={{opacity: 0, scale: 0.5 }}
+      transition={{ type: "spring", stiffness: 43, damping: 12, delay: 0.6 }}
       className="h-[100vh] w-[413px] flex flex-col justify-between  bg-[#fff] p-6 border shadow-md "
     >
       {/* =========== summary */}
@@ -28,7 +29,12 @@ export const CartSideBar: React.FC<Prop> = ({ close}) => {
         <div className="flex justify-between items-center">
           <h6 className=" text-h6">Cart</h6>
 
-          <img src={removeIcon} alt="icon" className="h-[25px] w-[25px]" onClick={close} />
+          <img
+            src={removeIcon}
+            alt="icon"
+            className="h-[25px] w-[25px]"
+            onClick={close}
+          />
         </div>
 
         {/*  */}
@@ -36,7 +42,10 @@ export const CartSideBar: React.FC<Prop> = ({ close}) => {
           {Array(2)
             .fill(9)
             ?.map((_, i) => (
-              <div key={i} className="w-full h-[144px] flex py-3 border-solid border-b-2 ">
+              <div
+                key={i}
+                className="w-full h-[144px] flex py-3 border-solid border-b-2 "
+              >
                 {/* product/remove btn  */}
                 <div className=" w-1/2 flex gap-4">
                   <img
@@ -103,5 +112,6 @@ export const CartSideBar: React.FC<Prop> = ({ close}) => {
         </div>
       </div>
     </motion.div>
+    </AnimatePresence>
   );
 };
