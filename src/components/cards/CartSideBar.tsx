@@ -6,12 +6,12 @@ import { useNavigate } from "react-router-dom";
 
 // import { useCartStore } from "../../features";
 interface Prop {
-  open: boolean,
+  open?: boolean,
   close: () => void
   }
 
 
-export const CartSideBar: React.FC<Prop> = ({open, close}) => {
+export const CartSideBar: React.FC<Prop> = ({ close}) => {
   const navigate = useNavigate();
   // const cartList = useCartStore((state) => state.cart);
 
