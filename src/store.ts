@@ -3,12 +3,12 @@ import { combineReducers } from "redux";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { useDispatch, TypedUseSelectorHook, useSelector } from "react-redux";
-import notifyReducer from "./features/notification/notifySlice";
+import notify from "./features/notification/notifySlice";
 
 
 
 const reducers = combineReducers({
-    notify: notifyReducer
+    notify
 });
 
 const rootReducer = (state: any, action: { type: any; }) => {
@@ -21,7 +21,7 @@ const rootReducer = (state: any, action: { type: any; }) => {
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: [ "auth"],
+  whitelist: [ "auth", "notify"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -32,8 +32,9 @@ const store = configureStore({
     getDefaultMiddleware({ serializableCheck: false }),
 });
 
-export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
+export type RootState = ReturnType<typeof store.getState>;
+
 export const useAppDispatch = (): AppDispatch => useDispatch<AppDispatch>();
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 export default store;

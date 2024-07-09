@@ -5,7 +5,7 @@ import searchIcon from "../assets/Icons/search.png";
 import { Link, NavLink } from "react-router-dom";
 import NotificationBar from "./NotificationBar";
 import { FC, useEffect, useState } from "react";
-import { CartSideBar } from "./cards/CartSideBar";
+// import { CartSideBar } from "./cards/CartSideBar";
 // import Icon from "../assets/Icons/arrow-right.png";
 
 interface IProp {
@@ -14,8 +14,10 @@ interface IProp {
 }
 const menuClass = "text-[14px] font-medium";
 
-const NavigationBar: FC<IProp> = ({ open, cartBar }) => {
-  const [scrollActive, setScrollActive] = useState(false);
+// const NavigationBar: FC<IProp> = ({ open, cartBar }) => {
+  const NavigationBar: FC<IProp> = () => {
+
+const [scrollActive, setScrollActive] = useState(false);
 
   useEffect(() => {
     window.onscroll = () => {
@@ -41,20 +43,20 @@ const NavigationBar: FC<IProp> = ({ open, cartBar }) => {
         </div>
 
         {/* cart sidebar */}
-        <div className="hidden sm:flex h-[450px] absolute top-[24rem] sm:top-[8rem] right-[35%] sm:right-0 items-center">
+        {/* <div className="hidden sm:flex h-[450px] absolute top-[24rem] sm:top-[8rem] right-[35%] sm:right-0 items-center">
           <button
             onClick={() => open()}
             className="h-fit left-0 flex sm:flex-col items-center gap-1 text-h7 bg-green px-5 py-2 rounded-3xl sm:rounded-none sm:p-4"
           >
             {/* <Badge /> */}
-            <span>C</span>
+            {/* <span>C</span>
             <span>A</span>
             <span>R</span>
             <span>T</span>
-          </button>
+          </button> */}
 
-          {cartBar && <CartSideBar />}
-        </div>
+          {/* {cartBar && <CartSideBar />}
+        </div> */} 
 
         {/* menus */}
         <div className="w-[300px] hidden sm:flex justify-between items-center">

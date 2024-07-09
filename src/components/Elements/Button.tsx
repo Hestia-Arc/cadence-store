@@ -8,6 +8,7 @@ import arrowRightIcon from "../../assets/Icons/arrow-right-dark-sm.png";
 
  interface Prop2 {
   text: string
+  onClick?: () => void
   }
 
 export const Button = ({children}: Prop) => {
@@ -24,6 +25,15 @@ export const ButtonDark: React.FC<Prop2> = (props): JSX.Element => {
     <button className="flex justify-center items-center gap-2 text-primary-800 text-btnSm font-semibold border-solid border-b-[1.5px] border-primary-800">
     <p className="capitalize">{props.text}</p>
     <img src={arrowRightIcon} alt="icon" />
+    </button>
+  )
+}
+
+// ====== no arrow
+export const ButtonDarkPlain: React.FC<Prop2> = (props): JSX.Element => {
+  return (
+    <button onClick={props.onClick} className="flex justify-center items-center gap-2 text-primary-800 text-btnSm font-semibold border-solid border-b-[1.5px] border-primary-800">
+    <p className="capitalize">{props.text}</p>
     </button>
   )
 }

@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { RootState } from "../../store";
 
 // Define a type for the slice state
 interface NotifyState {
@@ -15,12 +16,12 @@ const notifySlice = createSlice({
   initialState,
   reducers: {
     hideNotice: (state) => {
-      state.status = true;
+      state.status = false;
     },
   },
   extraReducers: () => {},
 });
 
 export const { hideNotice } = notifySlice.actions;
-
-export default notifySlice?.reducer;
+export const notifySelector = (state: RootState) => state.notify.status;
+export default notifySlice.reducer;
