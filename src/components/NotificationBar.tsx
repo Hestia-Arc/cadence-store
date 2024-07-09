@@ -1,5 +1,5 @@
-import ticketIcon from "../assets/Icons/ticket-percent-dark.png";
-import arrowRightIcon from "../assets/Icons/arrow-right-blue.png";
+// import ticketIcon from "../assets/Icons/ticket-percent-dark.png";
+// import arrowRightIcon from "../assets/Icons/arrow-right-blue.png";
 import closeIcon from "../assets/Icons/close.png";
 import { useAppDispatch, useAppSelector } from "../store";
 import { hideNotice, notifySelector } from "../features/notification/notifySlice";
