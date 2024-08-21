@@ -1,42 +1,50 @@
-// import Axios from "axios";
-// import Cookies from "js-cookie";
+import Axios, { AxiosRequestConfig, AxiosResponse } from "axios";
+import Cookies from "js-cookie";
 
-// export const Client = async (params) => {
-//   const token = Cookies.get("accessTokenSCA");
+type IClient = {
+  method: string;
+  path: string;
+  data?: any;
+  queryParams?: string;
+  contentType?: string;
+};
 
-//   const { path, method, data, queryParams, contentType } = params;
+export const Client = async (params: IClient) => {
+  const token = Cookies.get("accessTokenLecadance");
 
-//   const baseURL = import.meta.env.VITE_PROD_URL;
-  
-//   const headers = {
-//     ...(token && {
-//       Authorization: `Bearer ${token}`,
-//     }),
-//     "Content-Type": contentType ? contentType : "application/json",
-//     Accept: "application/json",
-//   };
+  const { path, method, data, queryParams, contentType } = params;
 
-//   let url = `${baseURL}${path}`;
+  const baseURL = import.meta.env.VITE_DEV_URL;
 
-//   const axiosConfig = {
-//     method: method,
-//     url: url,
-//     timeout: 50000,
-//     headers: headers,
-//     params: queryParams,
-//     responseType: "json",
-//   };
+  const headers = {
+    ...(token && {
+      Authorization: `Bearer ${token}`,
+    }),
+    "Content-Type": contentType ? contentType : "application/json",
+    Accept: "application/json",
+  };
 
-//   if (method?.toUpperCase() !== "GET") {
-//     axiosConfig.data =
-//       contentType === "multipart/form-data" ? data : JSON.stringify(data);
-//   }
+  let url = `${baseURL}${path}`;
 
-//   try {
-//     const response = await Axios(axiosConfig);
-//     return response;
-//   } catch (error) {
-//     console.error("Error in Axios request:", error);
-//     throw error;
-//   }
-// };
+  const axiosConfig: AxiosRequestConfig = {
+    method: method,
+    url: url,
+    timeout: 50000,
+    headers: headers,
+    params: queryParams,
+    responseType: "json",
+  };
+
+  if (method?.toUpperCase() !== "GET") {
+    axiosConfig.data =
+      contentType === "multipart/form-data" ? data : JSON.stringify(data);
+  }
+
+  try {
+    const response: AxiosResponse = await Axios(axiosConfig);
+    return response;
+  } catch (error) {
+    console.error("Error in Axios request:", error);
+    throw error;
+  }
+};

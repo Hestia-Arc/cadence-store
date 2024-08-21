@@ -6,15 +6,36 @@ import grid2V from "../../../assets/products/grid-2-vert.png";
 import grid2H from "../../../assets/products/grid-2-hoz.png";
 import chevronDown from "../../../assets/Icons/chevron-down-dark.png";
 import Filter from "./Filter";
+import { useAppDispatch, useAppSelector } from "../../../store";
+import { productsSelector } from "../../../features/products/productSlice";
+import { useEffect } from "react";
+import { getProducts } from "../../../features/products/productAPIs";
 
 function Products() {
+  const dispatch = useAppDispatch();
+  const { loading, error, products } = useAppSelector(productsSelector);
+
+  useEffect(() => {
+    dispatch(getProducts());
+  }, []);
+
+  // console.log(products)
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
   return (
-    <div className="h-[1707px] flex pt-[60px] pb-[100px]">
+    <div className=" min-h-28 max-h-[1707px] flex pt-[60px] pb-[100px]">
       {/* filter */}
-      <Filter/>
+      <Filter />
 
       {/* products */}
-      <div className="h-[1547px] w-[820px] flex flex-col gap-10">
+      <div className="min-h-28 w-[820px] flex flex-col gap-10">
         <div className="h-[40px] w-full flex justify-between">
           {/* tag */}
           <div className=" text-body1Semi font-bold">Living Room</div>
@@ -51,21 +72,36 @@ function Products() {
 
         {/* list */}
         <div className="flex gap-[10px] flex-wrap">
-          {Array(9)
-            .fill(9)
-            ?.map((_) => (
-              <CardCarrousel
-                img={pdt1}
-                tag="loveseat sofa"
-                price="199.00"
-                slashP={400.0}
-              />
-            ))}
+          {products.length > 0
+            ? products?.map((item, index) => {
+                return (
+                  <div key={index}>
+                    <CardCarrousel
+                      img={pdt1}
+                      tag={item.productName}
+                      price="199.00"
+                      slashP={400.0}
+                    />
+                  </div>
+                );
+              })
+            : Array(9)
+                .fill(9)
+                ?.map((_) => (
+                  <CardCarrousel
+                    img={pdt1}
+                    tag="loveseat sofa"
+                    price="199.00"
+                    slashP={400.0}
+                  />
+                ))}
         </div>
 
         {/* see more */}
         <div className="flex justify-center mt-10">
-          <div className="h-[40px] w-[163px] rounded-full flex justify-center items-center text-btnSm border border-gray-700">Show more</div>
+          <div className="h-[40px] w-[163px] rounded-full flex justify-center items-center text-btnSm border border-gray-700">
+            Show more
+          </div>
         </div>
       </div>
     </div>

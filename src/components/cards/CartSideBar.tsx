@@ -19,10 +19,10 @@ export const CartSideBar: React.FC<Prop> = ({ close }) => {
     <motion.div
       // whileHover={{scale: [1, 2, 1]}}
       initial={{ opacity: 0, x: "100%" }}
-      animate={{ opacity: 1, x: "0" }}
+      animate={{ opacity: 1, x: "0", position: "fixed" }}
       exit={{opacity: 0, scale: 0.5 }}
       transition={{ type: "spring", stiffness: 43, damping: 12, delay: 0.6 }}
-      className="h-[100vh] w-[413px] flex flex-col justify-between  bg-[#fff] p-6 border shadow-md "
+      className="h-[100vh] w-[413px] fixed top-0 right-0 flex flex-col justify-between  bg-[#fff] p-6 border shadow-md "
     >
       {/* =========== summary */}
       <div className="w-[365px] h-[370px]">

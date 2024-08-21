@@ -4,11 +4,13 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { useDispatch, TypedUseSelectorHook, useSelector } from "react-redux";
 import notify from "./features/notification/notifySlice";
+import products from "./features/products/productSlice";
 
 
 
 const reducers = combineReducers({
-    notify
+    notify,
+    products
 });
 
 const rootReducer = (state: any, action: { type: any; }) => {

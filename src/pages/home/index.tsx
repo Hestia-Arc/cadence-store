@@ -21,7 +21,6 @@ function Home() {
     <div className=' bg-white text-gray-700 relative '>
       
         <NavigationBar open={toggleCartBar} cartBar={isCartBarOpen} />
-
         <Hero/>
         <BannerGrid/>
         <ProductCarrousel tag={<div>New <br/> Arrivals</div> }/>

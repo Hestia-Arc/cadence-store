@@ -64,9 +64,9 @@ function App() {
           onClick={() => setIsOpen(false)}
           className="hidden sm:flex absolute top-0 right-0 left-0 bottom-0 bg-[rgba(0,0,0,0.5)] items-center z-[800] "
         >
-          <div className="flex h-[100vh] fixed top-0 right-0 items-center">
+          {/* <div className="flex h-[100vh] fixed top-0 right-0 items-center"> */}
             <CartSideBar open={isOpen} close={() => setIsOpen(false)} />
-          </div>
+          {/* </div> */}
         </motion.div>
       )}
     </div>
