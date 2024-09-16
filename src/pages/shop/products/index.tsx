@@ -6,14 +6,14 @@ import grid2V from "../../../assets/products/grid-2-vert.png";
 import grid2H from "../../../assets/products/grid-2-hoz.png";
 import chevronDown from "../../../assets/Icons/chevron-down-dark.png";
 import Filter from "./Filter";
-import { useAppDispatch, useAppSelector } from "../../../store";
+import { useAppSelector } from "../../../store";
 import { productsSelector } from "../../../features/products/productSlice";
 import { useEffect } from "react";
 // import { getProducts } from "../../../features/products/productAPIs";
 
 function Products() {
   // const dispatch = useAppDispatch();
-  const { loading, error, products } = useAppSelector(productsSelector);
+  const { products } = useAppSelector(productsSelector);
 
   useEffect(() => {
     // dispatch(getProducts());
