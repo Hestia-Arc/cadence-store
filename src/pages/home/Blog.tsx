@@ -4,18 +4,23 @@ import pdt2 from "../../assets/products/blog-2.png";
 import pdt3 from "../../assets/products/blog-3.png";
 import { ButtonDark } from "../../components/Elements";
 import { FC } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   tag?: string;
 }
 
 export const Blog: FC<Props> = ({ tag }) => {
+  const navigate = useNavigate();
+
   return (
     <section className="min-h-[657px]  px-8 sm:px-40 py-20">
       <div className="flex flex-col gap-10">
         <div className="h-[44px] flex justify-between items-baseline">
           <div className="text-h4">{tag ? tag : "Articles"}</div>
-          <ButtonDark text="More Articles" />
+          <ButtonDark text="More Articles"  onClick={() => {
+              navigate("/blog");
+            }} />
         </div>
 
         {/*cards  */}

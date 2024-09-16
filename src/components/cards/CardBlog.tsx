@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ButtonDark } from "../Elements";
 
 interface Props {
@@ -8,6 +8,8 @@ interface Props {
   link?: string;
 }
 export const CardBlog: FC<Props> = ({ img, title }): JSX.Element => {
+  const navigate = useNavigate();
+
   return (
     <div className="w-[311px] sm:w-[357px]  flex flex-col gap-5">
       <div className="h-[283px] sm:h-[320px] bg-gray-200">
@@ -18,7 +20,12 @@ export const CardBlog: FC<Props> = ({ img, title }): JSX.Element => {
       <div className="h-[64px] flex flex-col gap-2 ">
         <p className="text-h7">{title} </p>
         <Link to="/blog">
-          <ButtonDark text="Read More" />
+          <ButtonDark
+            text="Read More"
+            onClick={() => {
+              navigate("/blog");
+            }}
+          />
         </Link>
       </div>
     </div>

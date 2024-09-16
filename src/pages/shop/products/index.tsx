@@ -9,25 +9,25 @@ import Filter from "./Filter";
 import { useAppDispatch, useAppSelector } from "../../../store";
 import { productsSelector } from "../../../features/products/productSlice";
 import { useEffect } from "react";
-import { getProducts } from "../../../features/products/productAPIs";
+// import { getProducts } from "../../../features/products/productAPIs";
 
 function Products() {
-  const dispatch = useAppDispatch();
+  // const dispatch = useAppDispatch();
   const { loading, error, products } = useAppSelector(productsSelector);
 
   useEffect(() => {
-    dispatch(getProducts());
+    // dispatch(getProducts());
   }, []);
 
   // console.log(products)
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  // if (loading) {
+  //   return <div>Loading...</div>;
+  // }
 
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
+  // if (error) {
+  //   return <div>Error: {error}</div>;
+  // }
 
   return (
     <div className=" min-h-28 max-h-[1707px] flex pt-[60px] pb-[100px]">
@@ -72,27 +72,32 @@ function Products() {
 
         {/* list */}
         <div className="flex gap-[10px] flex-wrap">
-          {products.length > 0
+          {products?.length > 0
             ? products?.map((item, index) => {
                 return (
                   <div key={index}>
                     <CardCarrousel
-                      img={pdt1}
+                    index={item.id}
+                      img={item.image}
                       tag={item.productName}
-                      price="199.00"
+                      price={item.price}
                       slashP={400.0}
+                      product={item}
                     />
                   </div>
                 );
               })
             : Array(9)
                 .fill(9)
-                ?.map((_) => (
+                ?.map(( i) => (
                   <CardCarrousel
+                  index={i}
                     img={pdt1}
                     tag="loveseat sofa"
                     price="199.00"
                     slashP={400.0}
+                    // product={item}
+
                   />
                 ))}
         </div>

@@ -1,4 +1,3 @@
-import pdt1 from "../../assets/products/product-10.png";
 import pdt2 from "../../assets/products/product-11.png";
 // import pdtRed from "../../assets/products/p-size-1.png";
 // import pdtNude from "../../assets/products/p-size-2.png";
@@ -16,12 +15,13 @@ import {
   ButtonWish,
 } from "../../components/Elements";
 import { FC } from "react";
+import { IProduct } from "../../features/types";
 
-export const ProductDetails = () => {
+export const ProductDetails = ({ product }: { product: IProduct | null }) => {
   return (
     <div className="h-[986px] flex gap-16 px-40">
-      <ProductImages />
-      <ProductContents />
+      <ProductImages product={product} />
+      <ProductContents product={product} />
     </div>
   );
 };
@@ -33,13 +33,27 @@ export const ProductDetails = () => {
 // ------------
 // image content
 // ------------
-const ProductImages = () => {
+const ProductImages = ({ product }: { product: IProduct | null }) => {
   return (
     <div className=" w-1/2 flex flex-col gap-4">
       {/* large */}
       <div className="relative h-[565px] bg-gray-200">
         <NewItem posT="top-3" posL="left-4" />
-        <img src={pdt1} alt="product" className=" h-[565px] w-[450px]" />
+        {product?.image && (
+          <img
+            src={product?.image}
+            alt="product"
+            className=" h-[565px] w-[450px]"
+          />
+        )}
+
+        {!product?.image && (
+          <div className="h-full w-full flex items-center justify-center text-gray-300 text-[12px] font-bold">
+            <div className="flex items-center justify-center bg-gray-400 bg-opacity-50 rounded-full h-[80px] w-[80px]">
+              No Image
+            </div>
+          </div>
+        )}
       </div>
 
       {/* <hr /> */}
@@ -60,7 +74,7 @@ const ProductImages = () => {
 // -----------------
 // content
 // ------------------
-const ProductContents = () => {
+const ProductContents = ({ product }: { product: IProduct | null }) => {
   return (
     <div className=" w-1/2">
       {/* product description  price */}
@@ -78,18 +92,14 @@ const ProductContents = () => {
         </div>
 
         {/* product name */}
-        <h3 className=" text-h5 ">Tray Table</h3>
+        <h3 className=" text-h5 capitalize ">{product?.productName}</h3>
 
         {/* description */}
-        <p className=" text-body2Reg text-gray-400">
-          Buy one or buy a few and make every space where you sit more
-          convenient. Light and easy to move around with removable tray top,
-          handy for serving snacks.
-        </p>
+        <p className=" text-body2Reg text-gray-400">{product?.description}</p>
 
         {/* price */}
         <div className="flex items-center gap-3">
-          <div className=" text-h6">$199.00</div>
+          <div className=" text-h6">{product?.price}</div>
           <div className=" text-[20px] font-medium font-poppins leading-7 text-gray-400 ">
             $400.00
           </div>
@@ -102,7 +112,9 @@ const ProductContents = () => {
         <div className=" text-body1Reg font-semibold">17 1/2x20 5/8"</div>
 
         <h6 className=" text-body2Semi text-gray-400">Choose Color </h6>
-        <div className=" text-body1Reg font-semibold">Black</div>
+        <div className=" text-body1Reg font-semibold">
+          {product?.color.map((item, i) => (<span key={i} className="capitalize">{`${item} `} </span>))}
+        </div>
 
         <div className="h-[72px] bg-gray-300"></div>
       </div>

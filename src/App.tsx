@@ -18,7 +18,7 @@ function App() {
     <div className="mx-auto xs:min-w-[374px] xs:max-w-[375px] lg:min-w-[1300px] lg:max-w-[1440px] overflow-x-hidden relative">
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/product" element={<Product />} />
+        <Route path="/product/:productId" element={<Product />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:post" element={<SinglePost />} />
@@ -62,7 +62,7 @@ function App() {
             duration: 0.8
           }}
           onClick={() => setIsOpen(false)}
-          className="hidden sm:flex absolute top-0 right-0 left-0 bottom-0 bg-[rgba(0,0,0,0.5)] items-center z-[800] "
+          className="hidden sm:flex fixed top-0 right-0 left-0 bottom-0 bg-[rgba(0,0,0,0.5)] items-center z-[800] "
         >
           {/* <div className="flex h-[100vh] fixed top-0 right-0 items-center"> */}
             <CartSideBar open={isOpen} close={() => setIsOpen(false)} />

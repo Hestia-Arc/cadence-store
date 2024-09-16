@@ -1,6 +1,7 @@
 import instaIcon from '../assets/Icons/instagram.png'
 import fbIcon from '../assets/Icons/fbIcon.png'
 import utubeIcon from '../assets/Icons/youtube.png'
+import { Link } from 'react-router-dom';
 
 
 const socialStyles = "h-5 "
@@ -24,11 +25,10 @@ export const Footer = () => {
 
           {/* navigation */}
           <div className="flex flex-col items-center sm:flex-row gap-8 sm:gap-10 text-capR1 font-light opacity-80">
-            <span>Home</span>
-            <span>Shop</span>
-            <span>Product</span>
-            <span>Blog</span>
-            <span>Contact Us</span>
+            <Link to="/">Home</Link>
+            <Link to="/shop">Shop</Link>
+            <Link to="/blog">Blog</Link>
+            <Link to="/contact">Contact Us</Link>
           </div>
         </div>
 
@@ -36,7 +36,7 @@ export const Footer = () => {
         <div className="min-h-[56px] flex flex-col-reverse sm:flex-row justify-between items-center gap-8 sm:gap-0 py-6 sm:py-0 border-solid border-t-[1px] border-gray-400">
           <div className="flex flex-col-reverse items-center sm:flex-row gap-7">
             <span className="text-[12px] leading-5 text-gray-300 font-poppins opacity-80">
-              Copyright © 2023 3legant. All rights reserved
+              Copyright © 2024 leCadence. All rights reserved
             </span>
 
             <div className='flex gap-7'>

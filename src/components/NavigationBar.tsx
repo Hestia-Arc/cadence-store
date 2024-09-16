@@ -1,10 +1,9 @@
 import avatarIcon from "../assets/Icons/avatar-dark.png";
 import cartIcon from "../assets/Icons/shopping bag.png";
 import searchIcon from "../assets/Icons/search.png";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import NotificationBar from "./NotificationBar";
 import { FC, useEffect, useState } from "react";
-
 
 interface IProp {
   open: () => void;
@@ -12,9 +11,9 @@ interface IProp {
 }
 const menuClass = "text-[14px] font-medium";
 
-  const NavigationBar: FC<IProp> = () => {
-
-const [scrollActive, setScrollActive] = useState(false);
+const NavigationBar: FC<IProp> = () => {
+  const location = useLocation()
+  const [scrollActive, setScrollActive] = useState(false);
 
   useEffect(() => {
     window.onscroll = () => {
@@ -39,22 +38,21 @@ const [scrollActive, setScrollActive] = useState(false);
           leCadence<span className="text-gray-400">.</span>
         </div>
 
-
         {/* menus */}
         <div className="w-[300px] hidden sm:flex justify-between items-center">
-          <NavLink to="/">
+          <NavLink to="/" className={` ${location.pathname === "/" ? "border-b-2 border-gray-400" : ""}`}>
             <span className={menuClass}>Home</span>
           </NavLink>
-          <NavLink to="/shop">
+          <NavLink to="/shop" className={` ${location.pathname === "/shop" ? "border-b-2 border-gray-400" : ""}`}>
             <span className={menuClass}>Shop</span>
           </NavLink>
           {/* <NavLink to="/product">
             <span className={menuClass}>Product</span>
           </NavLink> */}
-          <NavLink to="/blog">
+          <NavLink to="/blog" className={` ${location.pathname === "/blog" ? "border-b-2 border-gray-400" : ""}`}>
             <span className={menuClass}>Blog</span>
           </NavLink>
-          <NavLink to="/contact">
+          <NavLink to="/contact" className={` ${location.pathname === "/contct" ? "border-b-2 border-gray-400" : ""}`}>
             <span className={menuClass}>Contact Us</span>
           </NavLink>
         </div>
@@ -65,7 +63,11 @@ const [scrollActive, setScrollActive] = useState(false);
 
           {/* =========== ACCOUNT */}
           <Link to="/account">
-            <img src={avatarIcon} alt="icon" className="hover:bg-gray-300 hover:rounded-lg" />
+            <img
+              src={avatarIcon}
+              alt="icon"
+              className="hover:bg-gray-300 hover:rounded-lg"
+            />
           </Link>
 
           {/* ========== CART */}

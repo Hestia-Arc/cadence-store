@@ -5,12 +5,15 @@ import storage from "redux-persist/lib/storage";
 import { useDispatch, TypedUseSelectorHook, useSelector } from "react-redux";
 import notify from "./features/notification/notifySlice";
 import products from "./features/products/productSlice";
+import cart from "./features/cart/cartSlice";
+
 
 
 
 const reducers = combineReducers({
     notify,
-    products
+    products,
+    cart
 });
 
 const rootReducer = (state: any, action: { type: any; }) => {
@@ -23,7 +26,7 @@ const rootReducer = (state: any, action: { type: any; }) => {
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: [ "auth", "notify"],
+  whitelist: [ "auth", "notify", "cart"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

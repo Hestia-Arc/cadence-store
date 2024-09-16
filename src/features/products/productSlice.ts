@@ -2,9 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../store";
 import { IProduct } from "../types";
 import { getProducts } from "./productAPIs";
+import { products } from "../data";
 
 interface ProductsState {
   products: IProduct[];
+  product: IProduct | null;
   status: boolean;
   loading: boolean;
   error: string | null;
@@ -12,7 +14,8 @@ interface ProductsState {
 
 // Define the initial state using that type
 const initialState: ProductsState = {
-  products: [],
+  products: products,
+  product: null,
   status: true,
   loading: false,
   error: "",
@@ -24,6 +27,13 @@ const productsSlice = createSlice({
   reducers: {
     hideNotice: (state) => {
       state.status = false;
+    },
+    getProduct: (state, action) => {
+      const filteredProduct = state.products.filter((item) => {
+        return item.id === action.payload;
+      });
+
+      state.product = filteredProduct[0];
     },
   },
   extraReducers: (builder) => {
@@ -43,6 +53,6 @@ const productsSlice = createSlice({
   },
 });
 
-export const { hideNotice } = productsSlice.actions;
+export const { hideNotice, getProduct } = productsSlice.actions;
 export const productsSelector = (state: RootState) => state.products;
 export default productsSlice.reducer;
