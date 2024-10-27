@@ -12,9 +12,12 @@ interface Props {
   index: string;
   img: string | undefined;
   tag: string;
-  price: string;
-  product?: IProduct,
+  price: number;
+  product?: IProduct;
   slashP?: number;
+  className?: string;
+  imgStyle?: string;
+  promo?: string;
 }
 
 export const CardCarrousel: FC<Props> = ({
@@ -23,6 +26,9 @@ export const CardCarrousel: FC<Props> = ({
   tag,
   price,
   product,
+  className,
+  imgStyle,
+  promo,
   // slashP,
 }): JSX.Element => {
   const [active, setActive] = useState(false);
@@ -49,8 +55,11 @@ export const CardCarrousel: FC<Props> = ({
   };
 
   return (
-    <div key={index} className="h-[433px] w-[262px] flex flex-col gap-2">
-      <div className="h-[349px] w-[262px] relative bg-gray-200">
+    <div
+      key={index}
+      className={`h-[433px] w-[262px] flex flex-col gap-2 ${className}`}
+    >
+      <div className={`h-[349px] w-[262px] relative bg-gray-200 ${imgStyle}`}>
         {img && (
           <img
             src={img}
@@ -78,7 +87,7 @@ export const CardCarrousel: FC<Props> = ({
         {/* hover contents */}
         {/* ------------------------ */}
         {/* new */}
-        <NewItem posT="top-3" posL="left-4" />
+        {promo?.length === 0 && <NewItem posT="top-3" posL="left-4" />}
 
         {/* wish icon */}
         <div
@@ -106,7 +115,7 @@ export const CardCarrousel: FC<Props> = ({
 
       {/* content */}
       <div className="h-[72px] w-[262px] flex flex-col gap-[3px] ">
-        <div className="flex gap-[2px]">
+        <div className="flex gap-[2px] mt-1">
           {" "}
           <img src={rating} alt="product" />
           <img src={rating} alt="product" />
@@ -125,7 +134,7 @@ export const CardCarrousel: FC<Props> = ({
 
         {/* price $*/}
         <div className="text-capS1">
-          <p>{price}</p>
+          <p>${price}.00</p>
         </div>
       </div>
     </div>

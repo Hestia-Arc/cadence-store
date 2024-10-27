@@ -3,7 +3,7 @@ export interface IProduct {
   id: string;
   productName: string;
   description: string;
-  price: string;
+  price: number;
   image?: string;
   image2?: string;
   image3?: string;

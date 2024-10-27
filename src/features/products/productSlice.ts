@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../store";
 import { IProduct } from "../types";
 import { getProducts } from "./productAPIs";
-import { products } from "../data";
+import { products } from "../data/ProductsData";
 
 interface ProductsState {
   products: IProduct[];
@@ -56,3 +56,7 @@ const productsSlice = createSlice({
 export const { hideNotice, getProduct } = productsSlice.actions;
 export const productsSelector = (state: RootState) => state.products;
 export default productsSlice.reducer;
+
+
+
+

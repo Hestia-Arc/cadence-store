@@ -16,6 +16,8 @@ import {
 } from "../../components/Elements";
 import { FC } from "react";
 import { IProduct } from "../../features/types";
+import { useAppSelector } from "../../store";
+import { productsSelector } from "../../features/products/productSlice";
 
 export const ProductDetails = ({ product }: { product: IProduct | null }) => {
   return (
@@ -95,11 +97,14 @@ const ProductContents = ({ product }: { product: IProduct | null }) => {
         <h3 className=" text-h5 capitalize ">{product?.productName}</h3>
 
         {/* description */}
+        <div>
         <p className=" text-body2Reg text-gray-400">{product?.description}</p>
+        <p className=" text-body2Reg text-gray-400">{product?.moreInfo}</p>
+        </div>
 
         {/* price */}
         <div className="flex items-center gap-3">
-          <div className=" text-h6">{product?.price}</div>
+          <div className=" text-h6">${product?.price}.00</div>
           <div className=" text-[20px] font-medium font-poppins leading-7 text-gray-400 ">
             $400.00
           </div>
@@ -109,7 +114,8 @@ const ProductContents = ({ product }: { product: IProduct | null }) => {
       {/* sizes */}
       <div className="h-[235px] flex flex-col gap-1 py-2">
         <h6 className=" text-body2Semi text-gray-400">Measurements</h6>
-        <div className=" text-body1Reg font-semibold">17 1/2x20 5/8"</div>
+        <div className=" text-body1Reg font-semibold">{product?.measurement === "" ? "None" : product?.measurement}</div> 
+        {/* 17 1/2x20 5/8" */}
 
         <h6 className=" text-body2Semi text-gray-400">Choose Color </h6>
         <div className=" text-body1Reg font-semibold">
@@ -185,6 +191,8 @@ interface ITabProps {
 }
 
 const TabItems: FC<ITabProps> = ({ tag, active }) => {
+  const { product } = useAppSelector(productsSelector);
+
   return (
     <div>
       {/* tab title */}
@@ -208,9 +216,12 @@ const TabItems: FC<ITabProps> = ({ tag, active }) => {
           <div>
             <h6 className=" text-gray-400">Packaging</h6>
             <div className=" font-normal mt-1">
-              <p>Width: 20 " Height: 1 ½ " Length: 21 ½ "</p>
-              <p>Weight: 7 lb 8 oz</p>
+            <p>Width: {product?.width} " Height: {product?.height} " Length: {product?.length} "</p>
+              <p>Weight: {product?.weight}</p>
               <p>Package(s): 1</p>
+              {/* <p>Width: 20 " Height: 1 ½ " Length: 21 ½ "</p>
+              <p>Weight: 7 lb 8 oz</p>
+              <p>Package(s): 1</p> */}
             </div>
           </div>
         </div>

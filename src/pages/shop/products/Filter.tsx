@@ -1,3 +1,4 @@
+import { useState } from "react";
 import filt from "../../../assets/products/filter.svg";
 
 const rooms = [
@@ -7,19 +8,23 @@ const rooms = [
   "kitchen",
   "bathroom",
   "dinning",
-  "outdoor",
+  "outdoors",
 ];
 
 const priceList = [
   "all price",
-  "$0.00 - $99.99",
-  "$100.00 - $199.99",
-  "$200.00 - $299.99",
-  "$300.00 - $399.99",
-  "$400.00+",
+  [0, 99],
+  [100, 199],
+  [200, 299],
+  [300, 399],
+  "400",
 ];
 
-function Filter() {
+function Filter({ clickedCategory, priceRange }: any) {
+  const [clicked, setClicked] = useState(0);
+  const [isChecked, setIsChecked] = useState(0);
+
+
   return (
     <div className="w-[200px] h-[582px] flex flex-col gap-8">
       <div className="flex gap-1 items-center">
@@ -37,11 +42,15 @@ function Filter() {
             return (
               <div
                 key={index}
-                className={` capitalize text-[14px] text-[#807e7e] font-semibold`}
+                onClick={() => {
+                  setClicked(index);
+                  clickedCategory(item);
+                }}
+                className={` capitalize text-[14px] text-[#807e7e] font-semibold cursor-pointer`}
               >
                 <span
                   className={` ${
-                    index === 2 ? "border-b-2 border-gray-500" : ""
+                    index === clicked ? "border-b-2 border-gray-500" : ""
                   }`}
                 >
                   {item}
@@ -60,14 +69,7 @@ function Filter() {
         <div className="flex flex-col gap-2 mr-5">
           {priceList.map((item, index) => {
             return (
-              <div
-                key={index}
-                className="flex justify-between capitalize text-[14px] text-[#807e7e] font-semibold"
-              >
-                <span>{item}</span>
-
-                <input type="checkbox" name="" id="" />
-              </div>
+              <PriceItem item={item} index={index} priceRange={priceRange} isChecked={isChecked} setIsChecked={setIsChecked} />
             );
           })}
         </div>
@@ -77,3 +79,40 @@ function Filter() {
 }
 
 export default Filter;
+
+const PriceItem = ({ item, index, priceRange, isChecked, setIsChecked }: any) => {
+
+  return (
+    <div
+      key={index}
+      className="flex justify-between capitalize text-[14px] text-[#807e7e] font-semibold"
+    >
+      {item === "all price" && <span>{item}</span>}
+      {item !== "all price" && item !== "400" ? (
+        <span>
+          ${item[0]}.00 - ${item[1]}.99
+        </span>
+      ) : (
+        ""
+      )}
+      {item === "400" && <span>${item}.00+</span>}
+
+      <input
+        type="checkbox"
+        name=""
+        id=""
+        checked={index === isChecked ? true : false}
+        onChange={() => {
+          setIsChecked(index)
+          if (item === "all price") {
+            priceRange({ min: 0, max: 999999999 });
+          } else if (typeof item === "object") {
+            priceRange({ min: item[0], max: item[1] });
+          } else {
+            priceRange({ min: Number(item), max: 999999999 });
+          }
+        }}
+      />
+    </div>
+  );
+};
