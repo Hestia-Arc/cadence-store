@@ -10,12 +10,14 @@ import SinglePost from "./pages/blog/SinglePost";
 import { CartSideBar } from "./components/cards";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import ScrollToTop from "./components/ScrollToTop";
+import classes from "./App.module.css"
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="mx-auto xs:min-w-[374px] xs:max-w-[375px] lg:min-w-[1300px] lg:max-w-[1440px] overflow-x-hidden relative">
+    <div className={`mx-auto xs:min-w-[374px] xs:max-w-[375px] lg:min-w-[1300px] lg:max-w-[1440px] overflow-x-hidden relative ${classes}`}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/product/:productId" element={<Product />} />
@@ -29,6 +31,11 @@ function App() {
 
         {/* <Route path="/" element={ <Home/>}/> */}
       </Routes>
+
+      {/* ----------------------------- */}
+      {/* scroll to top */}
+      {/* ----------------------------- */}
+      <ScrollToTop />
 
       {/* ----------------------------- */}
       {/* cart sidebar */}
@@ -53,19 +60,19 @@ function App() {
       {isOpen && (
         <motion.div
           initial={{ opacity: 0, x: "-0.5%" }}
-          animate={{ opacity: 1, x: 0}}
+          animate={{ opacity: 1, x: 0 }}
           transition={{
             type: "spring",
             stiffness: 43,
             damping: 12,
             delay: 0.4,
-            duration: 0.8
+            duration: 0.8,
           }}
           onClick={() => setIsOpen(false)}
           className="hidden sm:flex fixed top-0 right-0 left-0 bottom-0 bg-[rgba(0,0,0,0.5)] items-center z-[800] "
         >
           {/* <div className="flex h-[100vh] fixed top-0 right-0 items-center"> */}
-            <CartSideBar open={isOpen} close={() => setIsOpen(false)} />
+          <CartSideBar open={isOpen} close={() => setIsOpen(false)} />
           {/* </div> */}
         </motion.div>
       )}

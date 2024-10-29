@@ -52,7 +52,7 @@ const NavigationBar: FC<IProp> = () => {
           <NavLink to="/blog" className={` ${location.pathname === "/blog" ? "border-b-2 border-gray-400" : ""}`}>
             <span className={menuClass}>Blog</span>
           </NavLink>
-          <NavLink to="/contact" className={` ${location.pathname === "/contct" ? "border-b-2 border-gray-400" : ""}`}>
+          <NavLink to="/contact" className={` ${location.pathname === "/contact" ? "border-b-2 border-gray-400" : ""}`}>
             <span className={menuClass}>Contact Us</span>
           </NavLink>
         </div>

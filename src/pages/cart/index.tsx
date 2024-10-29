@@ -2,12 +2,13 @@ import { useState } from "react";
 import NavigationBar from "../../components/NavigationBar";
 import { Footer } from "../../components/Footer";
 import { Steps } from "./CartHeader";
-import { CartDisplay, StepOne, StepThree, StepTwo } from "./CartDisplay";
+import { CartDisplay } from "./CartDisplay";
 
 function CartPage() {
   const [isCartBarOpen, setIsCartBarOpen] = useState(false);
   const [active, setActive] = useState(1);
-  const [id, setId] = useState(<StepOne />);
+  const [id, setId] = useState(1);
+  // const [id, setId] = useState(<StepOne />);
 
   const toggleCartBar = () => {
     setIsCartBarOpen(!isCartBarOpen);
@@ -27,7 +28,7 @@ function CartPage() {
           <div className="h-[68px] flex gap-8 ">
             <button
               onClick={() => {
-                setId(<StepOne />);
+                setId(1);
                 setActive(1);
               }}
             >
@@ -37,7 +38,7 @@ function CartPage() {
 
             <button
               onClick={() => {
-                setId(<StepTwo />);
+                setId(2);
                 setActive(2);
               }}
             >
@@ -47,7 +48,7 @@ function CartPage() {
 
             <button
               onClick={() => {
-                setId(<StepThree />);
+                setId(3);
                 setActive(3);
               }}
             >

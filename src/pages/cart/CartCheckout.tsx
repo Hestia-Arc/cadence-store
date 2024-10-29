@@ -1,6 +1,9 @@
-import Pdt1 from "../../assets/products/product-1.png";
+// import Pdt1 from "../../assets/products/product-1.png";
 // import removeIcon from "../../assets/Icons/close.png";
 import { ButtonPrimary } from "../../components/Elements";
+import { cartSelector } from "../../features/cart/cartSlice";
+import { useCart } from "../../hooks/useCart";
+import { useAppSelector } from "../../store";
 
 export const inputStyle =
   "  h-[40px] w-[285px] px-4 py-2 rounded border-solid border-[1px] border-[#6C7275] border-opacity-30 mt-2";
@@ -237,6 +240,9 @@ export const CheckoutInfo = () => {
 
 // order summary
 export const OrderSummary = () => {
+  const { cart } = useAppSelector(cartSelector);
+  const totalPrice = useCart();
+
   // const [openTagBox, setOpenTagBox] = useState<boolean>(false);
   // const [tag, setTag] = useState<any>(null);
   // const [tagColor, setTagColor] = useState<any>(null);
@@ -253,11 +259,16 @@ export const OrderSummary = () => {
     <div className=" h-[862px] w-[413px] border-solid border-[1px] border-[#6C7275] border-opacity-30 rounded p-4">
       <div className=" text-h6 mb-4">Order summary</div>
       {/* ---------- */}
-      <div className="h-[556px] relative flex flex-col gap-4 overflow-y-auto">
-        <CartListItem />
-        <CartListItem />
-        <CartListItem />
-        {/* <CartListItem /> */}
+      <div className="h-[556px] relative flex flex-col gap-4 ">
+        <div className="h-[495px] flex flex-col gap-4 overflow-y-auto pr-2">
+          {cart?.length !== 0 ? (
+            cart?.map((item) => {
+              return <CartListItem item={item} />;
+            })
+          ) : (
+            <div>Cart is empty.</div>
+          )}
+        </div>
 
         <div className="h-[52px] bg-[#fff] sticky bottom-0 flex gap-2">
           <input
@@ -284,12 +295,12 @@ export const OrderSummary = () => {
 
         <OrderBelowBox>
           <div>Subtotal</div>
-          <div className=" text-gray-600 font-bold">$99.00</div>
+          <div className=" text-gray-600 font-bold">$0.00</div>
         </OrderBelowBox>
 
         <div className="flex justify-between items-center text-h7 font-semibold pt-[13px]">
           <div>Total</div>
-          <div>$234.00</div>
+          <div>${totalPrice}.00</div>
         </div>
       </div>
     </div>
@@ -309,21 +320,41 @@ const OrderBelowBox = ({ children }: Prop) => {
 };
 
 // item
-const CartListItem = () => {
+const CartListItem = ({ item }: any) => {
   return (
     <div className=" h-[144px] flex py-5 border-solid border-b-2 ">
       {/* product/remove btn  */}
-      <div className=" w-1/2 flex gap-4">
-        <img src={Pdt1} alt="product" className=" h-24 w-20 object-cover" />
+      <div className=" w-[70%] flex gap-4">
+        <div>
+          {item?.image && (
+            <img
+              src={item?.image}
+              alt="product"
+              className=" h-24 w-20 object-cover"
+            />
+          )}
+
+          {!item?.image && (
+            <div className="h-24 w-20 flex items-center justify-center bg-gray-300  bg-opacity-70 text-gray-400  text-opacity-40 rounded-[5px] text-[12px] font-bold">
+              <div className="flex items-center justify-center text-center h-full w-full ">
+                No <br /> Image
+              </div>
+            </div>
+          )}
+        </div>
 
         <div className="flex flex-col gap-2">
-          <span className=" text-capS1 font-bold">Tray Table</span>
+          <span className=" text-capS1 font-bold capitalize">
+            {item.productName?.length > 15
+              ? `${item.productName?.slice(0, 12)}...`
+              : item.productName}
+          </span>
           <span className=" text-capR2 text-gray-400 font-light">
-            Color: Black
+            Color: {item?.color}
           </span>
           <div className=" w-[72px] h-6 flex items-center justify-center gap-3 rounded  px-2 border-solid border-[1px] border-gray-400 opacity-70 ">
             <span>-</span>
-            <span className=" text-[12px]">2</span>
+            <span className=" text-[12px]">1</span>
             <span>+</span>
           </div>
           {/* <span className=" inline-flex items-center text-capR2 text-gray-400 font-bold">
@@ -334,9 +365,9 @@ const CartListItem = () => {
       </div>
 
       {/* price/stepper/subtotal */}
-      <div className="w-1/2 flex justify-end">
+      <div className="w-[30%] flex justify-end">
         {/* subtotal */}
-        <span className="  text-body2Semi font-bold">$38.00</span>
+        <span className="  text-body2Semi font-bold">${item?.price}.00</span>
       </div>
     </div>
   );

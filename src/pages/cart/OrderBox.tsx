@@ -1,24 +1,34 @@
-import Pdt1 from "../../assets/products/product-7.png";
-import Pdt2 from "../../assets/products/product-3.png";
-import Pdt3 from "../../assets/products/product-8.png";
+// import Pdt1 from "../../assets/products/product-7.png";
+// import Pdt2 from "../../assets/products/product-3.png";
+// import Pdt3 from "../../assets/products/product-8.png";
 import { FC } from "react";
+import { useCart } from "../../hooks/useCart";
+import { useAppSelector } from "../../store";
+import { cartSelector } from "../../features/cart/cartSlice";
 
 function OrderBox() {
+  const { cart } = useAppSelector(cartSelector);
+  const totalPrice = useCart();
+  const date = new Date().toDateString();
+
   return (
-    <div className="h-[730px] w-[738px] flex flex-col items-center gap-10 shadow-xl rounded-xl px-24 py-20">
+    <div className="h-[750px] w-[738px] flex flex-col items-center gap-10 shadow-xl rounded-xl px-24 py-20">
       <div className=" text-center">
         <div className=" text-h6 text-gray-400">Thank you!</div>
 
-        <div className=" mt-1 text-h4 text-[#23262F]">
+        <div className=" text-h4 text-[#23262F]">
           Your order has been <br /> received
         </div>
       </div>
 
       {/* order images */}
-      <div className="h-[112px] w-full flex justify-center gap-10 ">
-        <OrderCountItem img={Pdt3} />
+      <div className="h-[140px] w-full flex items-center gap-6 overflow-x-auto ">
+        {cart?.map((item) => {
+          return <OrderCountItem item={item} />;
+        })}
+        {/* <OrderCountItem img={Pdt3} />
         <OrderCountItem img={Pdt2} />
-        <OrderCountItem img={Pdt1} />
+        <OrderCountItem img={Pdt1} /> */}
       </div>
 
       {/* order info */}
@@ -37,8 +47,9 @@ function OrderBox() {
         <div className=" flex-1">
           <div className="h-full w-fit text-capS1 text-gray-700 font-bold pl-8 flex flex-col gap-5">
             <div>#0123_45678</div>
-            <div>October 19, 2023</div>
-            <div>$1,345.00</div>
+            <div>{date}</div>
+            {/* <div>October 19, 2024</div> */}
+            <div>${totalPrice}.00</div>
             <div>Credit Card</div>
           </div>
         </div>
@@ -57,18 +68,28 @@ function OrderBox() {
 export default OrderBox;
 
 interface Prop {
-  img: string;
+  item: any;
 }
 
-const OrderCountItem: FC<Prop> = ({ img }) => {
+const OrderCountItem: FC<Prop> = ({ item }) => {
   return (
     <div className="w-[96px] h-[112px] flex items-end relative">
       <div className="absolute top-0 right-0 h-8 w-8 flex items-center justify-center rounded-3xl bg-gray-700 text-white">
-        2
+        1
       </div>
 
       <div className="w-[80px] h-[96px] bg-gray-300 rounded">
-        <img src={img} alt="product" />
+        {item?.image && (
+        <img src={item?.image} alt="product" />
+
+        )}
+         {!item?.image && (
+            <div className="h-24 w-20 flex items-center justify-center bg-gray-300  bg-opacity-70 text-gray-400  text-opacity-40 rounded-[5px] text-[12px] font-bold">
+              <div className="flex items-center justify-center text-center h-full w-full ">
+                No <br /> Image
+              </div>
+            </div>
+          )}
       </div>
     </div>
   );

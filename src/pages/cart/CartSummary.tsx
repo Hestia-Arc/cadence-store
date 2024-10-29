@@ -1,7 +1,18 @@
+import { useState } from "react";
 import { ButtonPrimary } from "../../components/Elements";
+import { useCart } from "../../hooks/useCart";
 
-const radioStyle = "h-[52px] flex justify-between py-3 px-4 border-solid border-[1px] border-gray-400 rounded"
+const radioStyle =
+  "h-[52px] flex justify-between py-3 px-4 border-solid border-[1px] border-gray-400 rounded";
 export const CartSummary = () => {
+  const [shippingPrice, setShippingPrice] = useState(0);
+  const totalPrice = useCart();
+
+  const handleShipping = (value: number) => {
+    setShippingPrice(value);
+    useCart(shippingPrice);
+  };
+
   return (
     <div className="w-[312px] sm:w-[413px] h-[482px] flex flex-col gap-4 p-5 rounded-md border-solid border-[1px] border-[#6C7275]">
       <h6 className=" text-h7 font-bold">CartSummary</h6>
@@ -11,45 +22,64 @@ export const CartSummary = () => {
         <div className=" h-[196px] flex flex-col gap-3 pb-4">
           {/* free */}
           <div className={radioStyle}>
-
-          <div>
-            <input type="radio" name="shipping" id="free" />
-            <label className=" pl-2" htmlFor="free">Free shipping</label>
-          </div>
-          <div>$35.00</div>
+            <div>
+              <input
+                type="radio"
+                name="shipping"
+                id="free"
+                onChange={() => handleShipping(35)}
+              />
+              <label className=" pl-2" htmlFor="free">
+                Free shipping
+              </label>
+            </div>
+            <div>$35.00</div>
           </div>
 
           {/* express */}
           <div className={radioStyle}>
-
-          <div>
-            <input type="radio" name="shipping" id="express" />
-            <label className=" pl-2" htmlFor="express">Express shipping</label>
-          </div>
-          <div>$35.00</div>
+            <div>
+              <input
+                type="radio"
+                name="shipping"
+                id="express"
+                onChange={() => handleShipping(185)}
+              />
+              <label className=" pl-2" htmlFor="express">
+                Express shipping
+              </label>
+            </div>
+            <div>$185.00</div>
           </div>
 
           {/* pickup */}
           <div className={radioStyle}>
             <div>
-              <input type="radio" name="shipping" id="pickup" />
-              <label className=" pl-2" htmlFor="pickup">Pick Up</label>
+              <input
+                type="radio"
+                name="shipping"
+                id="pickup"
+                onChange={() => handleShipping(0)}
+              />
+              <label className=" pl-2" htmlFor="pickup">
+                Pick Up
+              </label>
             </div>
 
-            <div>$35.00</div>
+            <div>$0.00</div>
           </div>
         </div>
 
         {/* sub-total */}
         <div className=" h-[52px] py-3 flex justify-between">
           <span>Subtotal</span>
-          <span className=" font-bold">$1234.00</span>
+          <span className=" font-bold">$0.00</span>
         </div>
 
         {/* total */}
         <div className=" h-[52px] py-3 flex justify-between">
           <span className=" font-bold">Total</span>
-          <span className=" font-bold">$1345.00</span>
+          <span className=" font-bold">${totalPrice + shippingPrice}.00</span>
         </div>
       </div>
 
