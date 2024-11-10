@@ -22,6 +22,7 @@ export interface IProduct {
   weight?: string;
   length?: string;
   package?: string;
+  piece: number
 }
 
 

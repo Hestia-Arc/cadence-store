@@ -1,12 +1,11 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { ButtonDarkPlain, ButtonPrimary } from "../Elements";
+import { ButtonDarkPlain, ButtonPrimary, Stepper } from "../Elements";
 import removeIcon from "../../assets/Icons/close.png";
 import { useNavigate } from "react-router-dom";
-import { useAppSelector } from "../../store";
-import { cartSelector } from "../../features/cart/cartSlice";
-import { useCart } from "../../hooks/useCart";
+import { useAppDispatch, useAppSelector } from "../../store";
+import { cartSelector, removeItems } from "../../features/cart/cartSlice";
+// import { useCart } from "../../hooks/useCart";
 
-// import { useCartStore } from "../../features";
 interface Prop {
   open?: boolean;
   close: () => void;
@@ -14,8 +13,19 @@ interface Prop {
 
 export const CartSideBar: React.FC<Prop> = ({ close }) => {
   const navigate = useNavigate();
-  const { cart } = useAppSelector(cartSelector);
-  const totalPrice = useCart();
+  const dispatch = useAppDispatch();
+  const { cart, totalPrice, subTotal } = useAppSelector(cartSelector);
+
+  // const total = cart.reduce(
+  //   (accumulator: any, currentItem: { price: number, piece: number }) => {
+  //     return accumulator + (currentItem.price * currentItem?.piece);
+  //     // return accumulator + currentItem.amount * currentItem.price;
+  //   },
+  //   0
+  // );
+
+  // console.log(cart)
+  // console.log(total)
 
   return (
     <AnimatePresence>
@@ -30,8 +40,10 @@ export const CartSideBar: React.FC<Prop> = ({ close }) => {
         {/* =========== summary */}
         <div className="w-[365px] h-[70%] overflow-y-hidden rounded">
           <div className="flex justify-between items-center">
-            <h6 className=" text-h6">Cart</h6>
-
+            <div className="flex justify-between items-center gap-1">
+              <h6 className=" text-h6">Cart </h6>
+              <div className=" text-h7">({cart?.length})</div>
+            </div>
             <button className="hover:bg-gray-300 p-1 hover:rounded-full hover:shadow">
               <img
                 src={removeIcon}
@@ -76,9 +88,7 @@ export const CartSideBar: React.FC<Prop> = ({ close }) => {
                         Color: {item.color.map((itemColor) => itemColor)}
                       </span>
                       <div className=" w-[72px] h-6 flex items-center justify-center gap-3 rounded  px-2 border-solid border-[1px] border-gray-400 opacity-70 ">
-                        <span>-</span>
-                        <span className=" text-[12px]">2</span>
-                        <span>+</span>
+                        <Stepper item={item} />
                       </div>
                     </div>
                   </div>
@@ -89,13 +99,16 @@ export const CartSideBar: React.FC<Prop> = ({ close }) => {
                     <span className="  text-body2Semi font-bold">
                       ${item.price}.00
                     </span>
-                    <span className=" inline-flex items-center text-capR2 text-gray-400 font-bold">
+                    <button
+                      onClick={() => dispatch(removeItems(item))}
+                      className=" inline-flex items-center text-capR2 text-gray-400 font-bold"
+                    >
                       <img
                         src={removeIcon}
                         alt="icon"
                         className="h-[18px] w-[18px]"
                       />
-                    </span>
+                    </button>
                   </div>
                 </div>
               ))
@@ -113,7 +126,8 @@ export const CartSideBar: React.FC<Prop> = ({ close }) => {
           {/* sub-total */}
           <div className=" h-[20%] py-2 flex justify-between text-[15px] font-medium text-gray-400">
             <span>Subtotal</span>
-            <span>$0.00</span>
+            {/* <span>$0.00</span> */}
+            <span>${subTotal}.00</span>
           </div>
 
           {/* total */}
@@ -124,7 +138,10 @@ export const CartSideBar: React.FC<Prop> = ({ close }) => {
 
           {/* button */}
           <div className="h-[50%] flex flex-col items-center gap-1 ">
-            <ButtonPrimary text="Checkout" />
+            <ButtonPrimary text="Checkout"  onClick={() => {
+                navigate("/cart");
+                close();
+              }} />
 
             <ButtonDarkPlain
               text="view cart"

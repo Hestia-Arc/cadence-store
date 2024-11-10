@@ -1,6 +1,7 @@
 import { FC, useState } from "react";
 import rating from "../../assets/Icons/Star Icon.png";
 import wishIcon from "../../assets/Icons/wish-gray.png";
+import checkedIcon from "../../assets/Icons/item-check.png";
 // import { useCartStore } from "../../features";
 import { useNavigate } from "react-router-dom";
 import { NewItem } from "../NewItem";
@@ -9,7 +10,7 @@ import { addToCart } from "../../features/cart/cartSlice";
 import { IProduct } from "../../features/types";
 
 interface Props {
-  index: string;
+  index: string | number;
   img: string | undefined;
   tag: string;
   price: number;
@@ -35,6 +36,7 @@ export const CardCarrousel: FC<Props> = ({
   const [color, setColor] = useState(false);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const [isAdded, setIsAdded] = useState(false);
   // const addToCart = useCartStore((state) => state.addToCart);
 
   const handleHover = () => {
@@ -43,7 +45,11 @@ export const CardCarrousel: FC<Props> = ({
 
   const handleButtonClick = () => {
     // console.log(product)
+    setIsAdded(true);
     dispatch(addToCart(product));
+    setTimeout(() => {
+      setIsAdded(false);
+    }, 1500);
   };
 
   const handleWishClick = () => {
@@ -105,11 +111,19 @@ export const CardCarrousel: FC<Props> = ({
           onMouseEnter={handleHover}
           onMouseLeave={() => setActive(false)}
           onClick={handleButtonClick}
-          className={`w-[230px] h-[46px] absolute bottom-4 right-4 ${
-            active ? "flex" : "hidden"
+          className={`w-[230px] h-[46px] absolute bottom-4 bg-gr right-4 transition-all duration-500 shadow-md border ${
+            active || isAdded ? "flex" : "hidden"
           } justify-center items-center rounded-lg bg-gray-700 text-white text-btnSm `}
+          style={{
+            // backgroundColor: isAdded ? "#38cb8998" : "",
+            backgroundColor: isAdded ? "transparent" : "",
+            color: isAdded ? "#38cb89" : "",
+
+            // color: isAdded ? "#e8ecef" : "",
+          }}
         >
-          Add to cart
+          {isAdded && (<img src={checkedIcon} className="h-10 w-10" />)}
+          {isAdded ? "Item Added" : "Add to cart"}
         </button>
       </div>
 

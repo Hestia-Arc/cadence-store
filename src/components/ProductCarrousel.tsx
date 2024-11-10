@@ -28,16 +28,18 @@ export const ProductCarrousel: FC<ICarrouselTagProp> = ({ tag }) => {
 
       {/* carousel */}
       <div className="h-[433px] flex gap-5 overflow-hidden">
-        {products?.slice(0, 4).map((item) => {
+        {products?.slice(0, 4).map((item, index) => {
           return (
-            <CardCarrousel
-            index={item.id}
-              img={item.image}
-              tag={item.productName}
-              price={item.price}
-              product={item}
-              slashP={400.0}
-            />
+            <div key={index}>
+              <CardCarrousel
+                index={item.id}
+                img={item.image}
+                tag={item.productName}
+                price={item.price}
+                product={item}
+                slashP={400.0}
+              />
+            </div>
           );
         })}
 

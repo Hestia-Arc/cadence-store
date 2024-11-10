@@ -1,16 +1,20 @@
 import { useState } from "react";
 import { ButtonPrimary } from "../../components/Elements";
-import { useCart } from "../../hooks/useCart";
+import { useAppSelector } from "../../store";
+import { cartSelector } from "../../features/cart/cartSlice";
 
 const radioStyle =
   "h-[52px] flex justify-between py-3 px-4 border-solid border-[1px] border-gray-400 rounded";
 export const CartSummary = () => {
+  // const dispatch = useAppDispatch()
+
+  //@ts-ignore
   const [shippingPrice, setShippingPrice] = useState(0);
-  const totalPrice = useCart();
+  const { totalPrice, subTotal } = useAppSelector(cartSelector);
 
   const handleShipping = (value: number) => {
     setShippingPrice(value);
-    useCart(shippingPrice);
+    // dispatch(addShipping(shippingPrice))
   };
 
   return (
@@ -27,7 +31,9 @@ export const CartSummary = () => {
                 type="radio"
                 name="shipping"
                 id="free"
-                onChange={() => handleShipping(35)}
+                onChange={() => {
+                  handleShipping(35);
+                }}
               />
               <label className=" pl-2" htmlFor="free">
                 Free shipping
@@ -43,7 +49,9 @@ export const CartSummary = () => {
                 type="radio"
                 name="shipping"
                 id="express"
-                onChange={() => handleShipping(185)}
+                onChange={() => {
+                  handleShipping(185);
+                }}
               />
               <label className=" pl-2" htmlFor="express">
                 Express shipping
@@ -59,7 +67,9 @@ export const CartSummary = () => {
                 type="radio"
                 name="shipping"
                 id="pickup"
-                onChange={() => handleShipping(0)}
+                onChange={() => {
+                  handleShipping(0);
+                }}
               />
               <label className=" pl-2" htmlFor="pickup">
                 Pick Up
@@ -73,13 +83,13 @@ export const CartSummary = () => {
         {/* sub-total */}
         <div className=" h-[52px] py-3 flex justify-between">
           <span>Subtotal</span>
-          <span className=" font-bold">$0.00</span>
+          <span className=" font-bold">${subTotal}.00</span>
         </div>
 
         {/* total */}
         <div className=" h-[52px] py-3 flex justify-between">
           <span className=" font-bold">Total</span>
-          <span className=" font-bold">${totalPrice + shippingPrice}.00</span>
+          <span className=" font-bold">${totalPrice}.00</span>
         </div>
       </div>
 

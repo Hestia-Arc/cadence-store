@@ -11,13 +11,18 @@ import { CartSideBar } from "./components/cards";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import ScrollToTop from "./components/ScrollToTop";
-import classes from "./App.module.css"
+import classes from "./App.module.css";
+import { useAppSelector } from "./store";
+import { cartSelector } from "./features/cart/cartSlice";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
+  const { cart } = useAppSelector(cartSelector);
 
   return (
-    <div className={`mx-auto xs:min-w-[374px] xs:max-w-[375px] lg:min-w-[1300px] lg:max-w-[1440px] overflow-x-hidden relative ${classes}`}>
+    <div
+      className={`mx-auto xs:min-w-[374px] xs:max-w-[375px] lg:min-w-[1300px] lg:max-w-[1440px] overflow-x-hidden relative ${classes}`}
+    >
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/product/:productId" element={<Product />} />
@@ -46,8 +51,12 @@ function App() {
         ) : (
           <button
             onClick={() => setIsOpen(true)}
-            className="h-fit left-0 flex sm:flex-col items-center gap-1 text-h7 bg-green px-5 py-2 rounded-3xl sm:rounded-none sm:p-4"
+            className="h-fit left-0 flex sm:flex-col items-center gap-1 text-[14px] font-semibold bg-green px-5 py-2 rounded-3xl sm:rounded-none sm:p-3"
           >
+            <div className="h-8 w-8 flex items-center justify-center bg-white  rounded-full">
+              {cart?.length}
+            </div>
+
             {/* <Badge /> */}
             <span>C</span>
             <span>A</span>
@@ -68,7 +77,7 @@ function App() {
             delay: 0.4,
             duration: 0.8,
           }}
-          onClick={() => setIsOpen(false)}
+          // onClick={() => setIsOpen(false)}
           className="hidden sm:flex fixed top-0 right-0 left-0 bottom-0 bg-[rgba(0,0,0,0.5)] items-center z-[800] "
         >
           {/* <div className="flex h-[100vh] fixed top-0 right-0 items-center"> */}

@@ -2,13 +2,11 @@
 // import Pdt2 from "../../assets/products/product-3.png";
 // import Pdt3 from "../../assets/products/product-8.png";
 import { FC } from "react";
-import { useCart } from "../../hooks/useCart";
 import { useAppSelector } from "../../store";
 import { cartSelector } from "../../features/cart/cartSlice";
 
 function OrderBox() {
-  const { cart } = useAppSelector(cartSelector);
-  const totalPrice = useCart();
+  const { cart, totalPrice } = useAppSelector(cartSelector);
   const date = new Date().toDateString();
 
   return (
@@ -22,9 +20,9 @@ function OrderBox() {
       </div>
 
       {/* order images */}
-      <div className="h-[140px] w-full flex items-center gap-6 overflow-x-auto ">
+      <div className="h-[140px] w-full flex items-center justify-center gap-6 overflow-x-auto overflow-y-hidden ">
         {cart?.map((item) => {
-          return <OrderCountItem item={item} />;
+          return <OrderCountItem item={item}  />;
         })}
         {/* <OrderCountItem img={Pdt3} />
         <OrderCountItem img={Pdt2} />
@@ -71,25 +69,22 @@ interface Prop {
   item: any;
 }
 
-const OrderCountItem: FC<Prop> = ({ item }) => {
+const OrderCountItem: FC<Prop> = ({ item}) => {
   return (
     <div className="w-[96px] h-[112px] flex items-end relative">
       <div className="absolute top-0 right-0 h-8 w-8 flex items-center justify-center rounded-3xl bg-gray-700 text-white">
-        1
+        {item.piece}
       </div>
 
       <div className="w-[80px] h-[96px] bg-gray-300 rounded">
-        {item?.image && (
-        <img src={item?.image} alt="product" />
-
-        )}
-         {!item?.image && (
-            <div className="h-24 w-20 flex items-center justify-center bg-gray-300  bg-opacity-70 text-gray-400  text-opacity-40 rounded-[5px] text-[12px] font-bold">
-              <div className="flex items-center justify-center text-center h-full w-full ">
-                No <br /> Image
-              </div>
+        {item?.image && <img src={item?.image} alt="product" />}
+        {!item?.image && (
+          <div className="h-24 w-20 flex items-center justify-center bg-gray-300  bg-opacity-70 text-gray-400  text-opacity-40 rounded-[5px] text-[12px] font-bold">
+            <div className="flex items-center justify-center text-center h-full w-full ">
+              No <br /> Image
             </div>
-          )}
+          </div>
+        )}
       </div>
     </div>
   );

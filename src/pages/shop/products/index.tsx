@@ -102,7 +102,7 @@ function Products() {
           <div className=" text-body1Semi font-bold capitalize">{clicked}</div>
           {/* <p>{clickedRange?.min}</p>
           <p>{clickedRange?.max}</p> */}
-          <p>{products?.length}</p>
+          {/* <p>{products?.length}</p> */}
 
           {/* grid */}
           <div className="w-[540px] h-full flex item-end justify-between">

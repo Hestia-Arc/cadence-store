@@ -4,6 +4,7 @@ import searchIcon from "../assets/Icons/search.png";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import NotificationBar from "./NotificationBar";
 import { FC, useEffect, useState } from "react";
+import { Badge } from "./Badge";
 
 interface IProp {
   open: () => void;
@@ -78,7 +79,7 @@ const NavigationBar: FC<IProp> = () => {
                 alt="icon"
                 className="hover:shadow-sm hover:bg-gray-300 hover:rounded-lg"
               />
-              {/* <Badge /> */}
+              <Badge />
             </div>
           </Link>
         </div>

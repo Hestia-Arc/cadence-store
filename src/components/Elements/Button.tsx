@@ -41,13 +41,14 @@ export const ButtonDarkPlain: React.FC<Prop2> = (props): JSX.Element => {
 
 interface IPrimaryBtn {
   text: string,
-  style?: string
+  style?: string,
+  onClick?: () => void,
 }
 
 // add to cart btn
-export const ButtonPrimary:FC<IPrimaryBtn> = ({text, style}) => {
+export const ButtonPrimary:FC<IPrimaryBtn> = ({text, style, onClick}) => {
   return (
-    <button className={`h-[50px] w-full ${style}  flex justify-center items-center text-gray-100 text-btnMd font-semibold bg-gray-700 rounded-lg`}>
+    <button onClick={onClick} className={`h-[50px] w-full ${style}  flex justify-center items-center text-gray-100 text-btnMd font-semibold bg-gray-700 rounded-lg`}>
     <p className="">{text}</p>
     </button>
   )

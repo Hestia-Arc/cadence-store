@@ -29,6 +29,7 @@ export const products = [
     weight: "120 lbs",
     length: "",
     package: "",
+    piece: 1
   }, 
   {
     id: "341",
@@ -53,6 +54,7 @@ export const products = [
     weight: "",
     length: "",
     package: "",
+    piece: 1
   },
   {
     id: "573",
@@ -77,6 +79,7 @@ export const products = [
     weight: "",
     length: "",
     package: "",
+    piece: 1
   },
   {
     id: "13",
@@ -101,6 +104,7 @@ export const products = [
     weight: "",
     length: "",
     package: "",
+    piece: 1
   },
   {
     id: "144",
@@ -125,6 +129,7 @@ export const products = [
     weight: "3 lbs",
     length: "60",
     package: "",
+    piece: 1
   },
   {
     id: "157",
@@ -149,6 +154,7 @@ export const products = [
     weight: "",
     length: "",
     package: "",
+    piece: 1
   },
   {
     id: "1573579",
@@ -173,6 +179,7 @@ export const products = [
     weight: "5 lbs",
     length: "24",
     package: "",
+    piece: 1
   },
   {
     id: "157550",
@@ -197,6 +204,7 @@ export const products = [
     weight: "10 lbs",
     length: "12",
     package: "",
+    piece: 1
   },
   {
     id: "15774114",
@@ -221,6 +229,7 @@ export const products = [
     weight: "50 lbs",
     length: "48",
     package: "",
+    piece: 1
   },
   
 
@@ -248,6 +257,7 @@ export const products = [
     weight: "120 lbs",
     length: "72",
     package: "",
+    piece: 1
   },
   {
     id: "585778",
@@ -272,6 +282,7 @@ export const products = [
     weight: "2 lbs",
     length: "",
     package: "",
+    piece: 1
   },
   {
     id: "585741",
@@ -296,6 +307,7 @@ export const products = [
     weight: "40 lbs",
     length: "24",
     package: "",
+    piece: 1
   },
   {
     id: "585608",
@@ -320,6 +332,7 @@ export const products = [
     weight: "2 lbs",
     length: "20",
     package: "",
+    piece: 1
   },
   {
     id: "585008",
@@ -344,6 +357,7 @@ export const products = [
     weight: "2 lbs",
     length: "24",
     package: "",
+    piece: 1
   },
   {
     id: "585511",
@@ -368,6 +382,7 @@ export const products = [
     weight: "5 lbs",
     length: "16",
     package: "",
+    piece: 1
   },
   {
     id: "585357",
@@ -392,10 +407,11 @@ export const products = [
     weight: "150 lbs",
     length: "78",
     package: "",
+    piece: 1
   },
  
 
-  // ---------------- kitchen
+  // // ---------------- kitchen
   {
     id: "744841",
     productName: "Eco-Friendly Cookware Set",
@@ -419,6 +435,7 @@ export const products = [
     weight: "",
     length: "",
     package: "",
+    piece: 1
   },
   {
     id: "744983",
@@ -443,6 +460,7 @@ export const products = [
     weight: "",
     length: "",
     package: "",
+    piece: 1
   },
   {
     id: "744335",
@@ -467,6 +485,7 @@ export const products = [
     weight: "10 lbs",
     length: "12",
     package: "",
+    piece: 1
   },
   {
     id: "744187",
@@ -491,6 +510,7 @@ export const products = [
     weight: "5 lbs",
     length: "",
     package: "",
+    piece: 1
   },
   {
     id: "744339",
@@ -515,6 +535,7 @@ export const products = [
     weight: "1 lb",
     length: "8",
     package: "",
+    piece: 1
   },
   {
     id: "744258",
@@ -539,9 +560,10 @@ export const products = [
     weight: "",
     length: "",
     package: "",
+    piece: 1
   },
  
-  // ---------------- bathroom
+  // // ---------------- bathroom
   {
     id: "155653",
     productName: "Rain Shower Head",
@@ -565,6 +587,7 @@ export const products = [
     weight: "5 lbs",
     length: "12",
     package: "",
+    piece: 1
   },
   {
     id: "155483",
@@ -589,6 +612,7 @@ export const products = [
     weight: "150 lbs",
     length: "60",
     package: "",
+    piece: 1
   }, 
   {
     id: "155227",
@@ -613,6 +637,7 @@ export const products = [
     weight: "",
     length: "",
     package: "",
+    piece: 1
   },
   {
     id: "155110",
@@ -637,6 +662,7 @@ export const products = [
     weight: "2 lbs",
     length: "24",
     package: "",
+    piece: 1
   },
   {
     id: "155007",
@@ -661,6 +687,7 @@ export const products = [
     weight: "2 lbs",
     length: "",
     package: "",
+    piece: 1
   },
   {
     id: "155612",
@@ -685,9 +712,10 @@ export const products = [
     weight: "",
     length: "",
     package: "",
+    piece: 1
   },
   
-  // -------------- dinning room
+  // // -------------- dinning room
   {
     id: "238999",
     productName: "Classic Dining Table Set",
@@ -711,6 +739,7 @@ export const products = [
     weight: "varies",
     length: "72",
     package: "",
+    piece: 1
   },
   {
     id: "23839",
@@ -735,6 +764,7 @@ export const products = [
     weight: "20 lbs",
     length: "24",
     package: "",
+    piece: 1
   },
   {
     id: "238900",
@@ -759,6 +789,7 @@ export const products = [
     weight: "varies",
     length: "",
     package: "",
+    piece: 1
   },
   {
     id: "238514",
@@ -783,6 +814,7 @@ export const products = [
     weight: "varies",
     length: "",
     package: "",
+    piece: 1
   },
   {
     id: "238881",
@@ -807,6 +839,7 @@ export const products = [
     weight: "varies",
     length: "",
     package: "",
+    piece: 1
   },
   {
     id: "238744",
@@ -831,6 +864,7 @@ export const products = [
     weight: "varies",
     length: "72",
     package: "",
+    piece: 1
   },
   {
     id: "238662",
@@ -855,10 +889,11 @@ export const products = [
     weight: "40 lbs",
     length: "36",
     package: "",
+    piece: 1
   },
   
 
-  // ----outdoors
+  // // ----outdoors
   {
     id: "182504",
     productName: "Solar-Powered Outdoor Lights",
@@ -882,6 +917,7 @@ export const products = [
     weight: "",
     length: "",
     package: "",
+    piece: 1
   },
   {
     id: "182254",
@@ -906,6 +942,7 @@ export const products = [
     weight: "10 lbs",
     length: "10",
     package: "",
+    piece: 1
   },
   {
     id: "18248",
@@ -930,6 +967,7 @@ export const products = [
     weight: "Varies by piece",
     length: "Varies by piece",
     package: "",
+    piece: 1
   },
   {
     id: "182784",
@@ -954,6 +992,7 @@ export const products = [
     weight: "25 lbs",
     length: "24",
     package: "",
+    piece: 1
   },
   {
     id: "182509",
@@ -978,5 +1017,6 @@ export const products = [
     weight: "",
     length: "",
     package: "",
+    piece: 1
   },
 ];

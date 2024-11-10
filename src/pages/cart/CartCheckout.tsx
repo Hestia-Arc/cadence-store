@@ -1,8 +1,7 @@
 // import Pdt1 from "../../assets/products/product-1.png";
-// import removeIcon from "../../assets/Icons/close.png";
-import { ButtonPrimary } from "../../components/Elements";
+import removeIcon from "../../assets/Icons/close.png";
+import { ButtonPrimary, Stepper } from "../../components/Elements";
 import { cartSelector } from "../../features/cart/cartSlice";
-import { useCart } from "../../hooks/useCart";
 import { useAppSelector } from "../../store";
 
 export const inputStyle =
@@ -240,8 +239,8 @@ export const CheckoutInfo = () => {
 
 // order summary
 export const OrderSummary = () => {
-  const { cart } = useAppSelector(cartSelector);
-  const totalPrice = useCart();
+  const { cart, totalPrice, subTotal } = useAppSelector(cartSelector);
+
 
   // const [openTagBox, setOpenTagBox] = useState<boolean>(false);
   // const [tag, setTag] = useState<any>(null);
@@ -260,13 +259,16 @@ export const OrderSummary = () => {
       <div className=" text-h6 mb-4">Order summary</div>
       {/* ---------- */}
       <div className="h-[556px] relative flex flex-col gap-4 ">
-        <div className="h-[495px] flex flex-col gap-4 overflow-y-auto pr-2">
+        <div className={`h-[495px] flex flex-col gap-4 overflow-y-auto ${cart?.length !== 0 && "pr-2"}`}>
           {cart?.length !== 0 ? (
             cart?.map((item) => {
               return <CartListItem item={item} />;
             })
           ) : (
-            <div>Cart is empty.</div>
+            <div className=" h-full w-full italic bg-gray-200 rounded text-gray-400 flex justify-center items-center">
+            {" "}
+            Cart is empty.{" "}
+          </div>
           )}
         </div>
 
@@ -295,7 +297,7 @@ export const OrderSummary = () => {
 
         <OrderBelowBox>
           <div>Subtotal</div>
-          <div className=" text-gray-600 font-bold">$0.00</div>
+          <div className=" text-gray-600 font-bold">${subTotal}.00</div>
         </OrderBelowBox>
 
         <div className="flex justify-between items-center text-h7 font-semibold pt-[13px]">
@@ -353,21 +355,19 @@ const CartListItem = ({ item }: any) => {
             Color: {item?.color}
           </span>
           <div className=" w-[72px] h-6 flex items-center justify-center gap-3 rounded  px-2 border-solid border-[1px] border-gray-400 opacity-70 ">
-            <span>-</span>
-            <span className=" text-[12px]">1</span>
-            <span>+</span>
+            <Stepper item={item} />
           </div>
-          {/* <span className=" inline-flex items-center text-capR2 text-gray-400 font-bold">
-            <img src={removeIcon} alt="icon" className="h-[18px] w-[18px]" />
-            <span> Remove</span>
-          </span> */}
+         
         </div>
       </div>
 
       {/* price/stepper/subtotal */}
-      <div className="w-[30%] flex justify-end">
+      <div className="w-[30%] flex flex-col justify-start items-end">
         {/* subtotal */}
-        <span className="  text-body2Semi font-bold">${item?.price}.00</span>
+        <span className="  text-body2Semi font-bold">${item?.price * item?.piece}.00</span>
+        <button className=" inline-flex items-center text-[11.5px] text-gray-400 font-bold">
+            <img src={removeIcon} alt="icon" className="h-[18px] w-[18px]" />
+          </button>
       </div>
     </div>
   );
