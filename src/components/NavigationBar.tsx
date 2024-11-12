@@ -63,7 +63,8 @@ const NavigationBar: FC<IProp> = () => {
           <img src={searchIcon} alt="icon" />
 
           {/* =========== ACCOUNT */}
-          <Link to="/account">
+          {/* <Link to="/account"> */}
+          <Link to="/auth">
             <img
               src={avatarIcon}
               alt="icon"

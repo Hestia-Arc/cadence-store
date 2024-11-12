@@ -14,6 +14,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import classes from "./App.module.css";
 import { useAppSelector } from "./store";
 import { cartSelector } from "./features/cart/cartSlice";
+import Auth from "./pages/auths/Auth";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,6 +34,7 @@ function App() {
 
         <Route path="/cart" element={<CartPage />} />
         <Route path="/account" element={<AccountPage />} />
+        <Route path="/auth" element={<Auth />} />
 
         {/* <Route path="/" element={ <Home/>}/> */}
       </Routes>
