@@ -5,7 +5,6 @@ import pdt3 from "../../assets/products/product-13.png";
 // import pdt1 from "../../assets/products/product-10.png";
 
 import { NewItem } from "../../components/NewItem";
-import ratingIcon from "../../assets/Icons/Star Icon.png";
 import wishIcon from "../../assets/Icons/wish-dark.png";
 import minusIcon from "../../assets/Icons/Minus.png";
 import plusIcon from "../../assets/Icons/Add.png";
@@ -18,6 +17,7 @@ import { FC } from "react";
 import { IProduct } from "../../features/types";
 import { useAppSelector } from "../../store";
 import { productsSelector } from "../../features/products/productSlice";
+import Rating from "../../components/Elements/Rating";
 
 export const ProductDetails = ({ product }: { product: IProduct | null }) => {
   return (
@@ -82,16 +82,7 @@ const ProductContents = ({ product }: { product: IProduct | null }) => {
       {/* product description  price */}
       <div className=" h-[205px] flex flex-col gap-1 pb-4 border-solid border-b-[1px] border-gray-300">
         {/* rating */}
-        <div className="flex items-center gap-[10px]">
-          <div className="flex items-center">
-            <img src={ratingIcon} alt="rating" />
-            <img src={ratingIcon} alt="rating" />
-            <img src={ratingIcon} alt="rating" />
-            <img src={ratingIcon} alt="rating" />
-            <img src={ratingIcon} alt="rating" />
-          </div>
-          <p className=" text-capR2">11 Reviews</p>
-        </div>
+        <Rating/>
 
         {/* product name */}
         <h3 className=" text-h5 capitalize ">{product?.productName}</h3>

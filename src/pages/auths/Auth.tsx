@@ -6,6 +6,24 @@ const inputStyle =
   "h-[40px] border-b-[1px] border-gray-300 bg-[transparent] outline-none px-1";
 function Auth() {
   const [switchAuth, setSwitchAuth] = useState("signup");
+  const [formData, setFormData] = useState({
+    name: "",
+    username: "",
+    email: "",
+    password: "",
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = () => {
+    console.log(formData);
+    setSwitchAuth("login");
+  };
 
   return (
     <div className=" h-[100vh] w-full flex justify-center items-center">
@@ -51,42 +69,69 @@ function Auth() {
               </p>
             </div>
 
-            <form className=" flex flex-col gap-3 text-body2Reg !text-[14px] text-gray-400">
+            <form
+              onSubmit={handleSubmit}
+              className=" flex flex-col gap-3 text-body2Reg !text-[14px] text-gray-400"
+            >
               <div className=" flex  flex-col gap-3 ">
                 {switchAuth === "signup" ? (
                   <>
                     <input
                       type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
                       placeholder="Your name"
                       className={inputStyle}
+                      required
                     />
                     <input
                       type="text"
+                      name="username"
+                      value={formData.username}
+                      onChange={handleInputChange}
                       placeholder="Username"
                       className={inputStyle}
+                      required
                     />
                     <input
                       type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
                       placeholder="Email address"
                       className={inputStyle}
+                      required
                     />
                     <input
                       type="password"
+                      name="password"
+                      value={formData.password}
+                      onChange={handleInputChange}
                       placeholder="Password"
                       className={inputStyle}
+                      required
                     />
                   </>
                 ) : (
                   <>
                     <input
                       type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
                       placeholder="Email address"
                       className={inputStyle}
+                      required
                     />
                     <input
                       type="password"
+                      name="password"
+                      value={formData.password}
+                      onChange={handleInputChange}
                       placeholder="Password"
                       className={inputStyle}
+                      required
                     />
                   </>
                 )}
@@ -121,6 +166,7 @@ function Auth() {
               )}
 
               <ButtonPrimary
+                onClick={handleSubmit}
                 text={switchAuth === "signup" ? "Sign Up" : "Sign In"}
                 style="!h-[38px] !text-[14px] !mt-4"
               />

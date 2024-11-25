@@ -1,4 +1,5 @@
 // import Pdt1 from "../../assets/products/product-1.png";
+import { useState } from "react";
 import removeIcon from "../../assets/Icons/close.png";
 import { ButtonPrimary, Stepper } from "../../components/Elements";
 import { cartSelector } from "../../features/cart/cartSlice";
@@ -56,8 +57,34 @@ const PayIcon = () => {
 };
 
 export const CheckoutInfo = () => {
+  const [formData, setFormData] = useState({
+    firstname: "",
+    lastname: "",
+    phone: "",
+    email: "",
+    address: "",
+    country: "",
+    city: "",
+    state: "",
+    zipcode: "",
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = () => {
+    console.log(formData);
+  };
+
   return (
-    <div className=" h-[1474px] w-[643px] flex flex-col gap-6 ">
+    <form
+      onSubmit={handleSubmit}
+      className=" h-[1474px] w-[643px] flex flex-col gap-6 "
+    >
       {/* ========== contact section */}
       <div className={sectionStyle}>
         <div className={titleStyle}>Contact Information</div>
@@ -70,6 +97,9 @@ export const CheckoutInfo = () => {
             </label>
             <input
               type="text"
+              name="firstname"
+              value={formData.firstname}
+              onChange={handleInputChange}
               placeholder="First name"
               className={inputStyle}
             />
@@ -79,7 +109,14 @@ export const CheckoutInfo = () => {
             <label className={labelStyle} htmlFor="">
               last name
             </label>
-            <input type="text" placeholder="Last name" className={inputStyle} />
+            <input
+              type="text"
+              name="lastname"
+              value={formData.lastname}
+              onChange={handleInputChange}
+              placeholder="Last name"
+              className={inputStyle}
+            />
           </div>
         </div>
 
@@ -90,6 +127,9 @@ export const CheckoutInfo = () => {
           </label>
           <input
             type="text"
+            name="phone"
+            value={formData.phone}
+            onChange={handleInputChange}
             placeholder="Phone number"
             className={`${inputStyle} w-full`}
           />
@@ -101,7 +141,10 @@ export const CheckoutInfo = () => {
             email address
           </label>
           <input
-            type="text"
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleInputChange}
             placeholder="Email address"
             className={`${inputStyle} w-full`}
           />
@@ -119,6 +162,9 @@ export const CheckoutInfo = () => {
           </label>
           <input
             type="text"
+            name="address"
+            value={formData.address}
+            onChange={handleInputChange}
             placeholder="Street Address"
             className={`${inputStyle} w-full`}
           />
@@ -131,6 +177,9 @@ export const CheckoutInfo = () => {
           </label>
           <input
             type="text"
+            name="country"
+            value={formData.country}
+            onChange={handleInputChange}
             placeholder="Country"
             className={`${inputStyle} w-full`}
           />
@@ -143,6 +192,9 @@ export const CheckoutInfo = () => {
           </label>
           <input
             type="text"
+            name="city"
+            value={formData.city}
+            onChange={handleInputChange}
             placeholder="Town/City"
             className={`${inputStyle} w-full`}
           />
@@ -154,14 +206,28 @@ export const CheckoutInfo = () => {
             <label className={labelStyle} htmlFor="">
               state
             </label>
-            <input type="text" placeholder="State" className={inputStyle} />
+            <input
+              type="text"
+              name="state"
+              value={formData.state}
+              onChange={handleInputChange}
+              placeholder="State"
+              className={inputStyle}
+            />
           </div>
 
           <div className="h-[64px] flex flex-col">
             <label className={labelStyle} htmlFor="">
               zip code
             </label>
-            <input type="text" placeholder="Zip Code" className={inputStyle} />
+            <input
+              type="text"
+              name="zipcode"
+              value={formData.zipcode}
+              onChange={handleInputChange}
+              placeholder="Zip Code"
+              className={inputStyle}
+            />
           </div>
         </div>
 
@@ -232,15 +298,14 @@ export const CheckoutInfo = () => {
         </div>
       </div>
 
-      <ButtonPrimary text="Place Order" />
-    </div>
+      <ButtonPrimary text="Place Order" onClick={handleSubmit} />
+    </form>
   );
 };
 
 // order summary
 export const OrderSummary = () => {
   const { cart, totalPrice, subTotal } = useAppSelector(cartSelector);
-
 
   // const [openTagBox, setOpenTagBox] = useState<boolean>(false);
   // const [tag, setTag] = useState<any>(null);
@@ -259,16 +324,20 @@ export const OrderSummary = () => {
       <div className=" text-h6 mb-4">Order summary</div>
       {/* ---------- */}
       <div className="h-[556px] relative flex flex-col gap-4 ">
-        <div className={`h-[495px] flex flex-col gap-4 overflow-y-auto ${cart?.length !== 0 && "pr-2"}`}>
+        <div
+          className={`h-[495px] flex flex-col gap-4 overflow-y-auto ${
+            cart?.length !== 0 && "pr-2"
+          }`}
+        >
           {cart?.length !== 0 ? (
             cart?.map((item) => {
               return <CartListItem item={item} />;
             })
           ) : (
             <div className=" h-full w-full italic bg-gray-200 rounded text-gray-400 flex justify-center items-center">
-            {" "}
-            Cart is empty.{" "}
-          </div>
+              {" "}
+              Cart is empty.{" "}
+            </div>
           )}
         </div>
 
@@ -357,17 +426,18 @@ const CartListItem = ({ item }: any) => {
           <div className=" w-[72px] h-6 flex items-center justify-center gap-3 rounded  px-2 border-solid border-[1px] border-gray-400 opacity-70 ">
             <Stepper item={item} />
           </div>
-         
         </div>
       </div>
 
       {/* price/stepper/subtotal */}
       <div className="w-[30%] flex flex-col justify-start items-end">
         {/* subtotal */}
-        <span className="  text-body2Semi font-bold">${item?.price * item?.piece}.00</span>
+        <span className="  text-body2Semi font-bold">
+          ${item?.price * item?.piece}.00
+        </span>
         <button className=" inline-flex items-center text-[11.5px] text-gray-400 font-bold">
-            <img src={removeIcon} alt="icon" className="h-[18px] w-[18px]" />
-          </button>
+          <img src={removeIcon} alt="icon" className="h-[18px] w-[18px]" />
+        </button>
       </div>
     </div>
   );
