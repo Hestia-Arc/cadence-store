@@ -1,9 +1,13 @@
 import { ButtonPrimary } from "../../components/Elements";
 import removeIcon from "../../assets/Icons/close.png";
 import Pdt1 from "../../assets/products/product-1.png";
+import { useAppSelector } from "../../store";
+import { userSelector } from "../../features/user/userSlice";
 
 
 function WishContent() {
+  const { wishList } = useAppSelector(userSelector);
+
   return (
     <div className="min-h-[191px] w-full flex flex-col gap-10  ">
       <h3 className="text-[20px] font-semibold ">Your Wishlist</h3>
@@ -19,7 +23,7 @@ function WishContent() {
           </tr>
 
           {/* ------- body */}
-          {data.map((item) => (
+          {wishList?.map((item) => (
             <tr key={item.id} className=" h-[120px] text-capR1 font-normal text-gray-700 border-b-[1px] border-[#e7e7e7]">
               <td>
                 <div className="h-[72px] w-[213px] flex items-center gap-[10px]">
@@ -36,7 +40,7 @@ function WishContent() {
 
                   {/* ------ details */}
                   <div className="h-[50px] w-[117px] flex flex-col gap-2">
-                    <div className=" text-capS1 text-gray-700">{item.name}</div>
+                    <div className=" text-capS1 text-gray-700">{item.tag}</div>
                     <div className=" text-gray-400 text-capR2">Color: {item.color}</div>
 
                   </div>
@@ -56,33 +60,33 @@ function WishContent() {
 export default WishContent
 
 
-const data = [
-  {
-    id: "#3456_768",
-    name: "Table",
-    img: "October 17, 2023",
-    color: "Black",
-    price: "$119.00",
-  },
-  {
-    id: "#3456_768",
-    name: "Table",
-    img: "October 17, 2023",
-    color: "Beige",
-    price: "$119.00",
-  },
-  {
-    id: "#3456_768",
-    name: "Table",
-    img: "October 17, 2023",
-    color: "Red",
-    price: "$119.00",
-  },
-  {
-    id: "#3456_768",
-    name: "Table",
-    img: "October 17, 2023",
-    color: "Beige",
-    price: "$119.00",
-  },
-];
+// const data = [
+//   {
+//     id: "#3456_768",
+//     name: "Table",
+//     img: "October 17, 2023",
+//     color: "Black",
+//     price: "$119.00",
+//   },
+//   {
+//     id: "#3456_768",
+//     name: "Table",
+//     img: "October 17, 2023",
+//     color: "Beige",
+//     price: "$119.00",
+//   },
+//   {
+//     id: "#3456_768",
+//     name: "Table",
+//     img: "October 17, 2023",
+//     color: "Red",
+//     price: "$119.00",
+//   },
+//   {
+//     id: "#3456_768",
+//     name: "Table",
+//     img: "October 17, 2023",
+//     color: "Beige",
+//     price: "$119.00",
+//   },
+// ];

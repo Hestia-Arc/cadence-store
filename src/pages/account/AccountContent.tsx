@@ -1,7 +1,30 @@
+import { useState } from "react";
 import { ButtonPrimary } from "../../components/Elements";
+import { setUser, userSelector } from "../../features/user/userSlice";
+import { useAppDispatch, useAppSelector } from "../../store";
 import { inputStyle, labelStyle } from "../cart/CartCheckout";
 
 function AccountContent() {
+  const userData = useAppSelector(userSelector);
+  const dispatch = useAppDispatch();
+  const [formData, setFormData] = useState({
+    username: userData?.username,
+    email: userData?.email,
+    firstName: userData?.checkOutDetail.firstName,
+    lastName: userData?.checkOutDetail.lastName,
+    
+  });
+
+  const handleSubmit = () => {
+    dispatch(setUser(formData));
+  };
+  // const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   setFormData({
+  //     ...formData,
+  //     [e.target.name]: e.target.value,
+  //   });
+  // }
+  
   return (
     <form className="h-full w-full flex flex-col gap-10 ">
       {/* top */}
@@ -15,6 +38,10 @@ function AccountContent() {
           </label>
           <input
             type="text"
+            value={formData.firstName}
+            onChange={(e) =>
+              setFormData({ ...formData, firstName: e.target.value })
+            }
             placeholder="First name"
             className={`${inputStyle} w-full`}
           />
@@ -28,6 +55,10 @@ function AccountContent() {
           <input
             type="text"
             placeholder="Last name"
+            value={formData.lastName}
+            onChange={(e) =>
+              setFormData({ ...formData, lastName: e.target.value })
+            }
             className={`${inputStyle} w-full`}
           />
         </div>
@@ -40,6 +71,10 @@ function AccountContent() {
           <input
             type="text"
             placeholder="Display name"
+            value={formData.username}
+            onChange={(e) =>
+              setFormData({ ...formData, username: e.target.value })
+            }
             className={`${inputStyle} w-full`}
           />
 
@@ -57,6 +92,10 @@ function AccountContent() {
           <input
             type="text"
             placeholder="Email"
+            value={formData.email}
+            onChange={(e) =>
+              setFormData({ ...formData, email: e.target.value })
+            }
             className={`${inputStyle} w-full`}
           />
         </div>
@@ -102,7 +141,7 @@ function AccountContent() {
           />
         </div>
 
-        <ButtonPrimary text="Save changes" style="!w-[183px]" />
+        <ButtonPrimary text="Save changes" style="!w-[183px]" onClick={handleSubmit} />
       </div>
     </form>
   );

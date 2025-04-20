@@ -1,17 +1,42 @@
 import proImg from "../../assets/cadence-auth-img-desktop.png";
 import { ButtonPrimary } from "../../components/Elements";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useAppDispatch, useAppSelector } from "../../store";
+import { setUser, userSelector } from "../../features/user/userSlice";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 const inputStyle =
   "h-[40px] border-b-[1px] border-gray-300 bg-[transparent] outline-none px-1";
 function Auth() {
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const params = useSearchParams();
+  const [searchParams] = params;
+  const page = searchParams.get("switchAuth") || "";
+  const userData = useAppSelector(userSelector);
+
   const [switchAuth, setSwitchAuth] = useState("signup");
   const [formData, setFormData] = useState({
-    name: "",
     username: "",
     email: "",
     password: "",
   });
+
+  useEffect(() => {
+    if (userData.username !== "") {
+      navigate("/account");
+    }
+   
+  }, [userData]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    if (page === "signin") {
+      setSwitchAuth("signin");
+    } else if (page === "signup") {
+      setSwitchAuth("signup");
+    } 
+  }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -20,9 +45,25 @@ function Auth() {
     });
   };
 
-  const handleSubmit = () => {
-    console.log(formData);
-    setSwitchAuth("login");
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (formData.username === "") {
+      return;
+    }
+
+    if (switchAuth === "signup") {
+      dispatch(setUser(formData));
+      setSwitchAuth("signin");
+    }
+  };
+
+  const handleLogin = () => {
+    if (
+      userData.email === formData.email &&
+      userData.password === formData.password
+    ) {
+      navigate("/account");
+    }
   };
 
   return (
@@ -47,44 +88,32 @@ function Auth() {
                 {switchAuth === "signup" ? (
                   <>
                     Already have an account?{" "}
-                    <span
+                    <button
                       onClick={() => setSwitchAuth("login")}
                       className=" text-body2Semi !text-[14px] text-green"
                     >
                       Sign In
-                    </span>
+                    </button>
                   </>
                 ) : (
                   <>
                     {" "}
                     Don't have an account yet?{" "}
-                    <span
+                    <button
                       onClick={() => setSwitchAuth("signup")}
                       className=" text-body2Semi !text-[14px] text-green"
                     >
                       Sign Up
-                    </span>
+                    </button>
                   </>
                 )}
               </p>
             </div>
 
-            <form
-              onSubmit={handleSubmit}
-              className=" flex flex-col gap-3 text-body2Reg !text-[14px] text-gray-400"
-            >
+            <form className=" flex flex-col gap-3 text-body2Reg !text-[14px] text-gray-400">
               <div className=" flex  flex-col gap-3 ">
                 {switchAuth === "signup" ? (
                   <>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      placeholder="Your name"
-                      className={inputStyle}
-                      required
-                    />
                     <input
                       type="text"
                       name="username"
@@ -165,11 +194,19 @@ function Auth() {
                 </div>
               )}
 
-              <ButtonPrimary
-                onClick={handleSubmit}
-                text={switchAuth === "signup" ? "Sign Up" : "Sign In"}
-                style="!h-[38px] !text-[14px] !mt-4"
-              />
+              {switchAuth === "signup" ? (
+                <ButtonPrimary
+                  onClick={(e: any) => handleSubmit(e)}
+                  text="Sign Up"
+                  style="!h-[38px] !text-[14px] !mt-4"
+                />
+              ) : (
+                <ButtonPrimary
+                  onClick={handleLogin}
+                  text="Sign In"
+                  style="!h-[38px] !text-[14px] !mt-4"
+                />
+              )}
             </form>
           </div>
         </div>

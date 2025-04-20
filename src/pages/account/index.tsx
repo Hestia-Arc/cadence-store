@@ -1,22 +1,55 @@
 import { Footer } from "../../components/Footer";
 import NavigationBar from "../../components/NavigationBar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AccountContent from "./AccountContent";
 import OrderContent from "./OrderContent";
 import WishContent from "./WishContent";
 import AddressContent from "./AddressContent";
+import { useAppDispatch, useAppSelector } from "../../store";
+import { logOutUser, userSelector } from "../../features/user/userSlice";
+import { useNavigate } from "react-router-dom";
 
 const sideActive =
-  "focus:border-b-2 focus:border-gray-700 focus:text-gray-700 focus:font-bold";
-const sidelistStyle = `h-[42px] w-full flex justify-start py-2 text-gray-400 text-body2Semi hover:bg-gray-300 ${sideActive} `;
+  "h-[42px] w-full flex justify-start py-2 text-body2Semi border-b-2 border-gray-700 text-gray-700 font-bold";
+const sidelistStyle = `h-[42px] w-full flex justify-start py-2 text-gray-400 text-body2Semi hover:bg-gray-300 `;
 
 function AccountPage() {
+  const userData = useAppSelector(userSelector)
   const [isCartBarOpen, setIsCartBarOpen] = useState(false);
+  const dispatch = useAppDispatch()
+  const navigate = useNavigate()
   const [id, setId] = useState(1);
+  const [user, setUser] = useState({
+    username: "",
+    email: " ",
+    address: "",
+    city: "",
+    state: "",
+    zip: "",
+    country: "",
+    phone: "",  
+  })
 
   const toggleCartBar = () => {
     setIsCartBarOpen(!isCartBarOpen);
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  setUser({
+    username: userData?.username,
+    email: userData?.email,
+    address: userData?.checkOutDetail.address,
+    city: userData?.checkOutDetail.city,
+    state: userData?.checkOutDetail.state,
+    zip: userData?.checkOutDetail.zip,
+    country: userData?.checkOutDetail.country,
+    phone: userData?.checkOutDetail.phone
+
+
+  })
+
+  }, []);
 
   return (
     <div className=" bg-white text-gray-700">
@@ -36,24 +69,27 @@ function AccountPage() {
               <div className="h-[82px] w-[82px] rounded-[50px] flex items-center justify-center bg-green">
                 img
               </div>
-              <div className=" capitalize text-body1Semi">Sofia havertz</div>
+              <div className=" capitalize text-body1Semi">{user?.username}</div>
             </div>
 
             {/* -------- navs */}
             <div className="h-[258px] w-full flex flex-col items-start gap-3">
-              <button className={sidelistStyle} onClick={() => setId(1)}>
+              <button className={id === 1 ? sideActive : sidelistStyle} onClick={() => setId(1)}>
                 Account
               </button>
-              <button className={sidelistStyle} onClick={() => setId(2)}>
+              <button className={id === 2 ? sideActive : sidelistStyle} onClick={() => setId(2)}>
                 Address
               </button>
-              <button className={sidelistStyle} onClick={() => setId(3)}>
+              <button className={id === 3 ? sideActive : sidelistStyle} onClick={() => setId(3)}>
                 Orders
               </button>
-              <button className={sidelistStyle} onClick={() => setId(4)}>
+              <button className={id === 4 ? sideActive : sidelistStyle} onClick={() => setId(4)}>
                 Wishlist
               </button>
-              <button className={sidelistStyle}>Log Out</button>
+              <button className={sidelistStyle} onClick={() => { 
+                dispatch(logOutUser())
+                navigate("/auth?switchAuth=signin")
+              }}>Log Out</button>
             </div>
           </div>
 

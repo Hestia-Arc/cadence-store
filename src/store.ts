@@ -6,6 +6,7 @@ import { useDispatch, TypedUseSelectorHook, useSelector } from "react-redux";
 import notify from "./features/notification/notifySlice";
 import products from "./features/products/productSlice";
 import cart from "./features/cart/cartSlice";
+import user from "./features/user/userSlice";
 
 
 
@@ -13,7 +14,8 @@ import cart from "./features/cart/cartSlice";
 const reducers = combineReducers({
     notify,
     products,
-    cart
+    cart,
+    user
 });
 
 const rootReducer = (state: any, action: { type: any; }) => {
@@ -26,7 +28,7 @@ const rootReducer = (state: any, action: { type: any; }) => {
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: [ "auth", "notify", "cart"],
+  whitelist: [ "auth", "notify", "cart", "user"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

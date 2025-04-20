@@ -15,9 +15,9 @@ export const Footer = () => {
         <div className="min-h-[32px] flex flex-col sm:flex-row justify-between items-center gap-10 sm:gap-0 ">
           {/* brand name */}
           <div className=" sm:w-1/3 flex flex-col sm:flex-row gap-5 items-center">
-            <div className="text-[24px] font-medium font-poppins">
+            <Link to="/" className="text-[24px] font-medium font-poppins">
               leCadence<span className="text-gray-400">.</span>
-            </div>
+            </Link>
             <hr className='w-5 sm:hidden opacity-40' />
             <span className='hidden sm:block opacity-40'>|</span>
             <span className=" text-capR1 font-light opacity-80">Gifts & Decoration Store</span>

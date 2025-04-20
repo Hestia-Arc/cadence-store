@@ -1,13 +1,14 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import rating from "../../assets/Icons/Star Icon.png";
 import wishIcon from "../../assets/Icons/wish-gray.png";
 import checkedIcon from "../../assets/Icons/item-check.png";
 // import { useCartStore } from "../../features";
 import { useNavigate } from "react-router-dom";
 import { NewItem } from "../NewItem";
-import { useAppDispatch } from "../../store";
+import { useAppDispatch, useAppSelector } from "../../store";
 import { addToCart } from "../../features/cart/cartSlice";
 import { IProduct } from "../../features/types";
+import { addWishList, userSelector } from "../../features/user/userSlice";
 
 interface Props {
   index: string | number;
@@ -33,11 +34,19 @@ export const CardCarrousel: FC<Props> = ({
   // slashP,
 }): JSX.Element => {
   const [active, setActive] = useState(false);
-  const [color, setColor] = useState(false);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const [isAdded, setIsAdded] = useState(false);
+  const userData = useAppSelector(userSelector);
+  const { wishList } = userData;
+  const [wish, setWish] = useState<any>({});
   // const addToCart = useCartStore((state) => state.addToCart);
+
+  useEffect(() => {
+    const filterWishList = wishList?.filter((item) => item.tag === tag);
+
+    setWish(filterWishList[0]);
+  }, [wishList]);
 
   const handleHover = () => {
     setActive(true);
@@ -53,7 +62,11 @@ export const CardCarrousel: FC<Props> = ({
   };
 
   const handleWishClick = () => {
-    setColor(!color);
+    // setColor(!color);
+    dispatch(addWishList(product));
+    // setTimeout(() => {
+    //   setColor(false);
+    // }, 1500);
   };
 
   const handleNavigate = () => {
@@ -103,7 +116,7 @@ export const CardCarrousel: FC<Props> = ({
             active ? "flex" : "hidden"
           } justify-center items-center rounded-2xl bg-white`}
         >
-          {color ? "❤" : <img src={wishIcon} alt="product" />}
+          {wish?.tag === tag ? "❤" : <img src={wishIcon} alt="product" />}
         </div>
 
         {/* Add to cart button */}
@@ -122,7 +135,7 @@ export const CardCarrousel: FC<Props> = ({
             // color: isAdded ? "#e8ecef" : "",
           }}
         >
-          {isAdded && (<img src={checkedIcon} className="h-10 w-10" />)}
+          {isAdded && <img src={checkedIcon} className="h-10 w-10" />}
           {isAdded ? "Item Added" : "Add to cart"}
         </button>
       </div>
@@ -138,13 +151,7 @@ export const CardCarrousel: FC<Props> = ({
         </div>
 
         {/* tag */}
-        <p
-          className={`capitalize font-bold text-body2Semi ${
-            color ? "text-blue" : ""
-          }`}
-        >
-          {tag}
-        </p>
+        <p className={`capitalize font-bold text-body2Semi `}>{tag}</p>
 
         {/* price $*/}
         <div className="text-capS1">

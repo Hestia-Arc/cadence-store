@@ -8,7 +8,7 @@ import chevronDown from "../../../assets/Icons/chevron-down-dark.png";
 import Filter from "./Filter";
 import { useAppSelector } from "../../../store";
 import { productsSelector } from "../../../features/products/productSlice";
-import { SetStateAction, useEffect, useMemo, useState } from "react";
+import { SetStateAction, useEffect, useState } from "react";
 import searchIcon from "../../../assets/Icons/search.png";
 import Pagination from "../../../components/Pagination";
 
@@ -33,7 +33,14 @@ function Products() {
 
   useEffect(() => {
     // dispatch(getProducts());
+    setPage(1);
+  }, [clicked, query]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  
   }, []);
+
 
   // -------- filter category
   const filteredCategory =
@@ -65,19 +72,13 @@ function Products() {
     query === ""
       ? filteredPrice
       : filteredPrice?.filter((item) => {
-          return item?.productName?.toLowerCase().includes(query);
+          return item?.productName?.toLowerCase().startsWith(query);
         });
 
   // ---------- current data to display for pagination
-  const currentData = useMemo(() => {
-    const firstPageIndex = (page - 1) * PageSize;
-    const lastPageIndex = firstPageIndex + PageSize;
-    return filteredSearch.slice(firstPageIndex, lastPageIndex);
-  }, [page]);
-
-  filteredSearch?.slice(page * 9, (page + 1) * 9);
-
-  // console.log(products)
+  const firstPageIndex = (page - 1) * PageSize;
+  const lastPageIndex = firstPageIndex + PageSize;
+  const currentPageData = filteredSearch?.slice(firstPageIndex, lastPageIndex);
 
   // if (loading) {
   //   return <div>Loading...</div>;
@@ -100,17 +101,17 @@ function Products() {
         <div className="h-[40px] w-full flex justify-between">
           {/* tag */}
           <div className=" text-body1Semi font-bold capitalize">{clicked}</div>
-          {/* <p>{clickedRange?.min}</p>
-          <p>{clickedRange?.max}</p> */}
-          {/* <p>{products?.length}</p> */}
+          {/* <p>
+            {filteredSearch?.length} .... {page}
+          </p> */}
 
           {/* grid */}
-          <div className="w-[540px] h-full flex item-end justify-between">
+          <div className="w-[540px] h-full flex item-end justify-end gap-3">
             {/* sort */}
-            <div className="flex items-center gap-1 border rounded shadow-sm text-body2Semi p-1">
+            {/* <div className="flex items-center gap-1 border rounded shadow-sm text-body2Semi p-1">
               <div>Sort by</div>
               <img src={chevronDown} alt="icon" className="h-[20px] w-[20px]" />
-            </div>
+            </div> */}
 
             {/* search */}
             <div className="w-[250px] flex items-center gap-1 border bg-gray-200 shadow-sm rounded">
@@ -153,7 +154,7 @@ function Products() {
         {/* list */}
         <div className="min-h-28 max-h-[1310px] overflow-y-hidden flex gap-[13px] flex-wrap">
           {filteredSearch?.length > 0 ? (
-            currentData?.map((item, index) => {
+            currentPageData?.map((item, index) => {
               return (
                 <div key={index}>
                   <CardCarrousel

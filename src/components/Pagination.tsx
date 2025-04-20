@@ -44,7 +44,13 @@ function Pagination({ pageSize, totalLength, currentPage, onPageChange }: any) {
           return (
             <button
               key={index}
-              // onClick={() => onPageChange(item)}
+              onClick={() => {
+                if( item > currentPage) {
+                  onPageChange(currentPage + 1)
+                } else if( item < currentPage) {
+                  onPageChange(currentPage - 1)
+                }
+              }}
               className={`h-full w-10 text-[18px] rounded-full p-1
                   ${(index + 1) === currentPage && "bg-gray-400 text-white"}  
                 `}

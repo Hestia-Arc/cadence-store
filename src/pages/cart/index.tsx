@@ -3,8 +3,11 @@ import NavigationBar from "../../components/NavigationBar";
 import { Footer } from "../../components/Footer";
 import { Steps } from "./CartHeader";
 import { CartDisplay } from "./CartDisplay";
+import { useAppSelector } from "../../store";
+import { cartSelector } from "../../features/cart/cartSlice";
 
 function CartPage() {
+  const { cart } = useAppSelector(cartSelector);
   const [isCartBarOpen, setIsCartBarOpen] = useState(false);
   const [active, setActive] = useState(1);
   const [id, setId] = useState(1);
@@ -48,8 +51,10 @@ function CartPage() {
 
             <button
               onClick={() => {
+                if(cart?.length > 0) {
                 setId(3);
                 setActive(3);
+                }
               }}
             >
               {" "}
