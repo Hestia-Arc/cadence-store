@@ -34,7 +34,7 @@ const NavigationBar: FC<IProp> = () => {
     >
       <NotificationBar />
 
-      <nav className="h-[60px] flex justify-between items-center  px-8 sm:px-40 bg-white overflow-hidden">
+      <nav className="h-[60px] flex justify-between items-center  px-4 sm:px-40 bg-white overflow-hidden">
         <Link to={"/"} className="text-[24px] font-bold text-gray-500 font-poppins ">
           leCadence<span className="text-gray-400">.</span>
         </Link>

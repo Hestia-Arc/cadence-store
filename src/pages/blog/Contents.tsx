@@ -3,7 +3,7 @@ import { Card } from "./Card";
 
 function Contents() {
   return (
-    <div className="h-[1683px] pt-6">
+    <div className="lg:h-[1683px] pt-6">
       {/* tag */}
       <div className="h-[40px] flex items-center gap-8">
         <span className="text-[14px] text-gray-700 font-bold border-b-2 border-gray-700">All Blog</span>
@@ -11,7 +11,7 @@ function Contents() {
       </div>
 
       {/* lists */}
-      <div className="h-[1619px] flex flex-col gap-20 py-10">
+      <div className="lg:h-[1619px] flex flex-col gap-20 py-10">
         <div className="flex gap-[42px] flex-wrap">
           {Array(9)
             .fill(9)

@@ -20,10 +20,10 @@ export const Header = () => {
         </div>
 
         {/* 2 */}
-        <h3 className=" text-h3">Shop Page</h3>
+        <h3 className=" text-[36px] font-semibold sm:text-h3">Shop Page</h3>
 
         {/* 3 */}
-        <p className=" text-body1Reg">
+        <p className="text-center text-body1Reg">
           Let’s design the place you always imagined.
         </p>
       </div>

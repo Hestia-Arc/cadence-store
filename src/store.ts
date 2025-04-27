@@ -28,9 +28,9 @@ const rootReducer = (state: any, action: { type: any; }) => {
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: [ "auth", "notify", "cart", "user"],
+  whitelist: [ "auth", "cart", "user"],
 };
-
+// "notify"
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const store = configureStore({

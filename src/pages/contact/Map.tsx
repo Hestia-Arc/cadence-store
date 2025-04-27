@@ -29,14 +29,14 @@ export const labelStyle = " uppercase text-hairline2 font-bold text-gray-400";
 
 function Map() {
   return (
-    <div className="h-[684px] flex flex-col gap-10 ">
+    <div className="sm:h-[684px] flex flex-col gap-10 ">
       <h4 className=" text-h4 text-center">Contact Us</h4>
       {/* 1 */}
-      <div className="h-[156px] flex items-center gap-6">
+      <div className="sm:h-[156px] flex flex-col lg:flex-row items-center  gap-6 ">
         {list.map((item, index) => (
           <div
             key={index}
-            className="w-[357px] h-[156px] bg-gray-200 rounded-sm flex flex-col items-center  gap-3 px-8 py-4"
+            className="w-full lg:w-[357px] h-[156px] bg-gray-200 rounded-sm flex flex-col items-center  gap-3 px-8 py-4"
           >
             <div className="h-[32px] w-[32px]">
               <img src={item.img} alt="icon" />
@@ -48,7 +48,7 @@ function Map() {
       </div>
 
       {/* 2 */}
-      <div className="h-[404px] flex gap-10 ">
+      <div className="lg:h-[404px] flex flex-col-reverse lg:flex-row gap-10 ">
         {/* form */}
         <div className="flex-1 flex flex-col gap-5">
           {/* a */}

@@ -53,9 +53,9 @@ function App() {
         ) : (
           <button
             onClick={() => setIsOpen(true)}
-            className="h-fit left-0 flex sm:flex-col items-center gap-1 text-[14px] font-semibold bg-green px-5 py-2 rounded-3xl sm:rounded-none sm:p-3"
+            className="h-fit left-0 flex flex-col items-center gap-1 text-[10px] sm:text-[14px] font-semibold bg-green px-1 py-2 rounded-3xl sm:rounded-none sm:p-3"
           >
-            <div className="h-8 w-8 flex items-center justify-center bg-white  rounded-full">
+            <div className="h-5 w-5 sm:h-8 sm:w-8 flex items-center justify-center bg-white  rounded-full">
               {cart?.length}
             </div>
 

@@ -15,7 +15,7 @@ function Shop() {
   return (
     <div className=" bg-white text-gray-700">
       <NavigationBar open={toggleCartBar} cartBar={isCartBarOpen} />
-      <div className=" px-40">
+      <div className=" px-4 sm:px-40">
         <Header />
         <Products />
       </div>
