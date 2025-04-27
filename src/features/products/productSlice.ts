@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../store";
 import { IProduct } from "../types";
 import { getProducts } from "./productAPIs";
-import { products } from "../data/ProductsData";
+// import { products } from "../data/ProductsData";
 
 interface ProductsState {
   products: IProduct[];
