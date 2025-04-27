@@ -1,24 +1,19 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { Client } from "../../client";
-import { IProduct } from "../types";
+// import { IProduct } from "../types";
+import supabase from "../../services/supabase";
 
-export const getProducts = createAsyncThunk<
-  IProduct[],
-  void,
-  { rejectValue: string }
->("products/getProducts", async (_, thunkAPI) => {
-  try {
-    const response = await Client({
-      method: "GET",
-    //   path: "/",
-        path: "/api/products",
-    });
+export const getProducts = createAsyncThunk<any, void>(
+  "products/getProducts",
+  async (_, thunkAPI) => {
+    try {
+      let { data: products, } = await supabase
+        .from("products")
+        .select();
 
-    // console.log(response);
-    // const productData = response.data.map((item: IProduct) => item.productName);
-
-    return response?.data.data;
-  } catch (error: any) {
-    return thunkAPI.rejectWithValue("Failed to fetch products.");
+      console.log(products);
+      return products;
+    } catch (error: any) {
+      return thunkAPI.rejectWithValue("Failed to fetch products.");
+    }
   }
-});
+);

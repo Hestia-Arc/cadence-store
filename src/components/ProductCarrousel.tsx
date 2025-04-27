@@ -2,15 +2,16 @@ import { CardCarrousel } from "./cards/CardCarrousel";
 import { ButtonDark } from "./Elements";
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAppSelector } from "../store";
-import { productsSelector } from "../features/products/productSlice";
+// import { useAppSelector } from "../store";
+// import { productsSelector } from "../features/products/productSlice";
+import { products } from "../features/data/ProductsData";
 
 interface ICarrouselTagProp {
   tag: JSX.Element;
 }
 export const ProductCarrousel: FC<ICarrouselTagProp> = ({ tag }) => {
   const navigate = useNavigate();
-  const { products } = useAppSelector(productsSelector);
+  // const { products } = useAppSelector(productsSelector);
 
   return (
     <section className="h-[665px] pt-[48px] ml-8  sm:ml-40 flex flex-col gap-11 border-solid border-b-2 border-gray-600 ">
@@ -37,7 +38,7 @@ export const ProductCarrousel: FC<ICarrouselTagProp> = ({ tag }) => {
                 tag={item.productName}
                 price={item.price}
                 product={item}
-                slashP={400.0}
+                slashP={"400.0"}
               />
             </div>
           );

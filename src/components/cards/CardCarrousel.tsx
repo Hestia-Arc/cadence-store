@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { NewItem } from "../NewItem";
 import { useAppDispatch, useAppSelector } from "../../store";
 import { addToCart } from "../../features/cart/cartSlice";
-import { IProduct } from "../../features/types";
+// import { IProduct } from "../../features/types";
 import { addWishList, userSelector } from "../../features/user/userSlice";
 
 interface Props {
@@ -15,8 +15,8 @@ interface Props {
   img: string | undefined;
   tag: string;
   price: number;
-  product?: IProduct;
-  slashP?: number;
+  product?: any;
+  slashP?:string;
   className?: string;
   imgStyle?: string;
   promo?: string;
@@ -151,7 +151,7 @@ export const CardCarrousel: FC<Props> = ({
         </div>
 
         {/* tag */}
-        <p className={`capitalize font-bold text-body2Semi `}>{tag}</p>
+        <p className={`capitalize font-bold text-body2Semi `}>{tag?.length > 25 ? `${tag?.slice(0, 25)}...` : tag}</p>
 
         {/* price $*/}
         <div className="text-capS1">

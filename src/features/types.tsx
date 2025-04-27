@@ -15,7 +15,7 @@ export interface IProduct {
   measurement?: string;
   color: string[];
   category: string[];
-  sku: number;
+  sku: string;
   moreInfo?: string;
   width?: string;
   height?: string;

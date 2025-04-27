@@ -6,20 +6,22 @@ import grid2V from "../../../assets/products/grid-2-vert.png";
 import grid2H from "../../../assets/products/grid-2-hoz.png";
 // import chevronDown from "../../../assets/Icons/chevron-down-dark.png";
 import Filter from "./Filter";
-import { useAppSelector } from "../../../store";
-import { productsSelector } from "../../../features/products/productSlice";
+// import { useAppDispatch, useAppSelector } from "../../../store";
+// import { productsSelector } from "../../../features/products/productSlice";
 import { SetStateAction, useEffect, useState } from "react";
 import searchIcon from "../../../assets/Icons/search.png";
 import Pagination from "../../../components/Pagination";
+// import { getProducts } from "../../../features/products/productAPIs";
 
 // import { getProducts } from "../../../features/products/productAPIs";
+import { newProducts as products } from "../../../features/data/newProducts";
 
 let PageSize = 9;
 
 function Products() {
   // const dispatch = useAppDispatch();
   const [page, setPage] = useState(1);
-  const { products } = useAppSelector(productsSelector);
+  // const { products } = useAppSelector(productsSelector);
   const [clicked, setClicked] = useState("all rooms");
   const [clickedRange, setClickedRange] = useState<{
     min: number;
@@ -27,12 +29,17 @@ function Products() {
   } | null>({ min: 0, max: 999999999 });
   const [query, setQuery] = useState("");
 
+  // console.log(products)
+
   const handleSearch = (e: any) => {
     setQuery(e.target.value.toLowerCase());
   };
 
+  // useEffect(() => {
+  //   dispatch(getProducts());
+  // }, []);
+
   useEffect(() => {
-    // dispatch(getProducts());
     setPage(1);
   }, [clicked, query]);
 
@@ -162,7 +169,7 @@ function Products() {
                     img={item.image}
                     tag={item.productName}
                     price={item.price}
-                    slashP={400.0}
+                    slashP={"400.0"}
                     product={item}
                     className="!h-[425px] !w-[256px] !shadow"
                     imgStyle="!h-[340px] !w-[256px]"

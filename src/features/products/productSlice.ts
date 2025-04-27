@@ -14,7 +14,8 @@ interface ProductsState {
 
 // Define the initial state using that type
 const initialState: ProductsState = {
-  products: products,
+  // products: products,
+  products: [],
   product: null,
   status: true,
   loading: false,
