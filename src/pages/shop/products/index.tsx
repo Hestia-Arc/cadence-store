@@ -41,7 +41,7 @@ function Products() {
 
   useEffect(() => {
     setPage(1);
-  }, [clicked, query]);
+  }, [clicked, query, clickedRange]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
