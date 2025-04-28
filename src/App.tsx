@@ -15,9 +15,12 @@ import classes from "./App.module.css";
 import { useAppSelector } from "./store";
 import { cartSelector } from "./features/cart/cartSlice";
 import Auth from "./pages/auths/Auth";
+import FlyMenu from "./components/FlyMenu";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
+  // @ts-ignore
+  const [isFlyMenu, setIsFlyMenu] = useState(false);
   const { cart } = useAppSelector(cartSelector);
 
   return (
@@ -80,10 +83,33 @@ function App() {
             duration: 0.8,
           }}
           // onClick={() => setIsOpen(false)}
-          className="hidden sm:flex fixed top-0 right-0 left-0 bottom-0 bg-[rgba(0,0,0,0.5)] items-center z-[800] "
+          className="flex fixed top-0 right-0 left-0 bottom-0 bg-[rgba(0,0,0,0.5)] items-center z-[800] "
         >
           {/* <div className="flex h-[100vh] fixed top-0 right-0 items-center"> */}
           <CartSideBar open={isOpen} close={() => setIsOpen(false)} />
+          {/* </div> */}
+        </motion.div>
+      )}
+
+      {/* ----------------------------- */}
+      {/* fly menu */}
+      {/* ----------------------------- */}
+      {isFlyMenu && (
+        <motion.div
+          initial={{ opacity: 0, x: "-0.5%" }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{
+            type: "spring",
+            stiffness: 43,
+            damping: 12,
+            delay: 0.4,
+            duration: 0.8,
+          }}
+          // onClick={() => setIsOpen(false)}
+          className=" flex sm:hidden fixed top-0 right-0 left-0 bottom-0 bg-[rgba(0,0,0,0.5)] items-center z-[800] "
+        >
+          {/* <div className="flex h-[100vh] fixed top-0 right-0 items-center"> */}
+          <FlyMenu open={isOpen} close={() => setIsOpen(false)} />
           {/* </div> */}
         </motion.div>
       )}

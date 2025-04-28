@@ -35,10 +35,10 @@ export const CartSideBar: React.FC<Prop> = ({ close }) => {
         animate={{ opacity: 1, x: "0", position: "fixed" }}
         exit={{ opacity: 0, scale: 0.5 }}
         transition={{ type: "spring", stiffness: 43, damping: 12, delay: 0.6 }}
-        className="h-[100vh] w-[413px] fixed top-0 right-0 flex flex-col justify-between bg-[#fff] p-4 border shadow-md z-[9999] "
+        className="h-[100vh] w-[340px] sm:w-[413px] fixed top-0 right-0 flex flex-col justify-between bg-[#fff] p-4 border shadow-md z-[9999] "
       >
         {/* =========== summary */}
-        <div className="w-[365px] h-[70%] overflow-y-hidden rounded">
+        <div className="sm:w-[365px] h-[70%] overflow-y-hidden rounded">
           <div className="flex justify-between items-center">
             <div className="flex justify-between items-center gap-1">
               <h6 className=" text-h6">Cart </h6>
@@ -122,7 +122,7 @@ export const CartSideBar: React.FC<Prop> = ({ close }) => {
         </div>
 
         {/* =============== totals */}
-        <div className="w-[365px] h-[27%] border border-top-2 border-t-gray-400">
+        <div className="sm:w-[365px] h-[27%] border border-top-2 border-t-gray-400">
           {/* sub-total */}
           <div className=" h-[20%] py-2 flex justify-between text-[15px] font-medium text-gray-400">
             <span>Subtotal</span>
