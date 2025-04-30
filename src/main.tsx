@@ -6,15 +6,19 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store, { persist } from "./store.ts";
 import { PersistGate } from "redux-persist/integration/react";
+import { FlyMenuProvider } from "./contexts/FlyMenuContext.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-     <Provider store={store}>
-       <PersistGate loading={null} persistor={persist}>
-         <BrowserRouter>
-           <App />
-          </BrowserRouter>
-        </PersistGate>
-     </Provider>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persist}>
+        <BrowserRouter>
+          <FlyMenuProvider>
+            {" "}
+            <App />
+          </FlyMenuProvider>
+        </BrowserRouter>
+      </PersistGate>
+    </Provider>
   </React.StrictMode>
 );

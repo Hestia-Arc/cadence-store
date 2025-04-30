@@ -16,11 +16,11 @@ import { useAppSelector } from "./store";
 import { cartSelector } from "./features/cart/cartSlice";
 import Auth from "./pages/auths/Auth";
 import FlyMenu from "./components/FlyMenu";
+import { useFlyMenu } from "./contexts/FlyMenuContext";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
-  // @ts-ignore
-  const [isFlyMenu, setIsFlyMenu] = useState(false);
+  const { isFlyMenu } = useFlyMenu();
   const { cart } = useAppSelector(cartSelector);
 
   return (
@@ -105,12 +105,9 @@ function App() {
             delay: 0.4,
             duration: 0.8,
           }}
-          // onClick={() => setIsOpen(false)}
           className=" flex sm:hidden fixed top-0 right-0 left-0 bottom-0 bg-[rgba(0,0,0,0.5)] items-center z-[800] "
         >
-          {/* <div className="flex h-[100vh] fixed top-0 right-0 items-center"> */}
-          <FlyMenu open={isOpen} close={() => setIsOpen(false)} />
-          {/* </div> */}
+          <FlyMenu />
         </motion.div>
       )}
     </div>

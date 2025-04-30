@@ -1,13 +1,31 @@
 import { AnimatePresence, motion } from "framer-motion";
 import removeIcon from "../assets/Icons/close.png";
 import {  ButtonPrimary } from "./Elements";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useFlyMenu } from "../contexts/FlyMenuContext";
 
 interface Prop {
   open?: boolean;
-  close: () => void;
 }
 
-const FlyMenu: React.FC<Prop> = ({ close }) => {
+const FlyMenu: React.FC<Prop> = () => {
+  // @ts-ignore
+  const [query, setQuery] = useState("");
+  const navigate = useNavigate()
+  const { closeFlyMenu: close, } = useFlyMenu();
+
+
+  const handleSubmit = () => {
+    console.log(query);
+  };
+  
+const handleSignIn = () => {
+  navigate('/auth')
+  close()
+
+}
+
   return (
     <AnimatePresence>
       <motion.div
@@ -23,7 +41,7 @@ const FlyMenu: React.FC<Prop> = ({ close }) => {
           {/* logo/close */}
           <div className="h-[24px] flex justify-between items-center">
             <h6 className=" text-h7 font-bold">leCadence. </h6>
-            <button className="hover:bg-gray-300 p-1 hover:rounded-full hover:shadow">
+            <button onClick={close} className="hover:bg-gray-300 p-1 hover:rounded-full hover:shadow">
               <img
                 src={removeIcon}
                 alt="icon"
@@ -34,7 +52,7 @@ const FlyMenu: React.FC<Prop> = ({ close }) => {
           </div>
 
           {/* search */}
-          <div className="h-[46px] flex items-center gap-2 rounded border border-gray-400 p-2">
+          <form onSubmit={() => handleSubmit()} className="h-[46px] flex items-center gap-2 rounded border border-gray-400 p-2">
             <svg
               width="22"
               height="22"
@@ -58,18 +76,20 @@ const FlyMenu: React.FC<Prop> = ({ close }) => {
               placeholder="Search"
               className=" outline-none text-[14px] flex-1"
             />
-          </div>
+          </form>
 
           {/* nav list */}
           <div className={`h-[208px] flex flex-col gap-4   `}>
             {links?.map((item, i) => {
               return (
-                <div
+                <Link
+                  to={item.path}
+                  onClick={close}
                   key={i}
-                  className="h-[40px] pb-1  border-b-[1px] border-gray-300"
+                  className="h-[40px] pb-1  border-b-[1px] border-gray-300 active:text-green"
                 >
                   {item.pathName}
-                </div>
+                </Link>
               );
             })}
           </div>
@@ -80,7 +100,10 @@ const FlyMenu: React.FC<Prop> = ({ close }) => {
           <div className="h-[95px]  flex flex-col gap-2">
             {/* 1 */}
             <div className="h-[40px] relative pb-2 border-b-[1px] border-gray-300">
-              <h6>Cart</h6>
+              <button onClick={() => {
+                navigate("/cart")
+                close()
+                }}  className=" active:text-green">Cart</button>
               <div className=" absolute top-1 right-1 flex items-center gap-1 h-[20px] ">
                 <div className="h-5 w-5 ">
                   <svg
@@ -113,7 +136,9 @@ const FlyMenu: React.FC<Prop> = ({ close }) => {
 
             {/* 2 */}
             <div className="h-[40px] relative pb-2 border-b-[1px] border-gray-300">
-              <h6>Wishlist</h6>
+              <button onClick={() => {navigate("/account?tab=wishlist")
+                close()
+              }} className=" active:text-green">Wishlist</button>
               <div className=" absolute top-1 right-1 flex items-center gap-1 h-[20px] ">
                 <div className="h-5 w-5 ">
                   <svg
@@ -138,7 +163,7 @@ const FlyMenu: React.FC<Prop> = ({ close }) => {
             </div>
           </div>
 
-          <ButtonPrimary text="Sign In" />
+          <ButtonPrimary text="Sign In" onClick={() => handleSignIn()} />
           {/* social */}
           <div className="h-[24px] flex items-center gap-4">
             <svg

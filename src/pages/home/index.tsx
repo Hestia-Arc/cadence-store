@@ -11,7 +11,7 @@ import { useState } from 'react'
 
 function Home() { 
   const [isCartBarOpen, setIsCartBarOpen] = useState(false)
-  
+
   const toggleCartBar = () => {
     setIsCartBarOpen(!isCartBarOpen)
   }

@@ -5,6 +5,7 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import NotificationBar from "./NotificationBar";
 import { FC, useEffect, useState } from "react";
 import { Badge } from "./Badge";
+import { useFlyMenu } from "../contexts/FlyMenuContext";
 
 interface IProp {
   open: () => void;
@@ -14,6 +15,8 @@ const menuClass = "text-[14px] font-medium";
 
 const NavigationBar: FC<IProp> = () => {
   const location = useLocation();
+  const { openFlyMenu: openMNav } = useFlyMenu();
+
   const [scrollActive, setScrollActive] = useState(false);
 
   useEffect(() => {
@@ -114,7 +117,7 @@ const NavigationBar: FC<IProp> = () => {
       {/* ------- mobile nav */}
       <nav className="h-[60px] flex justify-between items-center lg:hidden px-4 sm:px-40 bg-white overflow-hidden">
         <div className=" flex items-center gap-2">
-          <button>
+          <button onClick={() => openMNav()}>
           <svg
             width="15"
             height="12"
