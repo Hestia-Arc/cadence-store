@@ -5,7 +5,7 @@ import grid4 from "../../../assets/products/grid-4.png";
 import grid2V from "../../../assets/products/grid-2-vert.png";
 import grid2H from "../../../assets/products/grid-2-hoz.png";
 // import chevronDown from "../../../assets/Icons/chevron-down-dark.png";
-import Filter from "./Filter";
+import Filter, { MobileFilter } from "./Filter";
 // import { useAppDispatch, useAppSelector } from "../../../store";
 // import { productsSelector } from "../../../features/products/productSlice";
 import { SetStateAction, useEffect, useState } from "react";
@@ -96,12 +96,15 @@ function Products() {
   // }
 
   return (
-    <div className=" min-h-28 max-h-[1707px] flex pt-[60px] pb-[100px]">
+    <div className=" min-h-28 max-h-[1707px] flex flex-col sm:flex-row gap-5 pt-[60px] pb-[100px]">
       {/* filter */}
       <Filter
         clickedCategory={(value: any) => setClicked(value)}
         priceRange={(value: any) => setClickedRange(value)}
       />
+      
+      <MobileFilter clickedCategory={(value: any) => setClicked(value)}
+        priceRange={(value: any) => setClickedRange(value)} />
 
       {/* products */}
       <div className="min-h-28 w-[820px] flex flex-col gap-10">
