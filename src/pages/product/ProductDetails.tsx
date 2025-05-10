@@ -21,7 +21,7 @@ import Rating from "../../components/Elements/Rating";
 
 export const ProductDetails = ({ product }: { product: IProduct | null }) => {
   return (
-    <div className="h-[986px] flex gap-16 px-40">
+    <div className="h-fit sm:h-[986px] flex flex-col sm:flex-row gap-16 px-4 sm:px-40">
       <ProductImages product={product} />
       <ProductContents product={product} />
     </div>
@@ -37,15 +37,15 @@ export const ProductDetails = ({ product }: { product: IProduct | null }) => {
 // ------------
 const ProductImages = ({ product }: { product: IProduct | null }) => {
   return (
-    <div className=" w-1/2 flex flex-col gap-4">
+    <div className=" w-full sm:w-1/2 flex flex-col gap-4">
       {/* large */}
-      <div className="relative h-[565px] bg-gray-200">
+      <div className="relative h-[414px] md:h-[565px] bg-gray-200">
         <NewItem posT="top-3" posL="left-4" isNew={product?.new} />
         {product?.image && (
           <img
             src={product?.image}
             alt="product"
-            className=" h-[565px] w-fit" //w-[450px]
+            className=" h-[414px] md:h-[565px] w-fit" //w-[450px]
           />
         )}
 
@@ -61,7 +61,7 @@ const ProductImages = ({ product }: { product: IProduct | null }) => {
       {/* <hr /> */}
 
       {/* small */}
-      <div className=" h-[349px] flex flex-wrap gap-4 ">
+      <div className=" h-[349px] hidden sm:flex flex-wrap gap-4 ">
         {product?.image2 && (
           <img
             src={product?.image2}
@@ -103,9 +103,9 @@ const ProductImages = ({ product }: { product: IProduct | null }) => {
 // ------------------
 const ProductContents = ({ product }: { product: IProduct | null }) => {
   return (
-    <div className=" w-1/2">
+    <div className=" w-full sm:w-1/2">
       {/* product description  price */}
-      <div className=" h-[205px] flex flex-col gap-1 pb-4 border-solid border-b-[1px] border-gray-300">
+      <div className=" md:h-[205px] flex flex-col gap-1 pb-4 border-solid border-b-[1px] border-gray-300">
         {/* rating */}
         <Rating rv={product?.reviews} />
 

@@ -25,7 +25,7 @@ export const ProductLoop = () => {
   }, [productId]);
 
   return (
-    <div className="h-[1042px] flex flex-col gap-3 pt-3 text-gray-700">
+    <div className="sm:h-[1042px] flex flex-col gap-3 pt-3 text-gray-700">
       <BreadCrumbs product={productData?.id?.slice(0,2)} />
       <ProductDetails product={productData} />
     </div>

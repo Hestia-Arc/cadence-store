@@ -1,14 +1,12 @@
 import { FC, useEffect, useState } from "react";
-import rating from "../../assets/Icons/Star Icon.png";
 import wishIcon from "../../assets/Icons/wish-gray.png";
 import checkedIcon from "../../assets/Icons/item-check.png";
-// import { useCartStore } from "../../features";
 import { useNavigate } from "react-router-dom";
 import { NewItem } from "../NewItem";
 import { useAppDispatch, useAppSelector } from "../../store";
 import { addToCart } from "../../features/cart/cartSlice";
-// import { IProduct } from "../../features/types";
 import { addWishList, userSelector } from "../../features/user/userSlice";
+import { RatingMain } from "../Elements/Rating";
 
 interface Props {
   index: string | number;
@@ -16,9 +14,10 @@ interface Props {
   tag: string;
   price: number;
   product?: any;
-  slashP?:string;
+  slashP?: string;
   className?: string;
   imgStyle?: string;
+  mainImgStyle?: string;
   promo?: string;
 }
 
@@ -30,6 +29,7 @@ export const CardCarrousel: FC<Props> = ({
   product,
   className,
   imgStyle,
+  mainImgStyle,
   promo,
   // slashP,
 }): JSX.Element => {
@@ -76,14 +76,15 @@ export const CardCarrousel: FC<Props> = ({
   return (
     <div
       key={index}
-      className={`h-[433px] w-[262px] flex flex-col gap-2 ${className}`}
-    >
+      className={` h-[433px] w-[262px] flex flex-col gap-2 ${className}`} >
+
       <div className={`h-[349px] w-[262px] relative bg-gray-200 ${imgStyle}`}>
+
         {img && (
           <img
             src={img}
             alt="product"
-            className="h-[349px]"
+            className={`h-[349px] ${mainImgStyle}`}
             onMouseEnter={() => setActive(true)}
             onMouseLeave={() => setActive(false)}
             onClick={() => handleNavigate()}
@@ -112,7 +113,7 @@ export const CardCarrousel: FC<Props> = ({
         <div
           onMouseEnter={handleHover}
           onClick={handleWishClick}
-          className={`w-[32px] h-[32px] absolute top-3 right-4 ${
+          className={`w-[32px] h-[32px] absolute top-3 right-2 sm:right-4 ${
             active ? "flex" : "hidden"
           } justify-center items-center rounded-2xl bg-white`}
         >
@@ -124,9 +125,9 @@ export const CardCarrousel: FC<Props> = ({
           onMouseEnter={handleHover}
           onMouseLeave={() => setActive(false)}
           onClick={handleButtonClick}
-          className={`w-[230px] h-[46px] absolute bottom-4 bg-gr right-4 transition-all duration-500 shadow-md border ${
+          className={`w-[140px] sm:w-[230px] h-[40px] sm:h-[46px] absolute bottom-2 sm:bottom-4 right-2 sm:right-4 transition-all duration-500 shadow-md border ${
             active || isAdded ? "flex" : "hidden"
-          } justify-center items-center rounded-lg bg-gray-700 text-white text-btnSm `}
+          } justify-center items-center rounded-lg bg-gray-700 text-white text-[12px] sm:text-btnSm `}
           style={{
             // backgroundColor: isAdded ? "#38cb8998" : "",
             backgroundColor: isAdded ? "transparent" : "",
@@ -141,17 +142,13 @@ export const CardCarrousel: FC<Props> = ({
       </div>
 
       {/* content */}
-      <div className="h-[72px] w-[262px] flex flex-col gap-[3px] ">
-        <div className="flex gap-[2px] mt-1">
-          {" "}
-          <img src={rating} alt="product" />
-          <img src={rating} alt="product" />
-          <img src={rating} alt="product" />
-          <img src={rating} alt="product" />
-        </div>
+      <div className="h-[72px] w-full flex flex-col gap-[3px] ">
+        <RatingMain rv={product?.reviews} />
 
         {/* tag */}
-        <p className={`capitalize font-bold text-body2Semi `}>{tag?.length > 25 ? `${tag?.slice(0, 25)}...` : tag}</p>
+        <p className={`capitalize font-bold text-[15px] sm:text-body2Semi  `}>
+          {tag?.length > 25 ? `${tag?.slice(0, 25)}...` : tag}
+        </p>
 
         {/* price $*/}
         <div className="text-capS1">

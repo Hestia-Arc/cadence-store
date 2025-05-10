@@ -6,8 +6,8 @@ const imgStyle = " h-[20px]"
 export const BreadCrumbs = ({product}: {product: string}) => {
 
   return (
-    <div className=" px-40">
-      <div className=' flex items-center gap-3 text-btnXS'>
+    <div className=" px-4 sm:px-40">
+      <div className=' flex items-center gap-1 lg:gap-3 text-btnXS'>
         <span className={grayStyle}>Home</span>
         <img src={chevronRight} alt="icon" className={imgStyle} />
 

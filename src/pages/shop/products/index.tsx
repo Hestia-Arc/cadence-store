@@ -12,8 +12,6 @@ import { SetStateAction, useEffect, useState } from "react";
 import searchIcon from "../../../assets/Icons/search.png";
 import Pagination from "../../../components/Pagination";
 // import { getProducts } from "../../../features/products/productAPIs";
-
-// import { getProducts } from "../../../features/products/productAPIs";
 import { newProducts as products } from "../../../features/data/newProducts";
 
 let PageSize = 9;
@@ -96,7 +94,7 @@ function Products() {
   // }
 
   return (
-    <div className=" min-h-28 max-h-[1707px] flex flex-col sm:flex-row gap-5 pt-[60px] pb-[100px]">
+    <div className=" min-h-28  flex flex-col sm:flex-row gap-5 pt-[60px] pb-[100px] ">
       {/* filter */}
       <Filter
         clickedCategory={(value: any) => setClicked(value)}
@@ -107,7 +105,7 @@ function Products() {
         priceRange={(value: any) => setClickedRange(value)} />
 
       {/* products */}
-      <div className="min-h-28 w-[820px] flex flex-col gap-10">
+      <div className="min-h-28 flex-1 flex flex-col gap-10">
         <div className="h-[40px] w-full flex justify-between">
           {/* tag */}
           <div className=" text-body1Semi font-bold capitalize">{clicked}</div>
@@ -116,7 +114,7 @@ function Products() {
           </p> */}
 
           {/* grid */}
-          <div className="w-[540px] h-full flex item-end justify-end gap-3">
+          <div className="hidden sm:w-[540px] h-full sm:flex item-end justify-end gap-3">
             {/* sort */}
             {/* <div className="flex items-center gap-1 border rounded shadow-sm text-body2Semi p-1">
               <div>Sort by</div>
@@ -162,7 +160,7 @@ function Products() {
         </div>
 
         {/* list */}
-        <div className="min-h-28 max-h-[1310px] overflow-y-hidden flex gap-[13px] flex-wrap">
+        <div className="min-h-28  sm:max-h-[1310px]  grid grid-cols-2 sm:grid-cols-3 gap-x-3 sm:gap-x-5 gap-y-5  ">
           {filteredSearch?.length > 0 ? (
             currentPageData?.map((item, index) => {
               return (
@@ -174,8 +172,9 @@ function Products() {
                     price={item.price}
                     slashP={"400.0"}
                     product={item}
-                    className="!h-[425px] !w-[256px] !shadow"
-                    imgStyle="!h-[340px] !w-[256px]"
+                    className=" !h-[290px] !w-[160px] sm:!h-[425px] sm:!w-[256px] "
+                    imgStyle="!h-[203px] !w-[160px] sm:!h-[340px] sm:!w-[256px]"
+                    mainImgStyle="!h-[203px] !w-[160px] sm:!h-[340px] sm:!w-[256px]"
                     promo={item.new}
                   />
                 </div>

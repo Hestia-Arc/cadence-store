@@ -1,6 +1,6 @@
 import ratingIcon from "../../assets/Icons/Star Icon.png";
 
-function Rating({ rv }: { rv: number | any }) {
+function Rating({ rv }: { rv?: number | any }) {
   return (
     <div className="flex items-center gap-[10px]">
       <div className="flex items-center">
@@ -16,3 +16,15 @@ function Rating({ rv }: { rv: number | any }) {
 }
 
 export default Rating;
+
+export const RatingMain = ({rv}: {rv?: number | any}) => {
+  return (
+    <div className="flex items-center">
+      {Array(rv)
+        .fill(rv)
+        ?.map((_, i) => (
+          <img key={i} src={ratingIcon} className=" w-3" alt="rating" />
+        ))}
+    </div>
+  );
+};
