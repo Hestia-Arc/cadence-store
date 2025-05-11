@@ -45,6 +45,7 @@ const CouponBox = () => {
 
 // STEP 1    cart list and summary
 export const StepOne = () => {
+  
   return (
     <div className="min-h-[500px] sm:h-[771px] flex flex-col sm:flex-row gap-12 py-16 ">
       <div className="flex flex-col gap-16 ">
@@ -64,7 +65,7 @@ export const StepOne = () => {
 // STEP 2  checkout details
 export const StepTwo = () => {
   return (
-    <div className="h-[1634px] flex flex-col sm:flex-row gap-16 py-20 ">
+    <div className="sm:h-[1634px] flex flex-col sm:flex-row gap-16 py-20 ">
       <CheckoutInfo />
       <OrderSummary/>
     </div>

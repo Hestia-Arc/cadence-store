@@ -100,7 +100,78 @@ export const CartList = () => {
       {/* ---------------- */}
       {/* mobile */}
 
-      <div className=" h-[530px] bg-gray-300 sm:hidden">welcome</div>
+      <div className=" max-h-[530px] sm:hidden">
+        <div className="flex justify-between items-center border-b-2 pb-2 border-gray-400">
+          <h6 className=" text-[16px] font-semibold">Product(s) </h6>
+          <div className=" text-h7">({cart?.length})</div>
+        </div>
+
+        {/*  */}
+        <div
+          className={`h-[90%] overflow-y-auto flex flex-col gap-[10px] mt-3 ${
+            cart?.length !== 0 && "pr-2"
+          } `}
+        >
+          {/* {Array(2)
+                    .fill(9)
+                    ?.map((_, i) => ( */}
+          {cart?.length !== 0 ? (
+            cart?.map((item) => (
+              <div
+                key={item.id}
+                className="w-full h-[144px] flex py-3 border-solid border-b-2 "
+              >
+                {/* product/remove btn  */}
+                <div className=" w-[75%] flex gap-4 ">
+                  <img
+                    // src={Pdt1}
+                    src={item?.image}
+                    alt="product"
+                    className=" h-24 w-20 object-cover"
+                  />
+
+                  <div className="flex flex-col gap-2">
+                    <span className=" text-capS1 font-bold capitalize">
+                      {item.productName?.length > 18
+                        ? `${item.productName?.slice(0, 15)}...`
+                        : item.productName}
+                    </span>
+                    <span className=" text-capR2 text-gray-400 font-light">
+                      Color: {item.color.map((itemColor) => itemColor)}
+                    </span>
+                    <div className=" w-[72px] h-6 flex items-center justify-center gap-3 rounded  px-2 border-solid border-[1px] border-gray-400 opacity-70 ">
+                      <Stepper item={item} />
+                    </div>
+                  </div>
+                </div>
+
+                {/* price/stepper/subtotal */}
+                <div className="w-[25%] flex flex-col items-end gap-2">
+                  {/* subtotal */}
+                  <span className="  text-body2Semi font-bold">
+                    ${item.price}.00
+                  </span>
+                  <button
+                    onClick={() => dispatch(removeItems(item))}
+                    className=" inline-flex items-center text-capR2 text-gray-400 font-bold"
+                  >
+                    <img
+                      src={removeIcon}
+                      alt="icon"
+                      className="h-[18px] w-[18px]"
+                    />
+                  </button>
+                </div>
+              </div>
+            ))
+          ) : (
+            <div className="h-[530px] w-full italic bg-gray-200 rounded text-gray-400 flex justify-center items-center">
+              {" "}
+              Cart is empty.{" "}
+            </div>
+          )}
+        </div>
+      </div>
     </>
   );
 };

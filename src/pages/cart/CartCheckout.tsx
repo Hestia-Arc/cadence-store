@@ -4,6 +4,7 @@ import removeIcon from "../../assets/Icons/close.png";
 import { ButtonPrimary, Stepper } from "../../components/Elements";
 import { cartSelector } from "../../features/cart/cartSlice";
 import { useAppSelector } from "../../store";
+import { useFlyMenu } from "../../contexts/FlyMenuContext";
 
 export const inputStyle =
   "  h-[40px] w-[285px] px-4 py-2 rounded border-solid border-[1px] border-[#6C7275] border-opacity-30 mt-2";
@@ -57,6 +58,8 @@ const PayIcon = () => {
 };
 
 export const CheckoutInfo = () => {
+  const { cart } = useAppSelector(cartSelector);
+  const { setActive, setId } = useFlyMenu();
   const [formData, setFormData] = useState({
     firstname: "",
     lastname: "",
@@ -77,20 +80,24 @@ export const CheckoutInfo = () => {
   };
 
   const handleSubmit = () => {
-    console.log(formData);
+    // console.log(formData);
+    if (cart?.length > 0) {
+      setId(3);
+      setActive(3);
+    }
   };
 
   return (
     <form
       onSubmit={handleSubmit}
-      className=" h-[1474px] w-[643px] flex flex-col gap-6 "
+      className=" sm:h-[1474px] sm:w-[643px] flex flex-col gap-6 "
     >
       {/* ========== contact section */}
       <div className={sectionStyle}>
         <div className={titleStyle}>Contact Information</div>
 
         {/* 1 */}
-        <div className="flex gap-6">
+        <div className="flex flex-col sm:flex-row gap-6">
           <div className="h-[64px] flex flex-col">
             <label className={labelStyle} htmlFor="">
               first name
@@ -201,7 +208,7 @@ export const CheckoutInfo = () => {
         </div>
 
         {/* 4 */}
-        <div className="flex gap-6">
+        <div className="flex flex-col sm:flex-row gap-6">
           <div className="h-[64px] flex flex-col">
             <label className={labelStyle} htmlFor="">
               state
@@ -234,7 +241,9 @@ export const CheckoutInfo = () => {
         {/* 5 */}
         <div className="flex gap-2">
           <input type="checkbox" name="" id="" />
-          <div>Use a different billing address (optional)</div>
+          <div className=" text-[13px] sm:text-[16px]">
+            Use a different billing address (optional)
+          </div>
         </div>
       </div>
 
@@ -281,7 +290,7 @@ export const CheckoutInfo = () => {
         </div>
 
         {/* 3 */}
-        <div className="flex gap-6">
+        <div className="flex flex-col sm:flex-row gap-6">
           <div className="h-[64px] flex flex-col">
             <label className={labelStyle} htmlFor="">
               expiration date
@@ -298,7 +307,7 @@ export const CheckoutInfo = () => {
         </div>
       </div>
 
-      <ButtonPrimary text="Place Order" onClick={handleSubmit} />
+      <ButtonPrimary text="Place Order" onClick={handleSubmit} disable={cart?.length === 0} />
     </form>
   );
 };
@@ -320,12 +329,12 @@ export const OrderSummary = () => {
   // };
 
   return (
-    <div className=" h-[862px] w-[413px] border-solid border-[1px] border-[#6C7275] border-opacity-30 rounded p-4">
+    <div className=" max-h-[862px] sm:w-[413px] border-solid border-[1px] border-[#6C7275] border-opacity-30 rounded p-4">
       <div className=" text-h6 mb-4">Order summary</div>
       {/* ---------- */}
-      <div className="h-[556px] relative flex flex-col gap-4 ">
+      <div className=" max-h-[556px] relative flex flex-col gap-4 ">
         <div
-          className={`h-[495px] flex flex-col gap-4 overflow-y-auto ${
+          className={`max-h-[495px] flex flex-col gap-4 overflow-y-auto ${
             cart?.length !== 0 && "pr-2"
           }`}
         >
@@ -352,7 +361,7 @@ export const OrderSummary = () => {
       </div>
 
       {/* fields */}
-      <div className="h-[208px]">
+      <div className="h-[208px] ">
         <OrderBelowBox>
           <div className=" ">JenkateMW</div>
           <div className=" text-green font-semibold">-$25.00 [Remove]</div>

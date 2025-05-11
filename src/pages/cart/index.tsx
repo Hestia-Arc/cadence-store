@@ -3,15 +3,11 @@ import NavigationBar from "../../components/NavigationBar";
 import { Footer } from "../../components/Footer";
 import { Steps } from "./CartHeader";
 import { CartDisplay } from "./CartDisplay";
-import { useAppSelector } from "../../store";
-import { cartSelector } from "../../features/cart/cartSlice";
+import { useFlyMenu } from "../../contexts/FlyMenuContext";
 
 function CartPage() {
-  const { cart } = useAppSelector(cartSelector);
   const [isCartBarOpen, setIsCartBarOpen] = useState(false);
-  const [active, setActive] = useState(1);
-  const [id, setId] = useState(1);
-  // const [id, setId] = useState(<StepOne />);
+  const { active, id } = useFlyMenu();
 
   const toggleCartBar = () => {
     setIsCartBarOpen(!isCartBarOpen);
@@ -21,49 +17,54 @@ function CartPage() {
     <div>
       <NavigationBar open={toggleCartBar} cartBar={isCartBarOpen} />
 
-      {/* cart */}
-      <div className="min-h-[500px] sm:min-h-[1097px] px-8 sm:px-40 py-20 bg-gray-100">
+      <div className="min-h-[500px] sm:min-h-[1097px] px-4 sm:px-40 py-20 bg-gray-100">
         {/* <CartHeader /> */}
         <div className="h-[166px] w-[832] flex flex-col sm:items-center gap-10 overflow-hidden">
           <h3 className=" text-h3 font-poppins text-center">Cart</h3>
 
           {/* Cart Process */}
-          <div className="h-[68px] flex gap-8 ">
-            <button
-              onClick={() => {
-                setId(1);
-                setActive(1);
-              }}
-            >
+          <div className=" h-[68px] hidden sm:flex gap-8 ">
+            <button>
               {" "}
               <Steps tag="Shopping cart" active={active} step={1} />
             </button>
 
-            <button
-              onClick={() => {
-                setId(2);
-                setActive(2);
-              }}
-            >
+            <button>
               {" "}
               <Steps tag="Checkout details" active={active} step={2} />
             </button>
 
-            <button
-              onClick={() => {
-                if(cart?.length > 0) {
-                setId(3);
-                setActive(3);
-                }
-              }}
-            >
+            <button>
               {" "}
               <Steps tag="Order complete" active={active} step={3} />
             </button>
           </div>
+
+          {/* mobile */}
+          <div className="h-[68px] flex  ">
+            {active === 1 && (
+              <div className="flex gap-8">
+              <Steps tag="Shopping cart" active={active} step={1} />
+              <Steps tag="Checkout details" active={active} step={2} />
+
+              </div>)}
+
+            {active === 2 && (
+              <div className="flex gap-8">
+              <Steps tag="Checkout details" active={active} step={2} />
+              <Steps tag="Order complete" active={active} step={3} />
+
+              </div>
+            )}
+
+            {active === 3 && (
+              <Steps tag="Order complete" active={active} step={3} />
+            )}
+
+
+          </div>
         </div>
 
-        {/* <CartDisplay /> */}
         <CartDisplay id={id} />
       </div>
 

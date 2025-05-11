@@ -2,11 +2,14 @@ import { useState } from "react";
 import { ButtonPrimary } from "../../components/Elements";
 import { useAppSelector } from "../../store";
 import { cartSelector } from "../../features/cart/cartSlice";
+import { useFlyMenu } from "../../contexts/FlyMenuContext";
 
 const radioStyle =
   "h-[52px] flex justify-between py-3 px-4 border-solid border-[1px] border-gray-400 rounded";
 export const CartSummary = () => {
   // const dispatch = useAppDispatch()
+  const { cart } = useAppSelector(cartSelector);
+  const { setActive, setId } = useFlyMenu();
 
   //@ts-ignore
   const [shippingPrice, setShippingPrice] = useState(0);
@@ -95,7 +98,15 @@ export const CartSummary = () => {
 
       {/* button */}
       <div>
-        <ButtonPrimary text="Checkout" />
+        <ButtonPrimary
+          text="Checkout"
+          disable={cart?.length === 0}
+          onClick={() => {
+            if(cart?.length > 0) {
+            setId(2);
+            setActive(2);
+          }}}
+        />
       </div>
     </div>
   );

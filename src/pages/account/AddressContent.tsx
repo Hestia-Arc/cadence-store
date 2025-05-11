@@ -1,10 +1,10 @@
 function AddressContent() {
   return (
-    <div className="h-[191px] w-full flex flex-col gap-[19px]  ">
+    <div className="sm:h-[191px] w-full flex flex-col gap-[19px]  ">
       <h3 className="text-[20px] font-semibold ">Address</h3>
 
       {/* -------- */}
-      <div className="h-[140px] flex gap-[23px]">
+      <div className="sm:h-[140px] flex sm:flex-row flex-col gap-[23px]">
         <AddressItem />
         <AddressItem />
       </div>

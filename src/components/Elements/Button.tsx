@@ -43,12 +43,13 @@ interface IPrimaryBtn {
   text: string,
   style?: string,
   onClick?: (e?: any) => void,
+  disable?: boolean
 }
 
 // add to cart btn
-export const ButtonPrimary:FC<IPrimaryBtn> = ({text, style, onClick}) => {
+export const ButtonPrimary:FC<IPrimaryBtn> = ({text, style, onClick, disable}) => {
   return (
-    <button onClick={onClick} className={`h-[50px] w-full ${style}  flex justify-center items-center text-gray-100 text-btnMd font-semibold bg-gray-700 rounded-lg`}>
+    <button disabled={disable} onClick={onClick} className={`h-[50px] w-full ${style}  flex justify-center items-center  text-btnMd font-semibold ${disable ? "bg-[#55555540] text-gray-200" : "bg-gray-700 text-gray-100"} rounded-lg`}>
     <p className="">{text}</p>
     </button>
   )

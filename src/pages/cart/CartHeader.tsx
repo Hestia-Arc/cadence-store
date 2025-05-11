@@ -15,7 +15,7 @@ export const Steps: FC<IPropStep> = ({ tag, active, step }) => {
      >
       <div className="h-[42px] w-full flex items-center gap-4">
         <div
-          className={` h-[42px] w-[42px] flex items-center justify-center font-semibold ${
+          className={` h-[42px] w-[42px]  flex items-center justify-center font-semibold ${
             active  === step
               ? "bg-gray-700 text-gray-200"
               : "bg-gray-400 bg-opacity-50 text-gray-200 "
@@ -24,7 +24,7 @@ export const Steps: FC<IPropStep> = ({ tag, active, step }) => {
           {step}
         </div>
         <div
-          className={` text-body2Semi ${
+          className={` text-body2Semi text-nowrap ${
             active  === step ? "text-gray-700" : "text-gray-400 text-opacity-50"
           } `}
         >

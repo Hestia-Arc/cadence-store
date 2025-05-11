@@ -10,12 +10,12 @@ function OrderBox() {
   const date = new Date().toDateString();
 
   return (
-    <div className="h-[750px] w-[738px] flex flex-col items-center gap-10 shadow-xl rounded-xl px-24 py-20">
+    <div className="h-[750px] md:w-[738px] flex flex-col items-center gap-10 shadow-xl rounded-xl px-10 md:px-24 py-20">
       <div className=" text-center">
-        <div className=" text-h6 text-gray-400">Thank you!</div>
+        <div className=" text-h7 sm:text-h6 text-gray-400">Thank you!</div>
 
-        <div className=" text-h4 text-[#23262F]">
-          Your order has been <br /> received
+        <div className=" text-h5 md:text-h4 text-[#23262F]">
+          Your order has been <br className="hidden md:block" /> received
         </div>
       </div>
 
@@ -43,7 +43,7 @@ function OrderBox() {
 
         {/* ====== data */}
         <div className=" flex-1">
-          <div className="h-full w-fit text-capS1 text-gray-700 font-bold pl-8 flex flex-col gap-5">
+          <div className="h-full w-fit text-capS1 text-nowrap text-gray-700 font-bold pl-8 flex flex-col gap-5">
             <div>#0123_45678</div>
             <div>{date}</div>
             {/* <div>October 19, 2024</div> */}
