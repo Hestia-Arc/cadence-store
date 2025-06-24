@@ -18,7 +18,9 @@ const reducers = combineReducers({
     user
 });
 
-const rootReducer = (state: any, action: { type: any; }) => {
+type RootStateType = ReturnType<typeof reducers>;
+
+const rootReducer = (state: RootStateType | undefined, action: { type: string }) => {
   if (action.type === "users/logout/fulfilled") {
     state = undefined;
   }

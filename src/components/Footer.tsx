@@ -8,6 +8,7 @@ const socialStyles = "h-5 "
 const privacyStyle = "font-poppins text-[12px] leading-[20px]  font-semibold ";
 
 export const Footer = () => {
+  const currentDate = new Date().getFullYear()
   return (
     <div className="min-h-[249px] px-8 py-12 sm:px-40 sm:pt-20 sm:pb-8 bg-gray-700">
       <div className="min-h-[137px] flex flex-col gap-8 sm:gap-12 text-gray-300 ">
@@ -36,7 +37,7 @@ export const Footer = () => {
         <div className="min-h-[56px] flex flex-col-reverse sm:flex-row justify-between items-center gap-8 sm:gap-0 py-6 sm:py-0 border-solid border-t-[1px] border-gray-400">
           <div className="flex flex-col-reverse items-center sm:flex-row gap-7">
             <span className="text-[12px] leading-5 text-gray-300 font-poppins opacity-80">
-              Copyright © 2024 leCadence. All rights reserved
+              Copyright © {currentDate} leCadence. All rights reserved
             </span>
 
             <div className='flex gap-7'>

@@ -4,22 +4,21 @@ import grid9 from "../../../assets/products/grid-9.png";
 import grid4 from "../../../assets/products/grid-4.png";
 import grid2V from "../../../assets/products/grid-2-vert.png";
 import grid2H from "../../../assets/products/grid-2-hoz.png";
-// import chevronDown from "../../../assets/Icons/chevron-down-dark.png";
 import Filter, { MobileFilter } from "./Filter";
-// import { useAppDispatch, useAppSelector } from "../../../store";
-// import { productsSelector } from "../../../features/products/productSlice";
+import { useAppDispatch, useAppSelector } from "../../../store";
+import { productsSelector } from "../../../features/products/productSlice";
 import { SetStateAction, useEffect, useState } from "react";
-import searchIcon from "../../../assets/Icons/search.png";
+import searchIcon from "../../../assets/Icons/search.png"; 
 import Pagination from "../../../components/Pagination";
-// import { getProducts } from "../../../features/products/productAPIs";
-import { newProducts as products } from "../../../features/data/newProducts";
+import { getProducts } from "../../../features/products/productAPIs";
+// import { newProducts as products } from "../../../features/data/newProducts";
 
-let PageSize = 9;
+const PageSize = 9;
 
 function Products() {
-  // const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
   const [page, setPage] = useState(1);
-  // const { products } = useAppSelector(productsSelector);
+  const { products } = useAppSelector(productsSelector);
   const [clicked, setClicked] = useState("all rooms");
   const [clickedRange, setClickedRange] = useState<{
     min: number;
@@ -29,13 +28,13 @@ function Products() {
 
   // console.log(products)
 
-  const handleSearch = (e: any) => {
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value.toLowerCase());
   };
 
-  // useEffect(() => {
-  //   dispatch(getProducts());
-  // }, []);
+  useEffect(() => {
+    dispatch(getProducts());
+  }, [dispatch]);
 
   useEffect(() => {
     setPage(1);
@@ -97,12 +96,12 @@ function Products() {
     <div className=" min-h-28  flex flex-col sm:flex-row gap-5 pt-[60px] pb-[100px] ">
       {/* filter */}
       <Filter
-        clickedCategory={(value: any) => setClicked(value)}
-        priceRange={(value: any) => setClickedRange(value)}
+        clickedCategory={(value: string) => setClicked(value)}
+        priceRange={(value: { min: number; max: number }) => setClickedRange(value)}
       />
       
-      <MobileFilter clickedCategory={(value: any) => setClicked(value)}
-        priceRange={(value: any) => setClickedRange(value)} />
+      <MobileFilter clickedCategory={(value: string) => setClicked(value)}
+        priceRange={(value: { min: number; max: number }) => setClickedRange(value)} />
 
       {/* products */}
       <div className="min-h-28 flex-1 flex flex-col gap-10">
@@ -161,7 +160,7 @@ function Products() {
 
         {/* list */}
         <div className="min-h-28  sm:max-h-[1310px]  grid grid-cols-2 sm:grid-cols-3 gap-x-3 sm:gap-x-5 gap-y-5  ">
-          {filteredSearch?.length > 0 ? (
+          {(filteredSearch ?? []).length > 0 ? (
             currentPageData?.map((item, index) => {
               return (
                 <div key={index}>
@@ -202,10 +201,10 @@ function Products() {
         </div>
 
         {/* see more */}
-        {filteredSearch?.length > 0 && (
+        {(filteredSearch?.length ?? 0) > 0 && (
           <div className="h-[42px] flex justify-center mt-10">
             <Pagination
-              totalLength={filteredSearch.length}
+              totalLength={filteredSearch?.length ?? 0}
               pageSize={PageSize}
               currentPage={page}
               onPageChange={(value: SetStateAction<number>) => setPage(value)}

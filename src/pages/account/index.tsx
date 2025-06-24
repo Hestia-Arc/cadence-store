@@ -68,7 +68,7 @@ function AccountPage() {
             {/* ------- avatar */}
             <div className="h-[120px] w-full flex flex-col items-center gap-[6px]">
               <div className="h-[82px] w-[82px] rounded-[50px] flex items-center justify-center bg-green">
-                img
+                
               </div>
               <div className=" capitalize text-body1Semi">{user?.username}</div>
             </div>
@@ -111,7 +111,7 @@ function AccountPage() {
             </div>
 
             {/* nav mobile */}
-            <div className=" h-[48px] w-full relative">
+            <div className=" h-[48px] w-full lg:hidden relative">
               <button
                 onClick={() => setIsNavOpen(!isNavOpen)}
                 className=" w-full border border-gray-400 bg-gray-100 p-2 pl-4 rounded-lg flex justify-between items-center"

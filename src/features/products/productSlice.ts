@@ -2,19 +2,16 @@ import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../store";
 import { IProduct } from "../types";
 import { getProducts } from "./productAPIs";
-// import { products } from "../data/ProductsData";
 
 interface ProductsState {
-  products: IProduct[];
+  products: IProduct[] | null;
   product: IProduct | null;
   status: boolean;
   loading: boolean;
   error: string | null;
 }
 
-// Define the initial state using that type
 const initialState: ProductsState = {
-  // products: products,
   products: [],
   product: null,
   status: true,
@@ -30,11 +27,14 @@ const productsSlice = createSlice({
       state.status = false;
     },
     getProduct: (state, action) => {
-      const filteredProduct = state.products.filter((item) => {
-        return item.id === action.payload;
-      });
-
-      state.product = filteredProduct[0];
+      if (state.products) {
+        const filteredProduct = state.products.filter((item) => {
+          return item.id === action.payload;
+        });
+        state.product = filteredProduct[0];
+      } else {
+        state.product = null;
+      }
     },
   },
   extraReducers: (builder) => {
