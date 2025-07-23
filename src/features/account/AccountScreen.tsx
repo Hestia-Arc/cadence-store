@@ -1,12 +1,12 @@
 import { Footer } from "../../components/Footer";
 import NavigationBar from "../../components/NavigationBar";
 import { useEffect, useState } from "react";
-import AccountContent from "./AccountContent";
-import OrderContent from "./OrderContent";
-import WishContent from "./WishContent";
-import AddressContent from "./AddressContent";
+import AccountContent from "./Account";
+import OrderContent from "./Order";
+import WishContent from "./Wishlist";
+import AddressContent from "./Address";
 import { useAppDispatch, useAppSelector } from "../../store";
-import { logOutUser, userSelector } from "../../features/user/userSlice";
+import { logOutUser, userSelector } from "../user/userSlice";
 import { useNavigate } from "react-router-dom";
 
 const sideActive =

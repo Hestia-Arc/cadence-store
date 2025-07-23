@@ -4,7 +4,7 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { useDispatch, TypedUseSelectorHook, useSelector } from "react-redux";
 import notify from "./features/notification/notifySlice";
-import products from "./features/products/productSlice";
+import products from "./features/product/productSlice";
 import cart from "./features/cart/cartSlice";
 import user from "./features/user/userSlice";
 

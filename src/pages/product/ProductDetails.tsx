@@ -16,7 +16,7 @@ import {
 import { FC } from "react";
 import { IProduct } from "../../features/types";
 import { useAppSelector } from "../../store";
-import { productsSelector } from "../../features/products/productSlice";
+import { productsSelector } from "../../features/product/productSlice";
 import Rating from "../../components/Elements/Rating";
 
 export const ProductDetails = ({ product }: { product: IProduct | null }) => {

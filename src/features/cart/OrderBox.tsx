@@ -3,7 +3,7 @@
 // import Pdt3 from "../../assets/products/product-8.png";
 import { FC } from "react";
 import { useAppSelector } from "../../store";
-import { cartSelector } from "../../features/cart/cartSlice";
+import { cartSelector } from "./cartSlice";
 
 function OrderBox() {
   const { cart, totalPrice } = useAppSelector(cartSelector);

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ButtonPrimary } from "../../components/Elements";
 import { useAppSelector } from "../../store";
-import { cartSelector } from "../../features/cart/cartSlice";
+import { cartSelector } from "./cartSlice";
 import { useFlyMenu } from "../../contexts/FlyMenuContext";
 
 const radioStyle =

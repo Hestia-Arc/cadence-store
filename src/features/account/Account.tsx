@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ButtonPrimary } from "../../components/Elements";
-import { setUser, userSelector } from "../../features/user/userSlice";
+import { setUser, userSelector } from "../user/userSlice";
 import { useAppDispatch, useAppSelector } from "../../store";
 import { inputStyle, labelStyle } from "../cart/CartCheckout";
 

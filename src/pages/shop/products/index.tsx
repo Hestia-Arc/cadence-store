@@ -6,11 +6,11 @@ import grid2V from "../../../assets/products/grid-2-vert.png";
 import grid2H from "../../../assets/products/grid-2-hoz.png";
 import Filter, { MobileFilter } from "./Filter";
 import { useAppDispatch, useAppSelector } from "../../../store";
-import { productsSelector } from "../../../features/products/productSlice";
+import { productsSelector } from "../../../features/product/productSlice";
 import { SetStateAction, useEffect, useState } from "react";
 import searchIcon from "../../../assets/Icons/search.png"; 
 import Pagination from "../../../components/Pagination";
-import { getProducts } from "../../../features/products/productAPIs";
+import { getProducts } from "../../../features/product/productAPIs";
 // import { newProducts as products } from "../../../features/data/newProducts";
 
 const PageSize = 9;
