@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAppSelector } from "../store";
-import { cartSelector } from "../features/cart/cartSlice";
+import { cartSelector } from "../views/cart/cartSlice";
 
 export const useCart = (shipping?: number) => {
     const { cart } = useAppSelector(cartSelector);

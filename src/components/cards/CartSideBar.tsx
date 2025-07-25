@@ -3,7 +3,7 @@ import { ButtonDarkPlain, ButtonPrimary, Stepper } from "../Elements";
 import removeIcon from "../../assets/Icons/close.png";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../store";
-import { cartSelector, removeItems } from "../../features/cart/cartSlice";
+import { cartSelector, removeItems } from "../../views/cart/cartSlice";
 // import { useCart } from "../../hooks/useCart";
 
 interface Prop {

@@ -4,8 +4,8 @@ import checkedIcon from "../../assets/Icons/item-check.png";
 import { useNavigate } from "react-router-dom";
 import { NewItem } from "../NewItem";
 import { useAppDispatch, useAppSelector } from "../../store";
-import { addToCart } from "../../features/cart/cartSlice";
-import { addWishList, userSelector } from "../../features/user/userSlice";
+import { addToCart } from "../../views/cart/cartSlice";
+import { addWishList, userSelector } from "../../views/user/userSlice";
 import { RatingMain } from "../Elements/Rating";
 
 interface Props {

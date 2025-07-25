@@ -1,6 +1,6 @@
 import { useAppDispatch } from "../../store";
-import { addToCart, removeAnItem } from "../../features/cart/cartSlice";
-import { IProduct } from "../../features/types";
+import { addToCart, removeAnItem } from "../../views/cart/cartSlice";
+import { IProduct } from "../../views/types";
 
 export const Stepper = ({ item }: { item: IProduct }) => {
   const dispatch = useAppDispatch();

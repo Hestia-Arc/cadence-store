@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const socialStyles = "h-5 "
 const privacyStyle = "font-poppins text-[12px] leading-[20px]  font-semibold ";
 
-export const Footer = () => {
+const Footer = () => {
   const currentDate = new Date().getFullYear()
   return (
     <div className="min-h-[249px] px-8 py-12 sm:px-40 sm:pt-20 sm:pb-8 bg-gray-700">
@@ -58,3 +58,7 @@ export const Footer = () => {
     </div>
   );
 };
+
+export default Footer;
+
+//

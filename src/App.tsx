@@ -1,22 +1,67 @@
-import Home from "./pages/home";
-import Product from "./pages/product/Index";
-import { Route, Routes } from "react-router-dom";
-import Shop from "./pages/shop";
-import BlogPage from "./features/blog";
-import CartPage from "./features/cart";
-import ContactPage from "./pages/contact";
-import AccountPage from "./features/account/AccountScreen";
-import SinglePost from "./features/blog/SinglePost";
-import { CartSideBar } from "./components/cards";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { useState } from "react";
-import { motion } from "framer-motion";
-import ScrollToTop from "./components/ScrollToTop";
-import classes from "./App.module.css";
 import { useAppSelector } from "./store";
-import { cartSelector } from "./features/cart/cartSlice";
-import Auth from "./pages/auths/Auth";
-import FlyMenu from "./components/FlyMenu";
-import { useFlyMenu } from "./contexts/FlyMenuContext";
+import { motion } from "framer-motion";
+import classes from "./App.module.css";
+import Layout from "@layouts/layout";
+import AccountPage from "@views/account/account-screen";
+import { CartSideBar } from "@components/cards";
+import FlyMenu from "@components/FlyMenu";
+import { useFlyMenu } from "@contexts/FlyMenuContext";
+import Auth from "@pages/auths/Auth";
+import ContactPage from "@pages/contact";
+import Home from "@pages/home";
+import Product from "@pages/product/Index";
+import Shop from "@pages/shop";
+import BlogPage from "@views/blog";
+import SinglePost from "@views/blog/SinglePost";
+import CartPage from "@views/cart";
+import { cartSelector } from "@views/cart/cartSlice";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    Component: Layout,
+    children: [
+      {
+        index: true,
+        Component: Home,
+      },
+      {
+        path: "/product/:productId",
+        Component: Product,
+      },
+      {
+        path: "/shop",
+        Component: Shop,
+      },
+      {
+        path: "/blog",
+        Component: BlogPage,
+      },
+      {
+        path: "/blog/:post",
+        Component: SinglePost,
+      },
+      {
+        path: "/contact",
+        Component: ContactPage,
+      },
+      {
+        path: "/cart",
+        Component: CartPage,
+      },
+      {
+        path: "/account",
+        Component: AccountPage,
+      },
+    ],
+  },
+  {
+    path: "/auth",
+    Component: Auth,
+  },
+]);
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,7 +72,9 @@ function App() {
     <div
       className={`mx-auto xs:min-w-[374px] xs:max-w-[375px] lg:min-w-[1300px] lg:max-w-[1440px] overflow-x-hidden relative ${classes}`}
     >
-      <Routes>
+      <RouterProvider router={router} />
+
+      {/* <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/product/:productId" element={<Product />} />
         <Route path="/shop" element={<Shop />} />
@@ -39,13 +86,12 @@ function App() {
         <Route path="/account" element={<AccountPage />} />
         <Route path="/auth" element={<Auth />} />
 
-        {/* <Route path="/" element={ <Home/>}/> */}
-      </Routes>
+      </Routes> */}
 
       {/* ----------------------------- */}
       {/* scroll to top */}
       {/* ----------------------------- */}
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
 
       {/* ----------------------------- */}
       {/* cart sidebar */}

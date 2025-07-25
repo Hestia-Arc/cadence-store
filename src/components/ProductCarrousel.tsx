@@ -4,7 +4,7 @@ import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 // import { useAppSelector } from "../store";
 // import { productsSelector } from "../features/products/productSlice";
-import { products } from "../features/data/ProductsData";
+import { products } from "../views/data/ProductsData";
 
 interface ICarrouselTagProp {
   tag: JSX.Element;

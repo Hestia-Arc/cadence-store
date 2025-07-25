@@ -1,9 +1,7 @@
-import { Footer } from "../../components/Footer";
-import NavigationBar from "../../components/NavigationBar";
 import { useEffect, useState } from "react";
 import AccountContent from "./Account";
 import OrderContent from "./Order";
-import WishContent from "./Wishlist";
+import WishContent from "./WishList";
 import AddressContent from "./Address";
 import { useAppDispatch, useAppSelector } from "../../store";
 import { logOutUser, userSelector } from "../user/userSlice";
@@ -15,7 +13,7 @@ const sidelistStyle = `h-[42px] w-full flex justify-start py-2 text-gray-400 tex
 
 function AccountPage() {
   const userData = useAppSelector(userSelector);
-  const [isCartBarOpen, setIsCartBarOpen] = useState(false);
+  // const [isCartBarOpen, setIsCartBarOpen] = useState(false);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -34,9 +32,9 @@ function AccountPage() {
     phone: "",
   });
 
-  const toggleCartBar = () => {
-    setIsCartBarOpen(!isCartBarOpen);
-  };
+  // const toggleCartBar = () => {
+  //   setIsCartBarOpen(!isCartBarOpen);
+  // };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -54,7 +52,6 @@ function AccountPage() {
 
   return (
     <div className=" bg-white text-gray-700">
-      <NavigationBar open={toggleCartBar} cartBar={isCartBarOpen} />
       <div className="h-fit w-full px-4 sm:px-40 pb-20">
         {/* ============== title */}
         <div className=" h-[164px] sm:h-[218px] flex justify-center items-center">
@@ -163,7 +160,6 @@ function AccountPage() {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }
