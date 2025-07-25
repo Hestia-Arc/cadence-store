@@ -15,12 +15,14 @@ export const CartList = () => {
         <div className="h-full overflow-auto pr-2">
           <table className="w-full relative  ">
             {/* --- head */}
+            <thead>
             <tr className="h-[30px] text-left text-gray-400 text-capR1 font-normal border-b-[1px] border-[#e7e7e7]">
               <th className="w-[280px]">Product</th>
               <th>Quantity</th>
               <th>Price</th>
               <th>Subtotal</th>
             </tr>
+            </thead>
 
             {/* ------- body */}
             {cart?.length !== 0 ? (
@@ -137,7 +139,7 @@ export const CartList = () => {
                         : item.productName}
                     </span>
                     <span className=" text-capR2 text-gray-400 font-light">
-                      Color: {item.color.map((itemColor) => itemColor)}
+                      Color: {item?.color && Array.isArray(item?.color) ? item?.color?.map((itemColor) => itemColor) : ""}
                     </span>
                     <div className=" w-[72px] h-6 flex items-center justify-center gap-3 rounded  px-2 border-solid border-[1px] border-gray-400 opacity-70 ">
                       <Stepper item={item} />

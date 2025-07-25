@@ -1,67 +1,15 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
 import { useState } from "react";
 import { useAppSelector } from "./store";
 import { motion } from "framer-motion";
 import classes from "./App.module.css";
-import Layout from "@layouts/layout";
-import AccountPage from "@views/account/account-screen";
 import { CartSideBar } from "@components/cards";
 import FlyMenu from "@components/FlyMenu";
 import { useFlyMenu } from "@contexts/FlyMenuContext";
-import Auth from "@pages/auths/Auth";
-import ContactPage from "@pages/contact";
-import Home from "@pages/home";
-import Product from "@pages/product/Index";
-import Shop from "@pages/shop";
-import BlogPage from "@views/blog";
-import SinglePost from "@views/blog/SinglePost";
-import CartPage from "@views/cart";
 import { cartSelector } from "@views/cart/cartSlice";
+import { router } from "./router/routes";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    Component: Layout,
-    children: [
-      {
-        index: true,
-        Component: Home,
-      },
-      {
-        path: "/product/:productId",
-        Component: Product,
-      },
-      {
-        path: "/shop",
-        Component: Shop,
-      },
-      {
-        path: "/blog",
-        Component: BlogPage,
-      },
-      {
-        path: "/blog/:post",
-        Component: SinglePost,
-      },
-      {
-        path: "/contact",
-        Component: ContactPage,
-      },
-      {
-        path: "/cart",
-        Component: CartPage,
-      },
-      {
-        path: "/account",
-        Component: AccountPage,
-      },
-    ],
-  },
-  {
-    path: "/auth",
-    Component: Auth,
-  },
-]);
+
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -73,29 +21,9 @@ function App() {
       className={`mx-auto xs:min-w-[374px] xs:max-w-[375px] lg:min-w-[1300px] lg:max-w-[1440px] overflow-x-hidden relative ${classes}`}
     >
       <RouterProvider router={router} />
-
-      {/* <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/product/:productId" element={<Product />} />
-        <Route path="/shop" element={<Shop />} />
-        <Route path="/blog" element={<BlogPage />} />
-        <Route path="/blog/:post" element={<SinglePost />} />
-        <Route path="/contact" element={<ContactPage />} />
-
-        <Route path="/cart" element={<CartPage />} />
-        <Route path="/account" element={<AccountPage />} />
-        <Route path="/auth" element={<Auth />} />
-
-      </Routes> */}
-
-      {/* ----------------------------- */}
-      {/* scroll to top */}
-      {/* ----------------------------- */}
       {/* <ScrollToTop /> */}
 
-      {/* ----------------------------- */}
       {/* cart sidebar */}
-      {/* ----------------------------- */}
       <div className="flex h-[100vh] fixed top-0 right-0 items-center">
         {isOpen ? (
           ""

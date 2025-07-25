@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
-import { Newsletter } from "../components/Newsletter";
 import Header from "@components/header";
 import Footer from "@components/footer";
+import { Newsletter } from "@components/Newsletter";
 
 function Layout() {
   return (

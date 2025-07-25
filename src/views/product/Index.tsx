@@ -1,5 +1,5 @@
+import { ProductCarrousel } from "@components/ProductCarrousel";
 import { ProductLoop } from "./ProductLoop";
-import { ProductCarrousel } from "../../components/ProductCarrousel";
 
 function Product() {
   

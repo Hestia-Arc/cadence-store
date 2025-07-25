@@ -84,6 +84,16 @@ const Header: FC<IProp> = () => {
           >
             <span className={menuClass}>Contact Us</span>
           </NavLink>
+           <NavLink
+            to="/dashboard"
+            className={` ${
+              location.pathname === "/dashboard"
+                ? "border-b-2 border-gray-400"
+                : ""
+            }`}
+          >
+            <span className={menuClass}>Admin</span>
+          </NavLink>
         </div>
 
         {/* icons */}
