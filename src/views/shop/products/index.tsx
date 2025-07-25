@@ -159,7 +159,7 @@ function Products() {
         </div>
 
         {/* list */}
-        <div className="min-h-28  sm:max-h-[1310px]  grid grid-cols-2 sm:grid-cols-3 gap-x-3 sm:gap-x-5 gap-y-5  ">
+        <div className={` min-h-28  sm:max-h-[1310px]  grid ${(filteredSearch?.length ?? 0) > 0 ? "grid-cols-2 sm:grid-cols-3" : "grid-cols-1"}  gap-x-3 sm:gap-x-5 gap-y-5  `}>
           {(filteredSearch ?? []).length > 0 ? (
             currentPageData?.map((item, index) => {
               return (
@@ -192,7 +192,7 @@ function Products() {
             //         // product={item}
             //       />
             //     ))
-            <div className=" h-[450px] w-full flex justify-center items-center shadow-2xl bg-gray-300 rounded">
+            <div className=" h-[450px] w-full flex justify-center items-center shadow-xl bg-gray-300 rounded">
               <div className=" text-[24px] text-gray-400 font-poppins">
                 No products available.{" "}
               </div>
