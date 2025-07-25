@@ -1,20 +1,20 @@
 import avatarIcon from "../assets/Icons/avatar-dark.png";
 import cartIcon from "../assets/Icons/shopping bag.png";
 import searchIcon from "../assets/Icons/search.png";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import NotificationBar from "./NotificationBar";
 import { FC, useEffect, useState } from "react";
 import { Badge } from "./Badge";
 import { useFlyMenu } from "../contexts/FlyMenuContext";
 
 interface IProp {
-  open: () => void;
-  cartBar: boolean;
+  open?: () => void;
+  cartBar?: boolean;
 }
 const menuClass = "text-[14px] font-medium";
 
-const NavigationBar: FC<IProp> = () => {
-  const location = useLocation();
+const Header: FC<IProp> = () => {
+  // const location = useLocation();
   const { openFlyMenu: openMNav } = useFlyMenu();
 
   const [scrollActive, setScrollActive] = useState(false);
@@ -128,8 +128,8 @@ const NavigationBar: FC<IProp> = () => {
             <path
               d="M1 1H11M1 5H11M1 9H11"
               stroke="#141718"
-              stroke-width="1.5"
-              stroke-linecap="round"
+              strokeWidth="1.5"
+              strokeLinecap="round"
             />
           </svg>
           </button>
@@ -164,4 +164,4 @@ const NavigationBar: FC<IProp> = () => {
   );
 };
 
-export default NavigationBar;
+export default Header;

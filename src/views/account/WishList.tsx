@@ -2,10 +2,10 @@ import { ButtonPrimary } from "../../components/Elements";
 import removeIcon from "../../assets/Icons/close.png";
 import Pdt1 from "../../assets/products/product-1.png";
 import { useAppSelector } from "../../store";
-import { userSelector } from "../../features/user/userSlice";
+import { userSelector } from "../user/userSlice";
 
 
-function WishContent() {
+function WishList() {
   const { wishList } = useAppSelector(userSelector);
 
   return (
@@ -57,7 +57,7 @@ function WishContent() {
   );
 }
 
-export default WishContent
+export default WishList
 
 
 // const data = [

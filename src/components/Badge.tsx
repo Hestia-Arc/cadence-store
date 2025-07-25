@@ -1,6 +1,6 @@
 // import { useCartStore } from "../features"
 
-import { cartSelector } from "../features/cart/cartSlice"
+import { cartSelector } from "../views/cart/cartSlice"
 import { useAppSelector } from "../store"
 
 export const Badge = () => {

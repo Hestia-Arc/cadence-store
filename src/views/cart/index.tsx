@@ -1,22 +1,12 @@
-import { useState } from "react";
-import NavigationBar from "../../components/NavigationBar";
-import { Footer } from "../../components/Footer";
 import { Steps } from "./CartHeader";
 import { CartDisplay } from "./CartDisplay";
 import { useFlyMenu } from "../../contexts/FlyMenuContext";
 
 function CartPage() {
-  const [isCartBarOpen, setIsCartBarOpen] = useState(false);
   const { active, id } = useFlyMenu();
-
-  const toggleCartBar = () => {
-    setIsCartBarOpen(!isCartBarOpen);
-  };
 
   return (
     <div>
-      <NavigationBar open={toggleCartBar} cartBar={isCartBarOpen} />
-
       <div className="min-h-[500px] sm:min-h-[1097px] px-4 sm:px-40 py-20 bg-gray-100">
         {/* <CartHeader /> */}
         <div className="h-[166px] w-[832] flex flex-col sm:items-center gap-10 overflow-hidden">
@@ -68,8 +58,6 @@ function CartPage() {
         <CartDisplay id={id} />
       </div>
 
-      {/* footer */}
-      <Footer />
     </div>
   );
 }

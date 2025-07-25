@@ -1,31 +1,19 @@
-import { Newsletter } from "../../components/Newsletter";
-import { Footer } from "../../components/Footer";
-import NavigationBar from "../../components/NavigationBar";
-import { useState } from "react";
-import { Blog } from "../home/Blog";
+import { Blog } from "../../pages/home/Blog";
 import b1 from "../../assets/products/blog-tub.png";
 import b2 from "../../assets/products/blog-tub2.png";
 import b3 from "../../assets/products/blog-tub3.png";
 import b4 from "../../assets/products/blog-towel.png";
 
 function SinglePost() {
-  const [isCartBarOpen, setIsCartBarOpen] = useState(false);
-
-  const toggleCartBar = () => {
-    setIsCartBarOpen(!isCartBarOpen);
-  };
 
   return (
     <div className=" bg-white text-gray-700">
-      <NavigationBar open={toggleCartBar} cartBar={isCartBarOpen} />
       <div className="  px-40">
         <BreadCrumb />
         <Header />
         <Content />
       </div>
       <Blog tag="You might also like " />
-      <Newsletter />
-      <Footer />
     </div>
   );
 }

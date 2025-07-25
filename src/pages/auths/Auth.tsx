@@ -2,7 +2,7 @@ import proImg from "../../assets/cadence-auth-img-desktop.png";
 import { ButtonPrimary } from "../../components/Elements";
 import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../store";
-import { setUser, userSelector } from "../../features/user/userSlice";
+import { setUser, userSelector } from "../../views/user/userSlice";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
 const inputStyle =

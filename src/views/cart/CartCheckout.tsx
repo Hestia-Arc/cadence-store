@@ -2,7 +2,7 @@
 import { useState } from "react";
 import removeIcon from "../../assets/Icons/close.png";
 import { ButtonPrimary, Stepper } from "../../components/Elements";
-import { cartSelector } from "../../features/cart/cartSlice";
+import { cartSelector } from "./cartSlice";
 import { useAppSelector } from "../../store";
 import { useFlyMenu } from "../../contexts/FlyMenuContext";
 

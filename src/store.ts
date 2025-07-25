@@ -3,10 +3,10 @@ import { combineReducers } from "redux";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { useDispatch, TypedUseSelectorHook, useSelector } from "react-redux";
-import notify from "./features/notification/notifySlice";
-import products from "./features/products/productSlice";
-import cart from "./features/cart/cartSlice";
-import user from "./features/user/userSlice";
+import notify from "./views/notification/notifySlice";
+import products from "./views/product/productSlice";
+import cart from "./views/cart/cartSlice";
+import user from "./views/user/userSlice";
 
 
 

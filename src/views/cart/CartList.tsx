@@ -1,7 +1,7 @@
 // import Pdt1 from "../../assets/products/product-1.png";
 import removeIcon from "../../assets/Icons/close.png";
 import { useAppDispatch, useAppSelector } from "../../store";
-import { cartSelector, removeItems } from "../../features/cart/cartSlice";
+import { cartSelector, removeItems } from "./cartSlice";
 import { Stepper } from "../../components/Elements";
 
 export const CartList = () => {

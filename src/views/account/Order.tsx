@@ -1,7 +1,7 @@
 function OrderContent() {
   return (
     <div className="min-h-[191px] w-full flex flex-col gap-10  ">
-      <h3 className="text-[20px] font-semibold ">Orders History</h3>
+      <h3 className="text-[20px] font-semibold">Orders History</h3>
 
       {/* -------- table */}
       <div className="">

@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from "../store";
 import {
   hideNotice,
   notifySelector,
-} from "../features/notification/notifySlice";
+} from "../views/notification/notifySlice";
 
 const NotificationBar = () => {
   const dispatch = useAppDispatch();
