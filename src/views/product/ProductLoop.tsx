@@ -7,7 +7,7 @@ import { ProductDetails } from "./ProductDetails";
 //   productsSelector,
 // } from "../../features/products/productSlice";
 import { useEffect, useState } from "react";
-import { newProducts } from "../../views/data/newProducts";
+import { newProducts } from "../data/newProducts";
 
 export const ProductLoop = () => {
   const { productId } = useParams();

@@ -14,9 +14,9 @@ import {
   ButtonWish,
 } from "../../components/Elements";
 import { FC } from "react";
-import { IProduct } from "../../views/types";
+import { IProduct } from "../types";
 import { useAppSelector } from "../../store";
-import { productsSelector } from "../../views/product/productSlice";
+import { productsSelector } from "./productSlice";
 import Rating from "../../components/Elements/Rating";
 
 export const ProductDetails = ({ product }: { product: IProduct | null }) => {

@@ -1,4 +1,4 @@
-import { Blog } from "../../pages/home/Blog";
+import { Blog } from "../home/Blog";
 import b1 from "../../assets/products/blog-tub.png";
 import b2 from "../../assets/products/blog-tub2.png";
 import b3 from "../../assets/products/blog-tub3.png";

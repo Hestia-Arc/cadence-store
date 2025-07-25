@@ -10,7 +10,7 @@ export const getProducts = createAsyncThunk<IProduct[] | null, void>(
         .from("products")
         .select();
 
-      console.log(products);
+      // console.log(products);
       return products;
     } catch (error: unknown) {
       return thunkAPI.rejectWithValue("Failed to fetch products.");
