@@ -90,13 +90,21 @@ function Filter({ clickedCategory, priceRange }: FilterProps) {
 
 export default Filter;
 
+interface PriceItemProps {
+  item: string | number[];
+  index: number;
+  priceRange: (range: { min: number; max: number }) => void;
+  isChecked: number;
+  setIsChecked: React.Dispatch<React.SetStateAction<number>>;
+}
+
 const PriceItem = ({
   item,
   index,
   priceRange,
   isChecked,
   setIsChecked,
-}: any) => {
+}: PriceItemProps) => {
   return (
     <div
       key={index}
@@ -211,7 +219,15 @@ const formatPriceRange = (range: [number, number] | number[]): string => {
         <button
           onClick={() => setOpenPriceDropdown(!openPriceDropdown)}
           className="h-[48px] capitalize flex items-center justify-between p-2 pl-4 border border-gray-500 rounded-lg">
-          <div>{isChecked === 0 ? "all price" : isChecked === 5 ? "400.00+" : formatPriceRange(priceList[isChecked])  }</div>
+          <div>
+            {isChecked === 0
+              ? "all price"
+              : isChecked === 5
+              ? "400.00+"
+              : Array.isArray(priceList[isChecked])
+              ? formatPriceRange(priceList[isChecked] as [number, number])
+              : ""}
+          </div>
 
           <svg
             width="10"
@@ -252,7 +268,7 @@ const formatPriceRange = (range: [number, number] | number[]): string => {
 };
 
 interface MobilePriceItemProps {
-  item: string | [number, number];
+  item: string | number[];
   index: number;
   priceRange: (range: { min: number; max: number }) => void;
   isChecked: number;
