@@ -1,3 +1,5 @@
+import { createBrowserRouter } from "react-router-dom";
+
 import DashboardLayout from "@layouts/dashboard-layout";
 import Layout from "@layouts/layout";
 import MainPageNotFound from "@layouts/PageNotFound";
@@ -14,9 +16,8 @@ import Orders from "@views/dashboard/orders/orders";
 import Overview from "@views/dashboard/overview/overview";
 import PageNotFound from "@views/dashboard/page-not-found";
 import Products from "@views/dashboard/products/products";
-import { createBrowserRouter } from "react-router-dom";
 
-export const router = createBrowserRouter([
+export const routes = createBrowserRouter([
   {
     path: "/",
     Component: Layout,

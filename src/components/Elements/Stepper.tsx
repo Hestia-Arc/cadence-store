@@ -1,5 +1,5 @@
 import { useAppDispatch } from "../../store";
-import { addToCart, removeAnItem } from "../../views/cart/cartSlice";
+import { increaseAnItem, removeAnItem } from "../../views/cart/cartSlice";
 import { IProduct } from "../../views/types";
 
 export const Stepper = ({ item }: { item: IProduct }) => {
@@ -16,7 +16,7 @@ export const Stepper = ({ item }: { item: IProduct }) => {
       <span className=" text-[12px]">{item?.piece}</span>
 
       <span
-        onClick={() => dispatch(addToCart(item))}
+        onClick={() => dispatch(increaseAnItem(item))}
         className=" cursor-pointer"
       >
         +

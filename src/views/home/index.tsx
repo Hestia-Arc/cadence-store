@@ -1,9 +1,9 @@
 import { Hero } from './Hero'
 import { BannerGrid } from './BannerGrid'
-import { ProductCarrousel } from '../../components/ProductCarrousel'
 import { Values } from './Values'
 import { SaleBanner } from './SaleBanner'
 import { Blog } from './Blog'
+import { ProductCarrousel } from '@components/ProductCarrousel'
 
 function Home() { 
   return (

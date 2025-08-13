@@ -2,7 +2,7 @@ import supabase from "./supabase";
 
 export async function getProducts() {
   const { data, error } = await supabase
-    .from("products")
+    .from("productV2")
     .select("*")
     .order("id", { ascending: false });
   if (error) {

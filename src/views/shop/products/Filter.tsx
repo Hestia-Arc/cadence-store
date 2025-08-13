@@ -20,7 +20,12 @@ const priceList = [
   "400",
 ];
 
-function Filter({ clickedCategory, priceRange }: any) {
+interface FilterProps {
+  clickedCategory: (category: string) => void;
+  priceRange: (range: { min: number; max: number }) => void;
+}
+
+function Filter({ clickedCategory, priceRange }: FilterProps) {
   const [clicked, setClicked] = useState(0);
   const [isChecked, setIsChecked] = useState(0);
 
@@ -85,13 +90,21 @@ function Filter({ clickedCategory, priceRange }: any) {
 
 export default Filter;
 
+interface PriceItemProps {
+  item: string | number[];
+  index: number;
+  priceRange: (range: { min: number; max: number }) => void;
+  isChecked: number;
+  setIsChecked: React.Dispatch<React.SetStateAction<number>>;
+}
+
 const PriceItem = ({
   item,
   index,
   priceRange,
   isChecked,
   setIsChecked,
-}: any) => {
+}: PriceItemProps) => {
   return (
     <div
       key={index}
@@ -127,13 +140,13 @@ const PriceItem = ({
   );
 };
 
-export const MobileFilter = ({ clickedCategory, priceRange }: any) => {
+export const MobileFilter = ({ clickedCategory, priceRange }: FilterProps ) => {
   const [clicked, setClicked] = useState("living room");
   const [isChecked, setIsChecked] = useState(0);
   const [openCategoryDropdown, setOpenCategoryDropdown] = useState(false);
 const [openPriceDropdown, setOpenPriceDropdown] = useState(false);
 
-const formatPriceRange = (range: [number, number] | any): string => {
+const formatPriceRange = (range: [number, number] | number[]): string => {
   return `${range[0].toFixed(2)} - ${(range[1] + 0.99).toFixed(2)}`;
 };
 
@@ -165,8 +178,8 @@ const formatPriceRange = (range: [number, number] | any): string => {
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M9.20711 0.792893C8.81658 0.402369 8.18342 0.402369 7.79289 0.792893L5 3.58579L2.20711 0.792893C1.81658 0.402369 1.18342 0.402369 0.792894 0.792893C0.402369 1.18342 0.402369 1.81658 0.792894 2.20711L4.29289 5.70711C4.68342 6.09763 5.31658 6.09763 5.70711 5.70711L9.20711 2.20711C9.59763 1.81658 9.59763 1.18342 9.20711 0.792893Z"
               fill="#6C7275"
             />
@@ -206,7 +219,15 @@ const formatPriceRange = (range: [number, number] | any): string => {
         <button
           onClick={() => setOpenPriceDropdown(!openPriceDropdown)}
           className="h-[48px] capitalize flex items-center justify-between p-2 pl-4 border border-gray-500 rounded-lg">
-          <div>{isChecked === 0 ? "all price" : isChecked === 5 ? "400.00+" : formatPriceRange(priceList[isChecked])  }</div>
+          <div>
+            {isChecked === 0
+              ? "all price"
+              : isChecked === 5
+              ? "400.00+"
+              : Array.isArray(priceList[isChecked])
+              ? formatPriceRange(priceList[isChecked] as [number, number])
+              : ""}
+          </div>
 
           <svg
             width="10"
@@ -216,8 +237,8 @@ const formatPriceRange = (range: [number, number] | any): string => {
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M9.20711 0.792893C8.81658 0.402369 8.18342 0.402369 7.79289 0.792893L5 3.58579L2.20711 0.792893C1.81658 0.402369 1.18342 0.402369 0.792894 0.792893C0.402369 1.18342 0.402369 1.81658 0.792894 2.20711L4.29289 5.70711C4.68342 6.09763 5.31658 6.09763 5.70711 5.70711L9.20711 2.20711C9.59763 1.81658 9.59763 1.18342 9.20711 0.792893Z"
               fill="#6C7275"
             />
@@ -246,6 +267,15 @@ const formatPriceRange = (range: [number, number] | any): string => {
   );
 };
 
+interface MobilePriceItemProps {
+  item: string | number[];
+  index: number;
+  priceRange: (range: { min: number; max: number }) => void;
+  isChecked: number;
+  setIsChecked: React.Dispatch<React.SetStateAction<number>>;
+  closeDropdown: () => void;
+}
+
 const MobilePriceItem = ({
   item,
   index,
@@ -253,7 +283,7 @@ const MobilePriceItem = ({
   isChecked,
   setIsChecked,
   closeDropdown,
-}: any) => {
+}: MobilePriceItemProps) => {
   return (
     <div
       key={index}
