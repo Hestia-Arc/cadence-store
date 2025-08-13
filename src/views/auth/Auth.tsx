@@ -1,19 +1,20 @@
 import proImg from "../../assets/cadence-auth-img-desktop.png";
 import { ButtonPrimary } from "../../components/Elements";
 import { useEffect, useState } from "react";
-import { useAppDispatch, useAppSelector } from "../../store";
-import { setUser, userSelector } from "../user/userSlice";
+// import { useAppSelector } from "../../store";
+// import { userSelector } from "../user/userSlice";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import supabase from "@/services/supabase";
 
 const inputStyle =
   "h-[40px] border-b-[1px] border-gray-300 bg-[transparent] outline-none px-1";
 function Auth() {
-  const dispatch = useAppDispatch();
+  // const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const params = useSearchParams();
   const [searchParams] = params;
   const page = searchParams.get("switchAuth") || "";
-  const userData = useAppSelector(userSelector);
+  // const userData = useAppSelector(userSelector);
 
   const [switchAuth, setSwitchAuth] = useState("signup");
   const [formData, setFormData] = useState({
@@ -22,12 +23,12 @@ function Auth() {
     password: "",
   });
 
-  useEffect(() => {
-    if (userData.username !== "") {
-      navigate("/account");
-    }
-   
-  }, [userData]);
+  // useEffect(() => {
+  //   if (userData.username !== "") {
+  //     navigate("/account");
+  //   }
+
+  // }, [userData]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -35,8 +36,8 @@ function Auth() {
       setSwitchAuth("signin");
     } else if (page === "signup") {
       setSwitchAuth("signup");
-    } 
-  }, []);
+    }
+  }, [page]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -45,23 +46,47 @@ function Auth() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (formData.username === "") {
-      return;
-    }
+    // if (formData.username === "") {
+    //   return;
+    // }
 
-    if (switchAuth === "signup") {
-      dispatch(setUser(formData));
+    // if (switchAuth === "signup") {
+    //   dispatch(setUser(formData));
+    //   setSwitchAuth("signin");
+    // }
+
+    const { data, error } = await supabase.auth.signUp({
+      email: formData.email,
+      password: formData.password,
+      // username: formData.username,
+      options: {
+        data: {
+          username: formData.username,
+        },
+        emailRedirectTo: "http://localhost:3000/account",
+      },
+    });
+
+    console.log(data, error);
+
+    if (data?.user?.aud === "authenticated") {
       setSwitchAuth("signin");
+      // navigate("/account");
     }
   };
 
-  const handleLogin = () => {
-    if (
-      userData.email === formData.email &&
-      userData.password === formData.password
-    ) {
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+     e.preventDefault();
+
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: formData.email,
+      password: formData.password,
+    });
+    console.log(data, error);
+
+    if (data) {
       navigate("/account");
     }
   };
@@ -196,7 +221,11 @@ function Auth() {
 
               {switchAuth === "signup" ? (
                 <ButtonPrimary
-                  onClick={(e: any) => handleSubmit(e)}
+                  onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
+                    handleSubmit(
+                      e as unknown as React.FormEvent<HTMLFormElement>
+                    )
+                  }
                   text="Sign Up"
                   style="!h-[38px] !text-[14px] !mt-4"
                 />

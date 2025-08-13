@@ -31,7 +31,7 @@ const cartSlice = createSlice({
       });
 
       if (itemFound) {
-        itemFound.piece += 1;
+        Number(itemFound.piece += 1);
       } else {
         state.cart = [action.payload, ...state.cart];
       }
@@ -39,7 +39,7 @@ const cartSlice = createSlice({
       // const allCarts = [...new Set(state.cart?.map((item) => item))];
 
       const calculateSubTotal = state.cart.reduce(
-        (accumulator: any, currentItem: { price: any }) => {
+        (accumulator: number, currentItem: IProduct) => {
           return accumulator + currentItem.price;
         },
         0
@@ -49,7 +49,7 @@ const cartSlice = createSlice({
 
       // -------- increase price
       const total = state.cart.reduce(
-        (accumulator: any, currentItem: { price: number; piece: number }) => {
+        (accumulator: number, currentItem: { price: number; piece: number }) => {
           return accumulator + currentItem.price * currentItem.piece;
         },
         0
@@ -66,7 +66,7 @@ const cartSlice = createSlice({
 
       // ----- sub total
       const calculateSubTotal = state.cart.reduce(
-        (accumulator: any, currentItem: { price: any }) => {
+        (accumulator: number, currentItem: { price: number }) => {
           return accumulator + currentItem.price;
         },
         0
@@ -76,7 +76,7 @@ const cartSlice = createSlice({
 
       // ----- decrease price
       const total = state.cart.reduce(
-        (accumulator: any, currentItem: { price: number; piece: number }) => {
+        (accumulator: number, currentItem: { price: number; piece: number }) => {
           return accumulator + currentItem.price * currentItem.piece;
         },
         0
@@ -99,6 +99,22 @@ const cartSlice = createSlice({
         console.log("cant decrease it's 1");
       }
     },
+    increaseAnItem: (state, action) => {
+      // -------- get item
+      const filteredItem = state.cart.find((item) => {
+        return item.id === action.payload.id;
+      });
+
+      if (filteredItem) {
+        filteredItem.piece += 1;
+        // ----- increase price
+        const total = state.totalPrice + action.payload.price;
+        state.totalPrice = total;
+      } else {
+        console.log("cant decrease it's 1");
+      }
+
+    },
     addShipping: (state, action) => {
       const total = state.totalPrice + action.payload;
       state.totalPrice = total;
@@ -106,7 +122,7 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addToCart, removeItems, removeAnItem, addShipping } =
+export const { addToCart, removeItems, removeAnItem, increaseAnItem, addShipping } =
   cartSlice.actions;
 export const cartSelector = (state: RootState) => state.cart;
 export default cartSlice.reducer;

@@ -7,7 +7,7 @@ export const getProducts = createAsyncThunk<IProduct[] | null, void>(
   async (_, thunkAPI) => {
     try {
       const { data: products } = await supabase
-        .from("products")
+        .from("productV2")
         .select();
 
       // console.log(products);

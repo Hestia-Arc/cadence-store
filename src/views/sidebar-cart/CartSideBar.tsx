@@ -1,10 +1,9 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { ButtonDarkPlain, ButtonPrimary, Stepper } from "../Elements";
+import { ButtonDarkPlain, ButtonPrimary, Stepper } from "../../components/Elements";
 import removeIcon from "../../assets/Icons/close.png";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../store";
-import { cartSelector, removeItems } from "../../views/cart/cartSlice";
-// import { useCart } from "../../hooks/useCart";
+import { cartSelector, removeItems } from "../cart/cartSlice";
 
 interface Prop {
   open?: boolean;
@@ -16,17 +15,7 @@ export const CartSideBar: React.FC<Prop> = ({ close }) => {
   const dispatch = useAppDispatch();
   const { cart, totalPrice, subTotal } = useAppSelector(cartSelector);
 
-  // const total = cart.reduce(
-  //   (accumulator: any, currentItem: { price: number, piece: number }) => {
-  //     return accumulator + (currentItem.price * currentItem?.piece);
-  //     // return accumulator + currentItem.amount * currentItem.price;
-  //   },
-  //   0
-  // );
-
-  // console.log(cart)
-  // console.log(total)
-
+  console.log(cart);
   return (
     <AnimatePresence>
       <motion.div
@@ -40,9 +29,9 @@ export const CartSideBar: React.FC<Prop> = ({ close }) => {
         {/* =========== summary */}
         <div className="sm:w-[365px] h-[70%] overflow-y-hidden rounded">
           <div className="flex justify-between items-center">
-            <div className="flex justify-between items-center gap-1">
+            <div className="flex justify-between items-center gap-2">
               <h6 className=" text-h6">Cart </h6>
-              <div className=" text-h7">({cart?.length})</div>
+              <div className=" text-[18px] bg-green w-8 h-8 flex items-center justify-center rounded-full text-white">{cart?.length}</div>
             </div>
             <button className="hover:bg-gray-300 p-1 hover:rounded-full hover:shadow">
               <img
@@ -85,7 +74,7 @@ export const CartSideBar: React.FC<Prop> = ({ close }) => {
                           : item.productName}
                       </span>
                       <span className=" text-capR2 text-gray-400 font-light">
-                        Color: {item.color.map((itemColor) => itemColor)}
+                        {/* Color: {item.color.map((itemColor) => itemColor)} */}
                       </span>
                       <div className=" w-[72px] h-6 flex items-center justify-center gap-3 rounded  px-2 border-solid border-[1px] border-gray-400 opacity-70 ">
                         <Stepper item={item} />
@@ -126,7 +115,6 @@ export const CartSideBar: React.FC<Prop> = ({ close }) => {
           {/* sub-total */}
           <div className=" h-[20%] py-2 flex justify-between text-[15px] font-medium text-gray-400">
             <span>Subtotal</span>
-            {/* <span>$0.00</span> */}
             <span>${subTotal}.00</span>
           </div>
 

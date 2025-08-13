@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import removeIcon from "../assets/Icons/close.png";
-import {  ButtonPrimary } from "./Elements";
+import { ButtonPrimary } from "./Elements";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useFlyMenu } from "../contexts/FlyMenuContext";
@@ -10,21 +10,18 @@ interface Prop {
 }
 
 const FlyMenu: React.FC<Prop> = () => {
-  // @ts-ignore
   const [query, setQuery] = useState("");
-  const navigate = useNavigate()
-  const { closeFlyMenu: close, } = useFlyMenu();
-
+  const navigate = useNavigate();
+  const { closeFlyMenu: close } = useFlyMenu();
 
   const handleSubmit = () => {
     console.log(query);
   };
-  
-const handleSignIn = () => {
-  navigate('/auth')
-  close()
 
-}
+  const handleSignIn = () => {
+    navigate("/auth");
+    close();
+  };
 
   return (
     <AnimatePresence>
@@ -41,7 +38,10 @@ const handleSignIn = () => {
           {/* logo/close */}
           <div className="h-[24px] flex justify-between items-center">
             <h6 className=" text-h7 font-bold">leCadence. </h6>
-            <button onClick={close} className="hover:bg-gray-300 p-1 hover:rounded-full hover:shadow">
+            <button
+              onClick={close}
+              className="hover:bg-gray-300 p-1 hover:rounded-full hover:shadow"
+            >
               <img
                 src={removeIcon}
                 alt="icon"
@@ -52,7 +52,13 @@ const handleSignIn = () => {
           </div>
 
           {/* search */}
-          <form onSubmit={() => handleSubmit()} className="h-[46px] flex items-center gap-2 rounded border border-gray-400 p-2">
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleSubmit();
+            }}
+            className="h-[46px] flex items-center gap-2 rounded border border-gray-400 p-2"
+          >
             <svg
               width="22"
               height="22"
@@ -63,18 +69,20 @@ const handleSignIn = () => {
               <path
                 d="M17.5 17.5L21 21M20 10.5C20 5.25329 15.7467 1 10.5 1C5.25329 1 1 5.25329 1 10.5C1 15.7467 5.25329 20 10.5 20C15.7467 20 20 15.7467 20 10.5Z"
                 stroke="#141718"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
 
             <input
               type="search"
-              name=""
-              id=""
+              name="search"
+              id="search"
               placeholder="Search"
               className=" outline-none text-[14px] flex-1"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
             />
           </form>
 
@@ -100,10 +108,15 @@ const handleSignIn = () => {
           <div className="h-[95px]  flex flex-col gap-2">
             {/* 1 */}
             <div className="h-[40px] relative pb-2 border-b-[1px] border-gray-300">
-              <button onClick={() => {
-                navigate("/cart")
-                close()
-                }}  className=" active:text-green">Cart</button>
+              <button
+                onClick={() => {
+                  navigate("/cart");
+                  close();
+                }}
+                className=" active:text-green"
+              >
+                Cart
+              </button>
               <div className=" absolute top-1 right-1 flex items-center gap-1 h-[20px] ">
                 <div className="h-5 w-5 ">
                   <svg
@@ -136,9 +149,15 @@ const handleSignIn = () => {
 
             {/* 2 */}
             <div className="h-[40px] relative pb-2 border-b-[1px] border-gray-300">
-              <button onClick={() => {navigate("/account?tab=wishlist")
-                close()
-              }} className=" active:text-green">Wishlist</button>
+              <button
+                onClick={() => {
+                  navigate("/account?tab=wishlist");
+                  close();
+                }}
+                className=" active:text-green"
+              >
+                Wishlist
+              </button>
               <div className=" absolute top-1 right-1 flex items-center gap-1 h-[20px] ">
                 <div className="h-5 w-5 ">
                   <svg

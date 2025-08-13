@@ -1,20 +1,17 @@
 import avatarIcon from "../assets/Icons/avatar-dark.png";
 import cartIcon from "../assets/Icons/shopping bag.png";
 import searchIcon from "../assets/Icons/search.png";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import NotificationBar from "./NotificationBar";
-import { FC, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Badge } from "./Badge";
 import { useFlyMenu } from "../contexts/FlyMenuContext";
 
-interface IProp {
-  open?: () => void;
-  cartBar?: boolean;
-}
+
 const menuClass = "text-[14px] font-medium";
 
-const Header: FC<IProp> = () => {
-  // const location = useLocation();
+const Header = () => {
+  const location = useLocation();
   const { openFlyMenu: openMNav } = useFlyMenu();
 
   const [scrollActive, setScrollActive] = useState(false);
@@ -38,12 +35,12 @@ const Header: FC<IProp> = () => {
       <NotificationBar />
 
       <nav className="h-[60px] hidden lg:flex justify-between items-center  px-4 sm:px-40 bg-white overflow-hidden">
-        <Link
+        <NavLink
           to={"/"}
           className="text-[24px] font-bold text-gray-500 font-poppins "
         >
           leCadence<span className="text-gray-400">.</span>
-        </Link>
+        </NavLink>
 
         {/* menus */}
         <div className="w-[300px] hidden sm:flex justify-between items-center">
