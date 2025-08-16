@@ -11,7 +11,6 @@ import { SetStateAction, useEffect, useState } from "react";
 import searchIcon from "../../../assets/Icons/search.png"; 
 import Pagination from "../../../components/Pagination";
 import { getProducts } from "../../product/productAPIs";
-// import { newProducts as products } from "../../../features/data/newProducts";
 
 const PageSize = 9;
 

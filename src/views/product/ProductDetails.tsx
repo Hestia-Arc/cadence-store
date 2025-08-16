@@ -150,7 +150,7 @@ const ProductContents = ({ product }: { product: IProduct | null }) => {
       {/* add to cart/wish/tabs */}
       <ProductCartWishBtns />
       <ProductMeta />
-      <ProductTabs productData={product} />
+      <ProductTabs  />
     </div>
   );
 };
@@ -197,10 +197,10 @@ const ProductMeta = () => {
 };
 
 //product tabs
-const ProductTabs = (productData: {productData: IProduct | null}) => {
+const ProductTabs = () => {
   return (
     <div className="h-[332px]">
-      <TabItems tag="Additional Info" active={true} content={productData} />
+      <TabItems tag="Additional Info" active={true}  />
       <TabItems tag="Questions" active={false} />
       <TabItems tag="Reviews(11)" active={false} />
     </div>
@@ -210,7 +210,9 @@ const ProductTabs = (productData: {productData: IProduct | null}) => {
 interface ITabProps {
   tag: string;
   active: boolean;
-  content?: any
+  content?: {
+    moreInfo: string;
+  }
 }
 
 const TabItems: FC<ITabProps> = ({ tag, active, content}) => {

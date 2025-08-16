@@ -3,7 +3,7 @@ import { FC } from "react";
 interface INewProps {
     posT: string
     posL: string
-    isNew?: any
+    isNew?: string | number | boolean
 }
 export const NewItem: FC<INewProps> = ({posT, posL, isNew}) => {
   return (

@@ -15,7 +15,7 @@ function Contents() {
         <div className="flex gap-[42px] flex-wrap">
           {Array(9)
             .fill(9)
-            ?.map((_) => (
+            ?.map(() => (
               <Card img={pdt2} title="Inside a beautiful kitchen organization" link="" />
             ))}
         </div>

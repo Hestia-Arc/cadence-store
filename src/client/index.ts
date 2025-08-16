@@ -4,7 +4,7 @@ import Cookies from "js-cookie";
 type IClient = {
   method: string;
   path: string;
-  data?: any;
+  data?: unknown;
   queryParams?: string;
   contentType?: string;
 };
@@ -24,7 +24,7 @@ export const Client = async (params: IClient) => {
     Accept: "application/json",
   };
 
-  let url = `${baseURL}${path}`;
+  const url = `${baseURL}${path}`;
 
   const axiosConfig: AxiosRequestConfig = {
     method: method,

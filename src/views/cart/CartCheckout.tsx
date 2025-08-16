@@ -4,7 +4,8 @@ import removeIcon from "../../assets/Icons/close.png";
 import { ButtonPrimary, Stepper } from "../../components/Elements";
 import { cartSelector } from "./cartSlice";
 import { useAppSelector } from "../../store";
-import { useFlyMenu } from "../../contexts/FlyMenuContext";
+import { useFlyMenu } from "@hooks/useFlyMenu";
+import { IProduct } from "@views/types";
 
 export const inputStyle =
   "  h-[40px] w-[285px] px-4 py-2 rounded border-solid border-[1px] border-[#6C7275] border-opacity-30 mt-2";
@@ -400,7 +401,7 @@ const OrderBelowBox = ({ children }: Prop) => {
 };
 
 // item
-const CartListItem = ({ item }: any) => {
+const CartListItem = ({ item }: {item: IProduct}) => {
   return (
     <div className=" h-[144px] flex py-5 border-solid border-b-2 ">
       {/* product/remove btn  */}

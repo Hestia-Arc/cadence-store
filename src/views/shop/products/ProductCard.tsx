@@ -1,9 +1,10 @@
+import { IProduct } from "@views/types";
 import { ButtonPrimary, ButtonWish } from "../../../components/Elements";
 import Rating from "../../../components/Elements/Rating";
 import { NewItem } from "../../../components/NewItem";
 import wishIcon from "../../assets/Icons/wish-dark.png";
 
-function ProductCard({ product }: any) {
+function ProductCard({ product }: { product: IProduct | null } ) {
   return (
     <div className="w-[400px] h-[400px] flex ">
       {/* - img */}

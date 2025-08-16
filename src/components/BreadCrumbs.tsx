@@ -3,7 +3,7 @@ import chevronRight from '../assets/Icons/chevron-right-gray.png'
 const grayStyle = " text-gray-400"
 const imgStyle = " h-[20px]"
 
-export const BreadCrumbs = ({product}: {product: string}) => {
+export const BreadCrumbs = ({product}: {product: string | undefined}) => {
 
   return (
     <div className=" px-4 sm:px-40">

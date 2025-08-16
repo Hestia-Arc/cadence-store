@@ -1,23 +1,22 @@
 import { useState } from "react";
 import { ButtonPrimary } from "../../components/Elements";
-import { useAppSelector } from "../../store";
-import { cartSelector } from "./cartSlice";
-import { useFlyMenu } from "../../contexts/FlyMenuContext";
+import { useAppDispatch, useAppSelector } from "../../store";
+import { addShipping, cartSelector } from "./cartSlice";
+import { useFlyMenu } from "@hooks/useFlyMenu";
 
 const radioStyle =
   "h-[52px] flex justify-between py-3 px-4 border-solid border-[1px] border-gray-400 rounded";
 export const CartSummary = () => {
-  // const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch()
   const { cart } = useAppSelector(cartSelector);
   const { setActive, setId } = useFlyMenu();
 
-  //@ts-ignore
   const [shippingPrice, setShippingPrice] = useState(0);
   const { totalPrice, subTotal } = useAppSelector(cartSelector);
 
   const handleShipping = (value: number) => {
     setShippingPrice(value);
-    // dispatch(addShipping(shippingPrice))
+    dispatch(addShipping(shippingPrice))
   };
 
   return (

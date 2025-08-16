@@ -1,9 +1,16 @@
 import { DOTS, usePagination } from "../hooks/usePagination";
 
-function Pagination({ pageSize, totalLength, currentPage, onPageChange }: any) {
-  let siblingCount = 1;
+interface PaginationProps {
+  pageSize: number;
+  totalLength: number;
+  currentPage: number;
+  onPageChange: (page: number) => void;
+}
 
-  const paginationRange: any = usePagination({
+function Pagination({ pageSize, totalLength, currentPage, onPageChange }: PaginationProps) {
+  const siblingCount: number = 1;
+
+  const paginationRange: (number | typeof DOTS)[] = usePagination({
     currentPage,
     totalLength,
     siblingCount,
@@ -24,7 +31,7 @@ function Pagination({ pageSize, totalLength, currentPage, onPageChange }: any) {
     onPageChange(currentPage - 1);
   };
 
-  let lastPage: any = paginationRange[paginationRange?.length - 1];
+  const lastPage: number | typeof DOTS = paginationRange[paginationRange?.length - 1];
 
   return (
     <div className="flex gap-6">
@@ -36,7 +43,7 @@ function Pagination({ pageSize, totalLength, currentPage, onPageChange }: any) {
         Prev
       </button>
       <div className="flex items-center gap-2">
-        {paginationRange?.map((item: any, index: number) => {
+        {paginationRange?.map((item: number | typeof DOTS, index: number) => {
           if (item === DOTS) {
             return <div className="pagination-item dots">&#8230;</div>;
           }
