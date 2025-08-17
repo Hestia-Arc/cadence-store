@@ -1,6 +1,6 @@
 import { Steps } from "./CartHeader";
 import { CartDisplay } from "./CartDisplay";
-import { useFlyMenu } from "../../contexts/FlyMenuContext";
+import { useFlyMenu } from "@hooks/useFlyMenu";
 
 function CartPage() {
   const { active, id } = useFlyMenu();

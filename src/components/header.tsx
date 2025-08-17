@@ -5,7 +5,7 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import NotificationBar from "./NotificationBar";
 import { useEffect, useState } from "react";
 import { Badge } from "./Badge";
-import { useFlyMenu } from "../contexts/FlyMenuContext";
+import { useFlyMenu } from "@hooks/useFlyMenu";
 
 
 const menuClass = "text-[14px] font-medium";

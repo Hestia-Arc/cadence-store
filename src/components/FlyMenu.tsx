@@ -3,7 +3,7 @@ import removeIcon from "../assets/Icons/close.png";
 import { ButtonPrimary } from "./Elements";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useFlyMenu } from "../contexts/FlyMenuContext";
+import { useFlyMenu } from "@hooks/useFlyMenu";
 
 interface Prop {
   open?: boolean;

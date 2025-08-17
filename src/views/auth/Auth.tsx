@@ -46,7 +46,7 @@ function Auth() {
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     // if (formData.username === "") {
     //   return;
@@ -77,8 +77,8 @@ function Auth() {
     }
   };
 
-  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
-     e.preventDefault();
+  const handleLogin = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
 
     const { data, error } = await supabase.auth.signInWithPassword({
       email: formData.email,
@@ -221,11 +221,7 @@ function Auth() {
 
               {switchAuth === "signup" ? (
                 <ButtonPrimary
-                  onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
-                    handleSubmit(
-                      e as unknown as React.FormEvent<HTMLFormElement>
-                    )
-                  }
+                  onClick={handleSubmit}
                   text="Sign Up"
                   style="!h-[38px] !text-[14px] !mt-4"
                 />
