@@ -81,7 +81,7 @@ const Header = () => {
           >
             <span className={menuClass}>Contact Us</span>
           </NavLink>
-           <NavLink
+           {/* <NavLink
             to="/dashboard"
             className={` ${
               location.pathname === "/dashboard"
@@ -90,7 +90,7 @@ const Header = () => {
             }`}
           >
             <span className={menuClass}>Admin</span>
-          </NavLink>
+          </NavLink> */}
         </div>
 
         {/* icons */}
