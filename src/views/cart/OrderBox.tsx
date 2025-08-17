@@ -4,6 +4,7 @@
 import { FC } from "react";
 import { useAppSelector } from "../../store";
 import { cartSelector } from "./cartSlice";
+import { IProduct } from "@views/types";
 
 function OrderBox() {
   const { cart, totalPrice } = useAppSelector(cartSelector);
@@ -66,7 +67,7 @@ function OrderBox() {
 export default OrderBox;
 
 interface Prop {
-  item: any;
+  item: IProduct;
 }
 
 const OrderCountItem: FC<Prop> = ({ item}) => {

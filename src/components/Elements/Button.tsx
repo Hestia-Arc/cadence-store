@@ -42,7 +42,7 @@ export const ButtonDarkPlain: React.FC<Prop2> = (props): JSX.Element => {
 interface IPrimaryBtn {
   text: string,
   style?: string,
-  onClick?: (e?: any) => void,
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void,
   disable?: boolean
 }
 

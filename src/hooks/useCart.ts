@@ -8,8 +8,13 @@ export const useCart = (shipping?: number) => {
 
   useEffect(() => {
     if (cart) {
+      interface CartItem {
+        price: number;
+        // amount?: number; // Uncomment if you use amount
+      }
+
       const total = cart.reduce(
-        (accumulator: any, currentItem: { price: any }) => {
+        (accumulator: number, currentItem: CartItem) => {
           return accumulator + currentItem.price;
           // return accumulator + currentItem.amount * currentItem.price;
         },

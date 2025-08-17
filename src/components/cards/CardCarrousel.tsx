@@ -13,7 +13,11 @@ interface Props {
   img: string | undefined;
   tag: string;
   price: number;
-  product?: any;
+  product?: {
+    reviews?: number;
+    tag?: string;
+    // Add other relevant product properties here as needed
+  };
   slashP?: string;
   className?: string;
   imgStyle?: string;
@@ -39,14 +43,14 @@ export const CardCarrousel: FC<Props> = ({
   const [isAdded, setIsAdded] = useState(false);
   const userData = useAppSelector(userSelector);
   const { wishList } = userData;
-  const [wish, setWish] = useState<any>({});
+  const [wish, setWish] = useState<{ tag?: string } | undefined>(undefined);
   // const addToCart = useCartStore((state) => state.addToCart);
 
   useEffect(() => {
     const filterWishList = wishList?.filter((item) => item.tag === tag);
 
     setWish(filterWishList[0]);
-  }, [wishList]);
+  }, [wishList, tag]);
 
   const handleHover = () => {
     setActive(true);

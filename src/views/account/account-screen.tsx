@@ -48,7 +48,7 @@ function AccountPage() {
       country: userData?.checkOutDetail.country,
       phone: userData?.checkOutDetail.phone,
     });
-  }, []);
+  }, [userData]);
 
   return (
     <div className=" bg-white text-gray-700">

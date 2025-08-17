@@ -1,6 +1,6 @@
 import FlyMenu from '@components/FlyMenu';
+import { useFlyMenu } from '@hooks/useFlyMenu';
 import { motion } from "framer-motion";
-import { useFlyMenu } from '@contexts/FlyMenuContext';
 
 function FlyOut() {
       const { isFlyMenu } = useFlyMenu();

@@ -716,11 +716,17 @@ export const newProducts =
     package: "",
     piece: 1,
   },
-].map(product => {
-  const updatedProduct: any = {};
-  for (const key in product) {
-    const typedKey = key as keyof typeof product;
-    updatedProduct[key] = product[typedKey] === "" ? "null" : product[typedKey];
-  }
-  return updatedProduct;
-});
+
+
+
+]
+
+
+// .map(product => {
+//   const updatedProduct: any = {};
+//   for (const key in product) {
+//     const typedKey = key as keyof typeof product;
+//     updatedProduct[key] = product[typedKey] === "" ? "null" : product[typedKey];
+//   }
+//   return updatedProduct;
+// });
