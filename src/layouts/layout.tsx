@@ -7,7 +7,7 @@ import FlyOut from "@views/flyout/fly-out";
 
 function Layout() {
   return (
-    <>
+    <div className="min-h-screen flex flex-col">
       <Header />
       <Outlet />
       <Newsletter />
@@ -15,7 +15,7 @@ function Layout() {
 
       <SideCart />
       <FlyOut />
-    </>
+    </div>
   );
 }
 
