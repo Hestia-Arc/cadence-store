@@ -37,7 +37,7 @@ const NotificationBar = () => {
         </div>
 
         {/* button */}
-        <button className="hidden sm:flex justify-center items-center gap-[2px] text-blue text-btnXS border-solid border-b-[1px] border-blue">
+        <button className="hidden sm:flex justify-center items-center gap-[2px] text-blue text-btnXS border-solid border-b border-blue">
           <p>Shop Now</p>
           <img src={arrowRightIcon} alt="icon" />
         </button>

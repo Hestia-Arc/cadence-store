@@ -77,7 +77,7 @@ const OrderCountItem: FC<Prop> = ({ item}) => {
         {item.piece}
       </div>
 
-      <div className="w-[80px] h-[96px] bg-gray-300 rounded">
+      <div className="w-[80px] h-[96px] bg-gray-300 rounded-sm">
         {item?.image && <img src={item?.image} alt="product" />}
         {!item?.image && (
           <div className="h-24 w-20 flex items-center justify-center bg-gray-300  bg-opacity-70 text-gray-400  text-opacity-40 rounded-[5px] text-[12px] font-bold">

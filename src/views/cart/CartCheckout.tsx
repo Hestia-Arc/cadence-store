@@ -8,10 +8,10 @@ import { useFlyMenu } from "@hooks/useFlyMenu";
 import { IProduct } from "@views/types";
 
 export const inputStyle =
-  "  h-[40px] w-[285px] px-4 py-2 rounded border-solid border-[1px] border-[#6C7275] border-opacity-30 mt-2";
+  "  h-[40px] w-[285px] px-4 py-2 rounded-sm border-solid border border-[#6C7275] border-opacity-30 mt-2";
 export const labelStyle = " uppercase text-hairline2 font-bold text-gray-400";
 const sectionStyle =
-  "min-h-[372px] w-full flex flex-col gap-6 py-8 px-6 border-solid border-[1.8px] border-[#6C7275] border-opacity-30 rounded";
+  "min-h-[372px] w-full flex flex-col gap-6 py-8 px-6 border-solid border-[1.8px] border-[#6C7275] border-opacity-30 rounded-sm";
 const titleStyle = " h-7 text-h7 font-semibold";
 
 const PayIcon = () => {
@@ -253,7 +253,7 @@ export const CheckoutInfo = () => {
         <div className={titleStyle}>Payment Method</div>
 
         {/* 1a */}
-        <div className="h-[54px] flex item-center justify-between px-4 py-[13px] border-solid border border-[#6C7275] border-opacity-30 rounded hover:bg-[#6C727512] ">
+        <div className="h-[54px] flex item-center justify-between px-4 py-[13px] border-solid border border-[#6C7275] border-opacity-30 rounded-sm hover:bg-[#6C727512] ">
           <div>
             <input type="radio" name="method" id="card credit" />
             <label className=" pl-2 text-[15px]" htmlFor="card credit">
@@ -265,7 +265,7 @@ export const CheckoutInfo = () => {
         </div>
 
         {/* 1b */}
-        <div className="h-[54px] flex justify-between item-center px-4 py-[13px] border-solid border border-[#6C7275] border-opacity-30 rounded hover:bg-[#6C727512] ">
+        <div className="h-[54px] flex justify-between item-center px-4 py-[13px] border-solid border border-[#6C7275] border-opacity-30 rounded-sm hover:bg-[#6C727512] ">
           <div>
             <input type="radio" name="method" id="paypal" />
             <label className=" pl-2 text-[15px]" htmlFor="paypal">
@@ -330,7 +330,7 @@ export const OrderSummary = () => {
   // };
 
   return (
-    <div className=" max-h-[862px] sm:w-[413px] border-solid border-[1px] border-[#6C7275] border-opacity-30 rounded p-4">
+    <div className=" max-h-[862px] sm:w-[413px] border-solid border border-[#6C7275] border-opacity-30 rounded-sm p-4">
       <div className=" text-h6 mb-4">Order summary</div>
       {/* ---------- */}
       <div className=" max-h-[556px] relative flex flex-col gap-4 ">
@@ -344,7 +344,7 @@ export const OrderSummary = () => {
               return <CartListItem item={item} />;
             })
           ) : (
-            <div className=" h-full w-full italic bg-gray-200 rounded text-gray-400 flex justify-center items-center">
+            <div className=" h-full w-full italic bg-gray-200 rounded-sm text-gray-400 flex justify-center items-center">
               {" "}
               Cart is empty.{" "}
             </div>
@@ -355,7 +355,7 @@ export const OrderSummary = () => {
           <input
             type="text"
             placeholder="Input"
-            className="h-[52px] w-[258px] p-2 border-solid border border-[#e7e7e7] rounded"
+            className="h-[52px] w-[258px] p-2 border-solid border border-[#e7e7e7] rounded-sm"
           />
           <ButtonPrimary text="Apply" />
         </div>
@@ -433,7 +433,7 @@ const CartListItem = ({ item }: {item: IProduct}) => {
           <span className=" text-capR2 text-gray-400 font-light">
             Color: {item?.color}
           </span>
-          <div className=" w-[72px] h-6 flex items-center justify-center gap-3 rounded  px-2 border-solid border-[1px] border-gray-400 opacity-70 ">
+          <div className=" w-[72px] h-6 flex items-center justify-center gap-3 rounded-sm  px-2 border-solid border border-gray-400 opacity-70 ">
             <Stepper item={item} />
           </div>
         </div>

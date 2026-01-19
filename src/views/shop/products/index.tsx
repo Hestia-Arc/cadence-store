@@ -114,17 +114,17 @@ function Products() {
           {/* grid */}
           <div className="hidden sm:w-[540px] h-full sm:flex item-end justify-end gap-3">
             {/* sort */}
-            {/* <div className="flex items-center gap-1 border rounded shadow-sm text-body2Semi p-1">
+            {/* <div className="flex items-center gap-1 border rounded-sm shadow-xs text-body2Semi p-1">
               <div>Sort by</div>
               <img src={chevronDown} alt="icon" className="h-[20px] w-[20px]" />
             </div> */}
 
             {/* search */}
-            <div className="w-[250px] flex items-center gap-1 border bg-gray-200 shadow-sm rounded">
+            <div className="w-[250px] flex items-center gap-1 border bg-gray-200 shadow-xs rounded-sm">
               <input
                 type="search"
                 placeholder="Search products..."
-                className=" w-[89%] h-full text-[15px] italic pl-1 bg-gray-200 !text-gray-500 outline-none"
+                className=" w-[89%] h-full text-[15px] italic pl-1 bg-gray-200 text-gray-500! outline-hidden"
                 value={query}
                 onChange={handleSearch}
                 name=""
@@ -134,17 +134,17 @@ function Products() {
             </div>
 
             {/* grid type */}
-            <div className="w-[184px] h-full rounded-sm border border-gray-300 flex items-center">
+            <div className="w-[184px] h-full rounded-xs border border-gray-300 flex items-center">
               <div className="w-[46px] h-full bg-gray-200 flex justify-center items-center">
                 {" "}
                 <img src={grid9} alt="icon" />
               </div>
-              <div className="w-[46px] h-full border-x-[1px] border-gray-300  flex justify-center items-center">
+              <div className="w-[46px] h-full border-x border-gray-300  flex justify-center items-center">
                 {" "}
                 <img src={grid4} alt="icon" />
               </div>
 
-              <div className="w-[46px] h-full border-r-[1px] border-gray-300   flex justify-center items-center">
+              <div className="w-[46px] h-full border-r border-gray-300   flex justify-center items-center">
                 {" "}
                 <img src={grid2V} alt="icon" />
               </div>
@@ -170,9 +170,9 @@ function Products() {
                     price={item.price}
                     slashP={"400.0"}
                     product={item}
-                    className=" !h-[290px] !w-[160px] sm:!h-[425px] sm:!w-[256px] "
-                    imgStyle="!h-[203px] !w-[160px] sm:!h-[340px] sm:!w-[256px]"
-                    mainImgStyle="!h-[203px] !w-[160px] sm:!h-[340px] sm:!w-[256px]"
+                    className=" h-[290px]! w-[160px]! sm:h-[425px]! sm:w-[256px]! "
+                    imgStyle="h-[203px]! w-[160px]! sm:h-[340px]! sm:w-[256px]!"
+                    mainImgStyle="h-[203px]! w-[160px]! sm:h-[340px]! sm:w-[256px]!"
                     promo={item.new}
                   />
                 </div>
@@ -191,7 +191,7 @@ function Products() {
             //         // product={item}
             //       />
             //     ))
-            <div className=" h-[450px] w-full flex justify-center items-center shadow-xl bg-gray-300 rounded">
+            <div className=" h-[450px] w-full flex justify-center items-center shadow-xl bg-gray-300 rounded-sm">
               <div className=" text-[24px] text-gray-400 font-poppins">
                 No products available.{" "}
               </div>

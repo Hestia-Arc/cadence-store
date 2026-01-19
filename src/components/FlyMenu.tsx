@@ -31,7 +31,7 @@ const FlyMenu: React.FC<Prop> = () => {
         animate={{ opacity: 1, x: "0", position: "fixed" }}
         exit={{ opacity: 0, scale: 0.5 }}
         transition={{ type: "spring", stiffness: 43, damping: 12, delay: 0.6 }}
-        className="h-[100vh] w-[343px] fixed top-0 left-0 flex flex-col justify-between bg-[#fff] p-6 border shadow-md z-[9999] "
+        className="h-screen w-[343px] fixed top-0 left-0 flex flex-col justify-between bg-[#fff] p-6 border shadow-md z-9999 "
       >
         {/* ===========  */}
         <div className="w-full h-[310px] flex flex-col gap-4">
@@ -40,7 +40,7 @@ const FlyMenu: React.FC<Prop> = () => {
             <h6 className=" text-h7 font-bold">leCadence. </h6>
             <button
               onClick={close}
-              className="hover:bg-gray-300 p-1 hover:rounded-full hover:shadow"
+              className="hover:bg-gray-300 p-1 hover:rounded-full hover:shadow-sm"
             >
               <img
                 src={removeIcon}
@@ -57,7 +57,7 @@ const FlyMenu: React.FC<Prop> = () => {
               e.preventDefault();
               handleSubmit();
             }}
-            className="h-[46px] flex items-center gap-2 rounded border border-gray-400 p-2"
+            className="h-[46px] flex items-center gap-2 rounded-sm border border-gray-400 p-2"
           >
             <svg
               width="22"
@@ -80,7 +80,7 @@ const FlyMenu: React.FC<Prop> = () => {
               name="search"
               id="search"
               placeholder="Search"
-              className=" outline-none text-[14px] flex-1"
+              className=" outline-hidden text-[14px] flex-1"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
             />
@@ -94,7 +94,7 @@ const FlyMenu: React.FC<Prop> = () => {
                   to={item.path}
                   onClick={close}
                   key={i}
-                  className="h-[40px] pb-1  border-b-[1px] border-gray-300 active:text-green"
+                  className="h-[40px] pb-1  border-b border-gray-300 active:text-green"
                 >
                   {item.pathName}
                 </Link>
@@ -107,7 +107,7 @@ const FlyMenu: React.FC<Prop> = () => {
         <div className="h-[210px] flex flex-col justify-between ">
           <div className="h-[95px]  flex flex-col gap-2">
             {/* 1 */}
-            <div className="h-[40px] relative pb-2 border-b-[1px] border-gray-300">
+            <div className="h-[40px] relative pb-2 border-b border-gray-300">
               <button
                 onClick={() => {
                   navigate("/cart");
@@ -148,7 +148,7 @@ const FlyMenu: React.FC<Prop> = () => {
             </div>
 
             {/* 2 */}
-            <div className="h-[40px] relative pb-2 border-b-[1px] border-gray-300">
+            <div className="h-[40px] relative pb-2 border-b border-gray-300">
               <button
                 onClick={() => {
                   navigate("/account?tab=wishlist");

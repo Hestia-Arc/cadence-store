@@ -160,7 +160,7 @@ const formatPriceRange = (range: [number, number] | number[]): string => {
 
       {/* rooms  */}
       <div className=" flex flex-col gap-2 relative">
-        <h6 className=" text-body2Semi !text-[13px] text-gray-400 uppercase font-bold">
+        <h6 className=" text-body2Semi text-[13px]! text-gray-400 uppercase font-bold">
           categories
         </h6>
 
@@ -188,7 +188,7 @@ const formatPriceRange = (range: [number, number] | number[]): string => {
 
         {/*  */}
         {openCategoryDropdown && (
-          <div className="absolute top-full z-[999999] w-full flex flex-col gap-2 bg-[#fff] shadow-lg border border-gray-200 rounded-lg p-2 mt-2">
+          <div className="absolute top-full z-999999 w-full flex flex-col gap-2 bg-[#fff] shadow-lg border border-gray-200 rounded-lg p-2 mt-2">
             {rooms.map((item, index) => {
               return (
                 <div
@@ -214,7 +214,7 @@ const formatPriceRange = (range: [number, number] | number[]): string => {
 
       {/* prices */}
       <div className="  flex flex-col gap-2 relative">
-        <h6 className=" text-body2Semi text-gray-400 !text-[13px] uppercase font-bold">prices</h6>
+        <h6 className=" text-body2Semi text-gray-400 text-[13px]! uppercase font-bold">prices</h6>
 
         <button
           onClick={() => setOpenPriceDropdown(!openPriceDropdown)}
@@ -248,7 +248,7 @@ const formatPriceRange = (range: [number, number] | number[]): string => {
         {/*  */}
         {openPriceDropdown && (
         <div 
-        className="absolute top-full z-[999999] w-full flex flex-col gap-2 bg-[#fff] shadow-lg border border-gray-200 rounded-lg p-2 mt-2"
+        className="absolute top-full z-999999 w-full flex flex-col gap-2 bg-[#fff] shadow-lg border border-gray-200 rounded-lg p-2 mt-2"
 >        {priceList.map((item, index) => {
             return (
               <MobilePriceItem

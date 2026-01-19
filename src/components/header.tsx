@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 import { Badge } from "./Badge";
 import { useFlyMenu } from "@hooks/useFlyMenu";
 
-
 const menuClass = "text-[14px] font-medium";
 
 const Header = () => {
@@ -31,6 +30,8 @@ const Header = () => {
       className={`sticky top-0 z-10 ${
         scrollActive ? "shadow-md" : "shadow-none"
       }`}
+
+      // className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-sm supports-[backdrop-filter]:bg-background/60"
     >
       <NotificationBar />
 
@@ -81,7 +82,7 @@ const Header = () => {
           >
             <span className={menuClass}>Contact Us</span>
           </NavLink>
-           <NavLink
+          {/* <NavLink
             to="/dashboard"
             className={` ${
               location.pathname === "/dashboard"
@@ -90,7 +91,7 @@ const Header = () => {
             }`}
           >
             <span className={menuClass}>Admin</span>
-          </NavLink>
+          </NavLink> */}
         </div>
 
         {/* icons */}
@@ -113,7 +114,7 @@ const Header = () => {
               <img
                 src={cartIcon}
                 alt="icon"
-                className="hover:shadow-sm hover:bg-gray-300 hover:rounded-lg"
+                className="hover:shadow-xs hover:bg-gray-300 hover:rounded-lg"
               />
               <Badge />
             </div>
@@ -125,20 +126,20 @@ const Header = () => {
       <nav className="h-[60px] flex justify-between items-center lg:hidden px-4 sm:px-40 bg-white overflow-hidden">
         <div className=" flex items-center gap-2">
           <button onClick={() => openMNav()}>
-          <svg
-            width="15"
-            height="12"
-            viewBox="0 0 12 10"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M1 1H11M1 5H11M1 9H11"
-              stroke="#141718"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            />
-          </svg>
+            <svg
+              width="15"
+              height="12"
+              viewBox="0 0 12 10"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1 1H11M1 5H11M1 9H11"
+                stroke="#141718"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+              />
+            </svg>
           </button>
 
           <Link
@@ -149,18 +150,15 @@ const Header = () => {
           </Link>
         </div>
 
-        
         {/* icons */}
         <div className="flex items-center">
-          
-
           {/* ========== CART */}
           <Link to="/cart">
             <div className="flex items-center gap-[2px] ">
               <img
                 src={cartIcon}
                 alt="icon"
-                className="hover:shadow-sm hover:bg-gray-300 hover:rounded-lg"
+                className="hover:shadow-xs hover:bg-gray-300 hover:rounded-lg"
               />
               <Badge />
             </div>

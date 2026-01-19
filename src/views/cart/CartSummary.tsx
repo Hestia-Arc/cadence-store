@@ -5,7 +5,7 @@ import { addShipping, cartSelector } from "./cartSlice";
 import { useFlyMenu } from "@hooks/useFlyMenu";
 
 const radioStyle =
-  "h-[52px] flex justify-between py-3 px-4 border-solid border-[1px] border-gray-400 rounded";
+  "h-[52px] flex justify-between py-3 px-4 border-solid border border-gray-400 rounded-sm";
 export const CartSummary = () => {
   const dispatch = useAppDispatch()
   const { cart } = useAppSelector(cartSelector);
@@ -20,7 +20,7 @@ export const CartSummary = () => {
   };
 
   return (
-    <div className="w-[312px] sm:w-[413px] h-[482px] flex flex-col gap-4 p-5 rounded-md border-solid border-[1px] border-[#6C7275]">
+    <div className="w-[312px] sm:w-[413px] h-[482px] flex flex-col gap-4 p-5 rounded-md border-solid border border-[#6C7275]">
       <h6 className=" text-h7 font-bold">CartSummary</h6>
 
       <div className=" pb-4">

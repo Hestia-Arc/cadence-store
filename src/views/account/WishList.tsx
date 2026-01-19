@@ -16,7 +16,7 @@ function WishList() {
       <div className="">
         <table className="w-full">
           {/* --- head */}
-          <tr className="h-[30px] text-left text-gray-400 text-capR1 font-normal border-b-[1px] border-[#e7e7e7]">
+          <tr className="h-[30px] text-left text-gray-400 text-capR1 font-normal border-b border-[#e7e7e7]">
             <th className="w-[213px]">Product</th>
             <th className="w-[130px]">Price</th>
             <th className="w-[120px]">Action</th>
@@ -24,7 +24,7 @@ function WishList() {
 
           {/* ------- body */}
           {wishList?.map((item) => (
-            <tr key={item.id} className=" h-[120px] text-capR1 font-normal text-gray-700 border-b-[1px] border-[#e7e7e7]">
+            <tr key={item.id} className=" h-[120px] text-capR1 font-normal text-gray-700 border-b border-[#e7e7e7]">
               <td>
                 <div className="h-[72px] w-[213px] flex items-center gap-[10px]">
                   <div className="h-full w-[24px] flex items-center">

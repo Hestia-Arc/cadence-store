@@ -11,7 +11,7 @@ function SideCart() {
   return (
     <div>
       {/* cart btn */}
-      <div className="flex h-[100vh] fixed top-0 right-0 items-center">
+      <div className="flex h-screen fixed top-0 right-0 items-center">
         {isOpen ? (
           ""
         ) : (
@@ -44,7 +44,7 @@ function SideCart() {
             delay: 0.4,
             duration: 0.8,
           }}
-          className="flex fixed top-0 right-0 left-0 bottom-0 bg-[rgba(0,0,0,0.5)] items-center z-[800] "
+          className="flex fixed top-0 right-0 left-0 bottom-0 bg-[rgba(0,0,0,0.5)] items-center z-800 "
         >
           <CartSideBar open={isOpen} close={() => setIsOpen(false)} />
         </motion.div>

@@ -1,4 +1,276 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@import "tw-animate-css";
+/*
+  ---break---
+*/
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-sm: 768px;
+  --breakpoint-md: 1024px;
+  --breakpoint-lg: 1300px;
+
+  --font-*: initial;
+  --font-poppins: Poppins, san-serif;
+  --font-inter: Inter, san-serif;
+
+  --color-*: initial;
+  --color-primary-800: #171d28;
+  --color-primary-900: #000000;
+
+  --color-white: #ffffff;
+  --color-blue: #377dff;
+  --color-green: #38cb89;
+  --color-orange: #ffab00;
+  --color-red: #ff5630;
+
+  --color-gray-100: #fefefe;
+  --color-gray-200: #f3f5f7;
+  --color-gray-300: #e8ecef;
+  --color-gray-400: #6c7275;
+  --color-gray-500: #343839;
+  --color-gray-600: #232627;
+  --color-gray-700: #141718;
+
+  --text-hero: 96px;
+  --text-hero--line-height: 96px;
+  --text-hero--letter-spacing: -2%;
+  --text-hero--font-weight: 500;
+  --text-h1: 80px;
+  --text-h1--line-height: 84px;
+  --text-h1--letter-spacing: -3px;
+  --text-h1--font-weight: 500;
+  --text-h2: 67px;
+  --text-h2--line-height: 76px;
+  --text-h2--letter-spacing: -2px;
+  --text-h2--font-weight: 500;
+  --text-h3: 54px;
+  --text-h3--line-height: 58px;
+  --text-h3--letter-spacing: -1px;
+  --text-h3--font-weight: 500;
+  --text-h4: 40px;
+  --text-h4--line-height: 44px;
+  --text-h4--letter-spacing: -0-4px;
+  --text-h4--font-weight: 500;
+  --text-h5: 32px;
+  --text-h5--line-height: 38px;
+  --text-h5--letter-spacing: 0px;
+  --text-h5--font-weight: 500;
+  --text-h6: 28px;
+  --text-h6--line-height: 34px;
+  --text-h6--letter-spacing: 0px;
+  --text-h6--font-weight: 500;
+  --text-h7: 20px;
+  --text-h7--line-height: 28px;
+  --text-h7--letter-spacing: 0px;
+  --text-h7--font-weight: 500;
+  --text-body1Reg: 20px;
+  --text-body1Reg--line-height: 32px;
+  --text-body1Reg--letter-spacing: 0px;
+  --text-body1Reg--font-weight: 400;
+  --text-body1Bold: 20px;
+  --text-body1Bold--line-height: 32px;
+  --text-body1Bold--letter-spacing: 0px;
+  --text-body1Bold--font-weight: 700;
+  --text-body1Semi: 20px;
+  --text-body1Semi--line-height: 32px;
+  --text-body1Semi--letter-spacing: 0px;
+  --text-body1Semi--font-weight: 600;
+  --text-body2Reg: 16px;
+  --text-body2Reg--line-height: 26px;
+  --text-body2Reg--letter-spacing: 0px;
+  --text-body2Reg--font-weight: 400;
+  --text-body2Bold: 16px;
+  --text-body2Bold--line-height: 26px;
+  --text-body2Bold--letter-spacing: 0px;
+  --text-body2Bold--font-weight: 700;
+  --text-body2Semi: 16px;
+  --text-body2Semi--line-height: 26px;
+  --text-body2Semi--letter-spacing: 0px;
+  --text-body2Semi--font-weight: 600;
+  --text-capR1: 14px;
+  --text-capR1--line-height: 22px;
+  --text-capR1--letter-spacing: 0px;
+  --text-capR1--font-weight: 600;
+  --text-capS1: 14px;
+  --text-capS1--line-height: 22px;
+  --text-capS1--letter-spacing: 0px;
+  --text-capS1--font-weight: 600;
+  --text-capB1: 14px;
+  --text-capB1--line-height: 22px;
+  --text-capB1--letter-spacing: 0px;
+  --text-capB1--font-weight: 600;
+  --text-capR2: 14px;
+  --text-capR2--line-height: 22px;
+  --text-capR2--letter-spacing: 0px;
+  --text-capR2--font-weight: 600;
+  --text-capS2: 14px;
+  --text-capS2--line-height: 22px;
+  --text-capS2--letter-spacing: 0px;
+  --text-capS2--font-weight: 600;
+  --text-capB2: 14px;
+  --text-capB2--line-height: 22px;
+  --text-capB2--letter-spacing: 0px;
+  --text-capB2--font-weight: 600;
+  --text-hairline1: 16px;
+  --text-hairline1--line-height: 16px;
+  --text-hairline2: 12px;
+  --text-hairline2--line-height: 12px;
+  --text-btnXL: 26px;
+  --text-btnXL--line-height: 38px;
+  --text-btnL: 22px;
+  --text-btnL--line-height: 34px;
+  --text-btnMd: 18px;
+  --text-btnMd--line-height: 32px;
+  --text-btnSm: 16px;
+  --text-btnSm--line-height: 28px;
+  --text-btnXS: 14px;
+  --text-btnXS--line-height: 24px;
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+/*
+  ---break---
+*/
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+/*
+  ---break---
+*/
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.141 0.005 285.823);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.141 0.005 285.823);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.141 0.005 285.823);
+  --primary: oklch(0.21 0.006 285.885);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.967 0.001 286.375);
+  --secondary-foreground: oklch(0.21 0.006 285.885);
+  --muted: oklch(0.967 0.001 286.375);
+  --muted-foreground: oklch(0.552 0.016 285.938);
+  --accent: oklch(0.967 0.001 286.375);
+  --accent-foreground: oklch(0.21 0.006 285.885);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.92 0.004 286.32);
+  --input: oklch(0.92 0.004 286.32);
+  --ring: oklch(0.705 0.015 286.067);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.141 0.005 285.823);
+  --sidebar-primary: oklch(0.21 0.006 285.885);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.967 0.001 286.375);
+  --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
+  --sidebar-border: oklch(0.92 0.004 286.32);
+  --sidebar-ring: oklch(0.705 0.015 286.067);
+}
+/*
+  ---break---
+*/
+.dark {
+  --background: oklch(0.141 0.005 285.823);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.21 0.006 285.885);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.21 0.006 285.885);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.92 0.004 286.32);
+  --primary-foreground: oklch(0.21 0.006 285.885);
+  --secondary: oklch(0.274 0.006 286.033);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.274 0.006 286.033);
+  --muted-foreground: oklch(0.705 0.015 286.067);
+  --accent: oklch(0.274 0.006 286.033);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.552 0.016 285.938);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.21 0.006 285.885);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.274 0.006 286.033);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.552 0.016 285.938);
+}
+/*
+  ---break---
+*/
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
 

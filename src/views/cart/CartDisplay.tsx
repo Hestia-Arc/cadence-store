@@ -6,11 +6,9 @@ import OrderBox from "./OrderBox";
 
 interface IPropStep {
   id: number;
-  // id: JSX.Element;
 }
 
 export const CartDisplay: FC<IPropStep> = ({ id }) => {
-  // return(<>{id}</>);
   return(
     <>
     {id === 1 && <StepOne/>}

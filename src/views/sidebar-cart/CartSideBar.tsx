@@ -24,16 +24,16 @@ export const CartSideBar: React.FC<Prop> = ({ close }) => {
         animate={{ opacity: 1, x: "0", position: "fixed" }}
         exit={{ opacity: 0, scale: 0.5 }}
         transition={{ type: "spring", stiffness: 43, damping: 12, delay: 0.6 }}
-        className="h-[100vh] w-[340px] sm:w-[413px] fixed top-0 right-0 flex flex-col justify-between bg-[#fff] p-4 border shadow-md z-[9999] "
+        className="h-screen w-[340px] sm:w-[413px] fixed top-0 right-0 flex flex-col justify-between bg-[#fff] p-4 border shadow-md z-9999 "
       >
         {/* =========== summary */}
-        <div className="sm:w-[365px] h-[70%] overflow-y-hidden rounded">
+        <div className="sm:w-[365px] h-[70%] overflow-y-hidden rounded-sm">
           <div className="flex justify-between items-center">
             <div className="flex justify-between items-center gap-2">
               <h6 className=" text-h6">Cart </h6>
               <div className=" text-[18px] bg-green w-8 h-8 flex items-center justify-center rounded-full text-white">{cart?.length}</div>
             </div>
-            <button className="hover:bg-gray-300 p-1 hover:rounded-full hover:shadow">
+            <button className="hover:bg-gray-300 p-1 hover:rounded-full hover:shadow-sm">
               <img
                 src={removeIcon}
                 alt="icon"
@@ -76,7 +76,7 @@ export const CartSideBar: React.FC<Prop> = ({ close }) => {
                       <span className=" text-capR2 text-gray-400 font-light">
                         {/* Color: {item.color.map((itemColor) => itemColor)} */}
                       </span>
-                      <div className=" w-[72px] h-6 flex items-center justify-center gap-3 rounded  px-2 border-solid border-[1px] border-gray-400 opacity-70 ">
+                      <div className=" w-[72px] h-6 flex items-center justify-center gap-3 rounded-sm  px-2 border-solid border border-gray-400 opacity-70 ">
                         <Stepper item={item} />
                       </div>
                     </div>
@@ -102,7 +102,7 @@ export const CartSideBar: React.FC<Prop> = ({ close }) => {
                 </div>
               ))
             ) : (
-              <div className="h-full w-full italic bg-gray-200 rounded text-gray-400 flex justify-center items-center">
+              <div className="h-full w-full italic bg-gray-200 rounded-sm text-gray-400 flex justify-center items-center">
                 {" "}
                 Cart is empty.{" "}
               </div>

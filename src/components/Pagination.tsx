@@ -38,7 +38,7 @@ function Pagination({ pageSize, totalLength, currentPage, onPageChange }: Pagina
       <button
         disabled={currentPage === 1}
         onClick={onPrevious}
-        className={`${currentPage === 1 && "text-gray-400 text-opacity-50"} flex items-center justify-center bg-gray-300 rounded-sm shadow px-4 text-[16px] font-semibold`}
+        className={`${currentPage === 1 && "text-gray-400 text-opacity-50"} flex items-center justify-center bg-gray-300 rounded-xs shadow-sm px-4 text-[16px] font-semibold`}
       >
         Prev
       </button>
@@ -70,7 +70,7 @@ function Pagination({ pageSize, totalLength, currentPage, onPageChange }: Pagina
       <button
         disabled={currentPage === lastPage}
         onClick={onNext}
-        className={`${currentPage === lastPage && "text-gray-400 text-opacity-50"} flex items-center justify-center bg-gray-300 rounded-sm shadow px-4 text-[16px] font-semibold`}
+        className={`${currentPage === lastPage && "text-gray-400 text-opacity-50"} flex items-center justify-center bg-gray-300 rounded-xs shadow-sm px-4 text-[16px] font-semibold`}
       >
         Next
       </button>

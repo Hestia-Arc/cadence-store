@@ -11,7 +11,7 @@ import Shop from "@views/shop";
 import AccountPage from "@views/account/account-screen";
 import BlogPage from "@views/blog";
 import SinglePost from "@views/blog/SinglePost";
-import CartPage from "@views/cart";
+import CartPage from "@views/cart/cart-screen";
 import Orders from "@views/dashboard/orders/orders";
 import Overview from "@views/dashboard/overview/overview";
 import PageNotFound from "@views/dashboard/page-not-found";

@@ -17,7 +17,7 @@ function FlyOut() {
             delay: 0.4,
             duration: 0.8,
           }}
-          className=" flex sm:hidden fixed top-0 right-0 left-0 bottom-0 bg-[rgba(0,0,0,0.5)] items-center z-[800] "
+          className=" flex sm:hidden fixed top-0 right-0 left-0 bottom-0 bg-[rgba(0,0,0,0.5)] items-center z-800 "
         >
           <FlyMenu />
         </motion.div>
