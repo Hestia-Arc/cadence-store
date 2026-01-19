@@ -7,7 +7,7 @@ function OrderContent() {
       <div className="">
         <table className="w-full hidden sm:block">
           {/* --- head */}
-          <tr className="h-[30px] text-left text-gray-400 text-capR1 font-normal border-b-[1px] border-[#e7e7e7]">
+          <tr className="h-[30px] text-left text-gray-400 text-capR1 font-normal border-b border-[#e7e7e7]">
             <th className="w-[220px]">Number ID</th>
             <th>Dates</th>
             <th>Status</th>
@@ -18,7 +18,7 @@ function OrderContent() {
           {data.map((item, index) => (
             <tr
               key={index}
-              className=" h-[70px] text-capR1 font-normal text-gray-700 border-b-[1px] border-[#e7e7e7]"
+              className=" h-[70px] text-capR1 font-normal text-gray-700 border-b border-[#e7e7e7]"
             >
               <td>{item.id}</td>
               <td>{item.date}</td>

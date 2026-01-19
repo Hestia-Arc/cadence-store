@@ -24,7 +24,7 @@ const list = [
 
 
 export const inputStyle =
-  "  h-[40px] w-[285px] px-4 py-2 rounded border-solid border-[1px] border-[#6C7275] border-opacity-30 mt-2";
+  "  h-[40px] w-[285px] px-4 py-2 rounded-sm border-solid border border-[#6C7275] border-opacity-30 mt-2";
 export const labelStyle = " uppercase text-hairline2 font-bold text-gray-400";
 
 function Map() {
@@ -36,7 +36,7 @@ function Map() {
         {list.map((item, index) => (
           <div
             key={index}
-            className="w-full lg:w-[357px] h-[156px] bg-gray-200 rounded-sm flex flex-col items-center  gap-3 px-8 py-4"
+            className="w-full lg:w-[357px] h-[156px] bg-gray-200 rounded-xs flex flex-col items-center  gap-3 px-8 py-4"
           >
             <div className="h-[32px] w-[32px]">
               <img src={item.img} alt="icon" />
@@ -82,7 +82,7 @@ function Map() {
           </label>
           <textarea
             placeholder="Your Message"
-            className={`${inputStyle} w-full !h-[140px]`}
+            className={`${inputStyle} w-full h-[140px]!`}
           ></textarea>
         </div>
 

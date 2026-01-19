@@ -7,7 +7,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import supabase from "@/services/supabase";
 
 const inputStyle =
-  "h-[40px] border-b-[1px] border-gray-300 bg-[transparent] outline-none px-1";
+  "h-[40px] border-b border-gray-300 bg-transparent outline-hidden px-1";
 function Auth() {
   // const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -92,7 +92,7 @@ function Auth() {
   };
 
   return (
-    <div className=" h-[100vh] w-full flex justify-center items-center">
+    <div className=" h-screen w-full flex justify-center items-center">
       <div className="h-full min-w-[375px] max-w-[385px] sm:h-[580px] sm:min-w-[900px] sm:max-w-[900px] flex flex-col sm:flex-row">
         {/* ------- img */}
         <div className="flex-1 relative border bg-gray-300 h-[500px] sm:h-full">
@@ -109,13 +109,13 @@ function Auth() {
               <h2 className=" text-h6 text-gray-700 pb-2">
                 {switchAuth === "signup" ? "Sign up" : "Sign In"}
               </h2>
-              <p className=" text-body2Reg !text-[14px] text-gray-400">
+              <p className=" text-body2Reg text-[14px]! text-gray-400">
                 {switchAuth === "signup" ? (
                   <>
                     Already have an account?{" "}
                     <button
                       onClick={() => setSwitchAuth("login")}
-                      className=" text-body2Semi !text-[14px] text-green"
+                      className=" text-body2Semi text-[14px]! text-green"
                     >
                       Sign In
                     </button>
@@ -126,7 +126,7 @@ function Auth() {
                     Don't have an account yet?{" "}
                     <button
                       onClick={() => setSwitchAuth("signup")}
-                      className=" text-body2Semi !text-[14px] text-green"
+                      className=" text-body2Semi text-[14px]! text-green"
                     >
                       Sign Up
                     </button>
@@ -135,7 +135,7 @@ function Auth() {
               </p>
             </div>
 
-            <form className=" flex flex-col gap-3 text-body2Reg !text-[14px] text-gray-400">
+            <form className=" flex flex-col gap-3 text-body2Reg text-[14px]! text-gray-400">
               <div className=" flex  flex-col gap-3 ">
                 {switchAuth === "signup" ? (
                   <>
@@ -197,11 +197,11 @@ function Auth() {
                   <input type="checkbox" />
                   <p>
                     I agree with{" "}
-                    <a className=" text-body2Semi !text-[14px] text-gray-700">
+                    <a className=" text-body2Semi text-[14px]! text-gray-700">
                       Privacy Policy
                     </a>{" "}
                     and{" "}
-                    <a className=" text-body2Semi !text-[14px] text-gray-700">
+                    <a className=" text-body2Semi text-[14px]! text-gray-700">
                       Terms of Use
                     </a>
                   </p>
@@ -213,7 +213,7 @@ function Auth() {
                     <div>Remember me</div>
                   </div>
 
-                  <div className=" text-body2Semi !text-[14px] text-gray-700">
+                  <div className=" text-body2Semi text-[14px]! text-gray-700">
                     Forgot password?
                   </div>
                 </div>
@@ -223,13 +223,13 @@ function Auth() {
                 <ButtonPrimary
                   onClick={handleSubmit}
                   text="Sign Up"
-                  style="!h-[38px] !text-[14px] !mt-4"
+                  style="h-[38px]! text-[14px]! mt-4!"
                 />
               ) : (
                 <ButtonPrimary
                   onClick={handleLogin}
                   text="Sign In"
-                  style="!h-[38px] !text-[14px] !mt-4"
+                  style="h-[38px]! text-[14px]! mt-4!"
                 />
               )}
             </form>

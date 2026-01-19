@@ -34,7 +34,7 @@ const Footer = () => {
         </div>
 
         {/* copyright */}
-        <div className="min-h-[56px] flex flex-col-reverse sm:flex-row justify-between items-center gap-8 sm:gap-0 py-6 sm:py-0 border-solid border-t-[1px] border-gray-400">
+        <div className="min-h-[56px] flex flex-col-reverse sm:flex-row justify-between items-center gap-8 sm:gap-0 py-6 sm:py-0 border-solid border-t border-gray-400">
           <div className="flex flex-col-reverse items-center sm:flex-row gap-7">
             <span className="text-[12px] leading-5 text-gray-300 font-poppins opacity-80">
               Copyright © {currentDate} leCadence. All rights reserved

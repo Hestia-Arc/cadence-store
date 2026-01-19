@@ -16,7 +16,7 @@ export const CartList = () => {
           <table className="w-full relative  ">
             {/* --- head */}
             <thead>
-            <tr className="h-[30px] text-left text-gray-400 text-capR1 font-normal border-b-[1px] border-[#e7e7e7]">
+            <tr className="h-[30px] text-left text-gray-400 text-capR1 font-normal border-b border-[#e7e7e7]">
               <th className="w-[280px]">Product</th>
               <th>Quantity</th>
               <th>Price</th>
@@ -29,7 +29,7 @@ export const CartList = () => {
               cart?.map((item, index) => (
                 <tr
                   key={index}
-                  className=" h-[120px] text-capR1 font-normal text-gray-700 border-b-[1px] border-[#e7e7e7]"
+                  className=" h-[120px] text-capR1 font-normal text-gray-700 border-b border-[#e7e7e7]"
                 >
                   {/* item */}
                   <td>
@@ -81,7 +81,7 @@ export const CartList = () => {
 
                   {/* stepper */}
                   <td>
-                    <div className=" w-[72px] h-7 flex items-center justify-center gap-3 rounded  px-2 border-solid border-[1px] border-gray-400 opacity-70 ">
+                    <div className=" w-[72px] h-7 flex items-center justify-center gap-3 rounded-sm  px-2 border-solid border border-gray-400 opacity-70 ">
                       <Stepper item={item} />
                     </div>
                   </td>
@@ -90,7 +90,7 @@ export const CartList = () => {
                 </tr>
               ))
             ) : (
-              <div className="absolute top-8 left-0 right-0 h-[300px] w-full italic bg-gray-200 rounded text-gray-400 flex justify-center items-center">
+              <div className="absolute top-8 left-0 right-0 h-[300px] w-full italic bg-gray-200 rounded-sm text-gray-400 flex justify-center items-center">
                 {" "}
                 Cart is empty.{" "}
               </div>
@@ -141,7 +141,7 @@ export const CartList = () => {
                     <span className=" text-capR2 text-gray-400 font-light">
                       Color: {item?.color && Array.isArray(item?.color) ? item?.color?.map((itemColor) => itemColor) : ""}
                     </span>
-                    <div className=" w-[72px] h-6 flex items-center justify-center gap-3 rounded  px-2 border-solid border-[1px] border-gray-400 opacity-70 ">
+                    <div className=" w-[72px] h-6 flex items-center justify-center gap-3 rounded-sm  px-2 border-solid border border-gray-400 opacity-70 ">
                       <Stepper item={item} />
                     </div>
                   </div>
@@ -167,7 +167,7 @@ export const CartList = () => {
               </div>
             ))
           ) : (
-            <div className="h-[530px] w-full italic bg-gray-200 rounded text-gray-400 flex justify-center items-center">
+            <div className="h-[530px] w-full italic bg-gray-200 rounded-sm text-gray-400 flex justify-center items-center">
               {" "}
               Cart is empty.{" "}
             </div>

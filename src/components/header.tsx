@@ -31,7 +31,7 @@ const Header = () => {
         scrollActive ? "shadow-md" : "shadow-none"
       }`}
 
-      // className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+      // className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-sm supports-[backdrop-filter]:bg-background/60"
     >
       <NotificationBar />
 
@@ -114,7 +114,7 @@ const Header = () => {
               <img
                 src={cartIcon}
                 alt="icon"
-                className="hover:shadow-sm hover:bg-gray-300 hover:rounded-lg"
+                className="hover:shadow-xs hover:bg-gray-300 hover:rounded-lg"
               />
               <Badge />
             </div>
@@ -158,7 +158,7 @@ const Header = () => {
               <img
                 src={cartIcon}
                 alt="icon"
-                className="hover:shadow-sm hover:bg-gray-300 hover:rounded-lg"
+                className="hover:shadow-xs hover:bg-gray-300 hover:rounded-lg"
               />
               <Badge />
             </div>

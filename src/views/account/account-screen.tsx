@@ -136,7 +136,7 @@ function AccountPage() {
                   {navList.map((item, i) => (
                     <div
                       key={i}
-                      className="p-2 rounded hover:bg-gray-200 cursor-pointer"
+                      className="p-2 rounded-sm hover:bg-gray-200 cursor-pointer"
                       onClick={() => {
                         setSelected(item);
                         setId(item.id);
