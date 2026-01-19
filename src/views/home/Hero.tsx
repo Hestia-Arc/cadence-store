@@ -1,6 +1,6 @@
 import { Button } from "@components/Elements";
 import { Link } from "react-router-dom";
-import heroIcon from "../../assets/products/home-img.png";
+// import heroIcon from "../../assets/products/home-img.png";
 
 export const Hero = () => {
   const heroSlides = [
