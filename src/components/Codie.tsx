@@ -40,7 +40,7 @@ function Codie() {
           placeholder="search city"
           className="border border-gray-500"
         />
-        <button onClick={handleSubmit} className=" bg-green px-3 rounded">Search</button>
+        <button onClick={handleSubmit} className=" bg-green px-3 rounded-sm">Search</button>
       </div>
 
       {/* 11 july 2024 --- codebyte challenge */}

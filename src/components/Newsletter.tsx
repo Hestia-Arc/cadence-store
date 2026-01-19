@@ -27,7 +27,7 @@ export const Newsletter = () => {
             <input
               type="email"
               placeholder="Email address"
-              className="h-[28px] w-[396px] bg-gray-200 outline-none"
+              className="h-[28px] w-[396px] bg-gray-200 outline-hidden"
             />
             <button className="text-gray-400 text-btnSm font-semibold">
               Signup

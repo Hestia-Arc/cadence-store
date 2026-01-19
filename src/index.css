@@ -1,4 +1,144 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-sm: 768px;
+  --breakpoint-md: 1024px;
+  --breakpoint-lg: 1300px;
+
+  --font-*: initial;
+  --font-poppins: Poppins, san-serif;
+  --font-inter: Inter, san-serif;
+
+  --color-*: initial;
+  --color-primary-800: #171d28;
+  --color-primary-900: #000000;
+
+  --color-white: #ffffff;
+  --color-blue: #377dff;
+  --color-green: #38cb89;
+  --color-orange: #ffab00;
+  --color-red: #ff5630;
+
+  --color-gray-100: #fefefe;
+  --color-gray-200: #f3f5f7;
+  --color-gray-300: #e8ecef;
+  --color-gray-400: #6c7275;
+  --color-gray-500: #343839;
+  --color-gray-600: #232627;
+  --color-gray-700: #141718;
+
+  --text-hero: 96px;
+  --text-hero--line-height: 96px;
+  --text-hero--letter-spacing: -2%;
+  --text-hero--font-weight: 500;
+  --text-h1: 80px;
+  --text-h1--line-height: 84px;
+  --text-h1--letter-spacing: -3px;
+  --text-h1--font-weight: 500;
+  --text-h2: 67px;
+  --text-h2--line-height: 76px;
+  --text-h2--letter-spacing: -2px;
+  --text-h2--font-weight: 500;
+  --text-h3: 54px;
+  --text-h3--line-height: 58px;
+  --text-h3--letter-spacing: -1px;
+  --text-h3--font-weight: 500;
+  --text-h4: 40px;
+  --text-h4--line-height: 44px;
+  --text-h4--letter-spacing: -0-4px;
+  --text-h4--font-weight: 500;
+  --text-h5: 32px;
+  --text-h5--line-height: 38px;
+  --text-h5--letter-spacing: 0px;
+  --text-h5--font-weight: 500;
+  --text-h6: 28px;
+  --text-h6--line-height: 34px;
+  --text-h6--letter-spacing: 0px;
+  --text-h6--font-weight: 500;
+  --text-h7: 20px;
+  --text-h7--line-height: 28px;
+  --text-h7--letter-spacing: 0px;
+  --text-h7--font-weight: 500;
+  --text-body1Reg: 20px;
+  --text-body1Reg--line-height: 32px;
+  --text-body1Reg--letter-spacing: 0px;
+  --text-body1Reg--font-weight: 400;
+  --text-body1Bold: 20px;
+  --text-body1Bold--line-height: 32px;
+  --text-body1Bold--letter-spacing: 0px;
+  --text-body1Bold--font-weight: 700;
+  --text-body1Semi: 20px;
+  --text-body1Semi--line-height: 32px;
+  --text-body1Semi--letter-spacing: 0px;
+  --text-body1Semi--font-weight: 600;
+  --text-body2Reg: 16px;
+  --text-body2Reg--line-height: 26px;
+  --text-body2Reg--letter-spacing: 0px;
+  --text-body2Reg--font-weight: 400;
+  --text-body2Bold: 16px;
+  --text-body2Bold--line-height: 26px;
+  --text-body2Bold--letter-spacing: 0px;
+  --text-body2Bold--font-weight: 700;
+  --text-body2Semi: 16px;
+  --text-body2Semi--line-height: 26px;
+  --text-body2Semi--letter-spacing: 0px;
+  --text-body2Semi--font-weight: 600;
+  --text-capR1: 14px;
+  --text-capR1--line-height: 22px;
+  --text-capR1--letter-spacing: 0px;
+  --text-capR1--font-weight: 600;
+  --text-capS1: 14px;
+  --text-capS1--line-height: 22px;
+  --text-capS1--letter-spacing: 0px;
+  --text-capS1--font-weight: 600;
+  --text-capB1: 14px;
+  --text-capB1--line-height: 22px;
+  --text-capB1--letter-spacing: 0px;
+  --text-capB1--font-weight: 600;
+  --text-capR2: 14px;
+  --text-capR2--line-height: 22px;
+  --text-capR2--letter-spacing: 0px;
+  --text-capR2--font-weight: 600;
+  --text-capS2: 14px;
+  --text-capS2--line-height: 22px;
+  --text-capS2--letter-spacing: 0px;
+  --text-capS2--font-weight: 600;
+  --text-capB2: 14px;
+  --text-capB2--line-height: 22px;
+  --text-capB2--letter-spacing: 0px;
+  --text-capB2--font-weight: 600;
+  --text-hairline1: 16px;
+  --text-hairline1--line-height: 16px;
+  --text-hairline2: 12px;
+  --text-hairline2--line-height: 12px;
+  --text-btnXL: 26px;
+  --text-btnXL--line-height: 38px;
+  --text-btnL: 22px;
+  --text-btnL--line-height: 34px;
+  --text-btnMd: 18px;
+  --text-btnMd--line-height: 32px;
+  --text-btnSm: 16px;
+  --text-btnSm--line-height: 28px;
+  --text-btnXS: 14px;
+  --text-btnXS--line-height: 24px;
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
 

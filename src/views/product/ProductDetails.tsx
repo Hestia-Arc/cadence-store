@@ -105,7 +105,7 @@ const ProductContents = ({ product }: { product: IProduct | null }) => {
   return (
     <div className=" w-full sm:w-1/2">
       {/* product description  price */}
-      <div className=" md:h-[205px] flex flex-col gap-1 pb-4 border-solid border-b-[1px] border-gray-300">
+      <div className=" md:h-[205px] flex flex-col gap-1 pb-4 border-solid border-b border-gray-300">
         {/* rating */}
         <Rating rv={product?.reviews} />
 
@@ -221,7 +221,7 @@ const TabItems: FC<ITabProps> = ({ tag, active, content}) => {
   return (
     <div>
       {/* tab title */}
-      <div className=" border-solid border-b-[1px] border-gray-700 pb-1 text-btnMd font-semibold">
+      <div className=" border-solid border-b border-gray-700 pb-1 text-btnMd font-semibold">
         {tag}
       </div>
 

@@ -141,7 +141,7 @@ function AccountContent() {
           />
         </div>
 
-        <ButtonPrimary text="Save changes" style="!w-[183px]" onClick={handleSubmit} />
+        <ButtonPrimary text="Save changes" style="w-[183px]!" onClick={handleSubmit} />
       </div>
     </form>
   );
