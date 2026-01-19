@@ -1,5 +1,14 @@
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@components/components/ui/carousel";
 import { Button } from "@components/Elements";
 import { Link } from "react-router-dom";
+import Autoplay from "embla-carousel-autoplay";
+
 // import heroIcon from "../../assets/products/home-img.png";
 
 export const Hero = () => {
@@ -48,7 +57,7 @@ export const Hero = () => {
   ];
 
   return (
-    <section className="h-fit sm:h-[760px] md:h-[760px] lg:h-[760px]  flex flex-col gap-[32px] bg-white px-4 pb-[40px] sm:px-40">
+    <section className="h-fit sm:h-190 md:h-190 lg:h-190  flex flex-col gap-8 bg-white px-4 pb-10 sm:px-40">
       <Carousel
         opts={{ loop: true }}
         plugins={[Autoplay({ delay: 5000 })]}
@@ -58,7 +67,7 @@ export const Hero = () => {
           {heroSlides.map((slide, index) => (
             <CarouselItem
               key={index}
-              className="relative h-[80vh] min-h-[600px] w-full"
+              className="relative h-[80vh] min-h-150 w-full"
             >
               <div className="absolute inset-0">
                 <img
@@ -76,12 +85,12 @@ export const Hero = () => {
                   <p className="text-lg md:text-xl font-light text-white/90 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300 fill-mode-both">
                     {slide.description}
                   </p>
-                  <Link href={slide.link}>
+                  <Link to={slide.link}>
                     <Button
-                      size="lg"
+                      // size="lg"
                       className="bg-white text-black hover:bg-white/90 mt-4 h-14 px-8 rounded-full text-base animate-in fade-in zoom-in-95 duration-700 delay-500 fill-mode-both"
                     >
-                      {slide.cta}
+                      <p>{slide.cta}</p>
                     </Button>
                   </Link>
                 </div>
@@ -101,15 +110,15 @@ export const Hero = () => {
       </div> */}
 
       {/* content */}
-      <header className="min-h-[152px]  w-full flex flex-col justify-between sm:items-center gap-4 sm:gap-0 sm:flex-row">
-        <div className="h-[88px] sm:h-fit ">
+      <header className="min-h-38  w-full flex flex-col justify-between sm:items-center gap-4 sm:gap-0 sm:flex-row">
+        <div className="h-22 sm:h-fit ">
           <h1 className="text-[30px] leading-8 font-medium sm:text-h2 font-poppins">
             Simply Unique<span className="text-gray-400">/</span> <br /> Simply
             Better<span className="text-gray-400">.</span>
           </h1>
         </div>
 
-        <div className=" w-full sm:w-[450px]">
+        <div className=" w-full sm:w-112.5">
           <p className="text-body2Reg text-gray-400">
             <span className="text-h7 font-bold text-gray-500">leCadence</span>{" "}
             is a gift & decorations store based in HCMC, Vietnam. Est since
