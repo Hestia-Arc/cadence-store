@@ -2,12 +2,11 @@
 
 **Overview**
 
-An e-commerce store built with React, Typescript, TailwindCSS, Reduxtoolkit, Firebase & Framer-motion.
-...(in development mode).
+An e-commerce store built with React, Typescript, TailwindCSS, Reduxtoolkit & Framer-motion.
 
  Got the beautiful UI template from https://www.figma.com/@Jenkate
 
-The backend is in development.
+I'm taking a step further to develop the backend and also explore monorepo (in development).
 
 **Features**
 - **Intuitive Interface:** Enjoy a user-friendly and responsive interface that facilitates easy shopping experience.
