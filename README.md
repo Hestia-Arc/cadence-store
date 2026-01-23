@@ -4,9 +4,9 @@
 
 An e-commerce store built with React, Typescript, TailwindCSS, Reduxtoolkit & Framer-motion.
 
- Got the beautiful UI template from https://www.figma.com/@Jenkate
+Got the beautiful UI template from https://www.figma.com/@Jenkate
 
-I'm taking a step further to develop the backend and also explore monorepo (in development).
+I'm taking a step further to develop the backend and also explore monorepo (in development...https://github.com/Hestia-Arc/cadence-store-monorepo.git).
 
 **Features**
 - **Intuitive Interface:** Enjoy a user-friendly and responsive interface that facilitates easy shopping experience.
